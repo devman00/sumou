@@ -1,0 +1,19 @@
+# Delete files from storage after update/delete action
+
+
+
+
+
+-------------------------- Admin ---------------------------------------------------
+# Admin | Contact
+# Multilanges
+
+
+-------------------------- Front ---------------------------------------------------
+# Front | bootstrap Template integration
+# 
+
+
+-------------- To Fix -----------
+# Admin settings
+
