@@ -5,14 +5,45 @@
 
 
 -------------------------- Admin ---------------------------------------------------
+
+--------
+STEP 1
+--------
+# Ad CRUD (Create Ad / Show Ad / Update Ad / Delete Ad)
+
+
+--------
+STEP 2
+--------
+# Requests   (المبايعة)
 # Admin | Contact
 # Multilanges
 
 
 -------------------------- Front ---------------------------------------------------
-# Front | bootstrap Template integration
-# 
 
+--------
+STEP 1
+--------
+# Front | Homepage
+# Front | Login/Registe ( Default status : Unverified account )
+# Front | My account
+
+# Front | Signup via OTP (SMS)
+# Front | Signup via NAFAD (API) => User Authentication (Verified account / Unverified account) 
+
+
+# Front | User Ad CRUD (Create Ad / Show Ad / Update Ad / Delete Ad)
+# Front | Ads Listing (Search)
+# Front | Ad details
+
+
+
+--------
+STEP 2
+--------
+
+# Front | Requests (المبايعة)
 
 -------------- To Fix -----------
 # Admin settings
