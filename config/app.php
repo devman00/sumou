@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ar',
 
     /*
     |--------------------------------------------------------------------------
@@ -121,6 +121,16 @@ return [
     | will not be safe. Please do this before deploying an application!
     |
     */
+
+    'arabic_letters' => 
+        [
+            "أ", "ب", "ح", "د", "ر", "س", "ص", "ط", "ع", "ق", "ك", "ل", "م", "ن", "ه", "و", "ي", 
+        ],
+
+    'arabic_numbers' => 
+        [
+            "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"
+        ],
 
     'key' => env('APP_KEY'),
 
@@ -184,5 +194,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
+
+
 
 ];

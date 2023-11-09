@@ -7,10 +7,13 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\front\AdController;
 use App\Http\Controllers\SettingController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\front\UserController as UserAccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +26,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('welcome');
 
 Route::middleware(['auth','isAdmin'])->group(function(){
 
@@ -120,4 +123,49 @@ Route::controller(LoginController::class)->prefix('admin')->name('admin.')->midd
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// FRONT Routes -------- 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+        
+        /** -------------
+         * Auth
+         --------------- */
+         Route::middleware(['auth']) //  'verified'
+         ->group(function ()
+         {
+            //  Route::get('account', function(){
+            //      return view('front.account');
+            //  })->name('account');
+
+ 
+             Route::prefix('account')->group(function ()
+             {
+                 /** ----------------------
+                      User Account Routes
+                 --------------------- */
+                 Route::controller(UserAccountController::class)
+                 ->name('user.')->group(function ()
+                 {
+                     Route::get('/settings', 'profile')->name('profile');
+                     Route::put('/settings/{user}', 'updateProfile')->name('profile.update');
+                     Route::get('/change-password', 'editPassword')->name('password');
+                     Route::put('/change-password/{user}', 'updatePassword')->name('password.update');
+ 
+                    //  Route::get('/', 'dashboard')->name('account');
+                 });
+
+                  /** ----------------------
+                     User ADs Routes
+                --------------------- */
+
+                Route::resource('ads', AdController::class)->except('show');
+
+                
+             });
+         });
+
+         Route::get('ads/{ad}', [AdController::class,'show'])->name('ads.show');
+ 
+ 
+

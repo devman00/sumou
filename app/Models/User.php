@@ -26,8 +26,7 @@ class User extends Authenticatable implements LaratrustUser
         'email',
         'password',
         'phone',
-        'avatar',
-        'status',
+        'whatsapp'
 
     ];
 
@@ -56,5 +55,12 @@ class User extends Authenticatable implements LaratrustUser
     {
         $this->attributes['password'] = Hash::make($pass);
     }
+
+
+    public function ads()
+    {
+        return  $this->hasMany(Ad::class);
+    }
+
 
 }
