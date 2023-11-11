@@ -113,7 +113,7 @@ Route::middleware(['auth','isAdmin'])->group(function(){
             Route::get('/', 'index')->name('index'); //->middleware('permission:dashboard-read')
         });
 
-        // Posts Routes-------
+        // Ads Routes-------
         Route::controller(AdController::class)->name('ads.')
         ->prefix('ads')
         ->group(function(){
@@ -177,15 +177,15 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
                  User ADs Routes
             --------------------- */
 
-            Route::resource('ads', AdController::class)->except('show');
+            Route::resource('ads', FrontAdController::class)->except('show');
 
             
             });
         });
 
-        Route::get('ads/{ad}', [AdController::class,'show'])->name('ads.show');
+        Route::get('ads/{ad}', [FrontAdController::class,'show'])->name('ads.show');
     
-        Route::any('ads', [AdController::class,'lists'])->name('ads.lists');
+        Route::any('ads', [FrontAdController::class,'lists'])->name('ads.lists');
 
 
 

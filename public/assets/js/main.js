@@ -241,21 +241,21 @@ function lettersTraduction(letter) {
     var letterList = {
       أ: 'A',
       ب: 'B',
-      ح: 'H',
+      ح: 'J',
       د: 'D',
       ر: 'R',
       س: 'S',
-      ص: '0',
+      ص: 'X',
       ط: 'T',
-      ع: '0',
-      ق: '0',
+      ع: 'E',
+      ق: 'G',
       ك: 'K',
       ل: 'L',
-      م: 'M',
+      م: 'Z',
       ن: 'N',
-      ه: '0',
-      و: 'W',
-      ي: 'I'
+      ه: 'H',
+      و: 'U',
+      ي: 'V'
     };
     return letterList[letter];
   }

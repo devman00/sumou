@@ -55,9 +55,9 @@ Create Post
                                                 <x-admin.form-label for="category_id" > Category </x-admin.form-label>
                                                 <x-admin.form-select id="" name="category_id" isMultiple="false" >  
                                                     <option value="">Select</option>
-                                                    @foreach ($categories as $category )
+                                                    {{-- @foreach ($categories as $category )
                                                         <option value="{{ $category->id }}" {{ ($category->id == old('category_id')) ? 'selected' : '' }} > {{ $category->name }} </option>  
-                                                    @endforeach
+                                                    @endforeach --}}
                                                 </x-admin.form-select> 
                                                 <x-admin.form-error field="category_id"/>
                                             </x-admin.form-group>                                        
