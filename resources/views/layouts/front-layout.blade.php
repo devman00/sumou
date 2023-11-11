@@ -10,7 +10,7 @@
   <!-- ===============================================-->
   <!--    Document Title-->
   <!-- ===============================================-->
-  <title>منصة سمو | للوحات المميزة </title>
+  <title> @yield('pagetitle') </title>
 
 
   <!-- ===============================================-->
@@ -56,7 +56,7 @@
 </head>
 
 
-<body>
+<body @if(Route::currentRouteName() == 'user.profile' OR Route::currentRouteName() == 'ads.create' OR Route::currentRouteName() == 'ads.index') class="accountPage" @endif>
 
   <!-- ===============================================-->
   <!--    Main Content-->

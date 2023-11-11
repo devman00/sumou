@@ -1,3 +1,66 @@
+<!---->
+<nav class="mobSidebar hoverable close">
+    <div class="logo_items flex">
+      <i class="bx bx-lock-alt" id="lock-icon" title=""></i>
+      <i class="bx bx-x" id="mobSidebar-close"></i>
+    </div>
+
+    <div class="menu_container">
+      <div class="menu_items">
+        <ul class="menu_item">
+          <div class="menu_title flex">
+            <span class="title">لوحة التحكم</span>
+            <span class="line"></span>
+          </div>
+          <li class="item">
+            <a href="{{route('user.profile')}}" class="link flex"> 
+              <i class="las la-user"></i>
+              <span>حسابي</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="" class="link flex">
+              <i class="las la-file-invoice"></i>
+              <span>طلباتي</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="{{route('ads.create')}}" class="link flex">
+              <i class="las la-folder-plus"></i>
+              <span>إضافة لوحة</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="{{route('ads.index')}}" class="link flex">
+              <i class="las la-stream"></i>
+              <span>لوحاتي</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="mobSidebar_profile flex">
+        <span class="nav_image">
+          <img src="{{ asset('assets/')}}/img/logo_blue.png" alt="" />
+        </span>
+        <div class="data_text">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a href="{{ route('logout') }}" class="btn position-relative top-0 text-black p-0"
+                    onclick="event.preventDefault();this.closest('form').submit();">
+                    <i class="las la-sign-out-alt pe-2"></i>
+                    تسجيل الخروج 
+                </a>
+            </form>
+        </div>
+      </div>
+    </div>
+</nav>        
+<!---->
+
+
+
 <!-- NAV -------  -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white py-2" data-navbar-on-scroll="data-navbar-on-scroll">
     <div class="container">

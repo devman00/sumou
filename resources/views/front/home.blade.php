@@ -1,5 +1,9 @@
 @extends('layouts.front-layout')
 
+@section('pagetitle')
+منصة سمو | للوحات المميزة
+@endsection
+
 @section('content')
     
     <!-- Welcome Section --------- -->
@@ -36,12 +40,12 @@
 
             <!-- Submit Form -->
             <div class="row align-items-center pb-3 pb-md-7 pb-lg-7 justify-content-center search_form">
-                <form method="post" action="listing.html" class="row g-3">
-
+                <form method="post" action="{{route('ads.lists')}}" class="row g-3">
+                    @csrf
                     <div class="col-6">
                         <label> نوع اللوحة </label>
                         <select id="boardType" name="board_type" class="form-control">
-                            <option selected> الكل </option>
+                            <option value="" selected> الكل </option>
                             <option value="خصوصي"> خصوصي </option>
                             <option value="نقل"> نقل </option>
                         </select>
@@ -50,7 +54,7 @@
                     <div class="col-6">
                         <label> نوع الأرقام </label>
                         <select id="numbersType" name="numbers_type" class="form-control">
-                            <option selected> الكل </option>
+                            <option value="" selected> الكل </option>
                             <option data-value="1" value="فردي"> فردي </option>
                             <option data-value="2" value="ثنائي"> ثنائي </option>
                             <option data-value="3" value="ثلاثي"> ثلاثي </option>
@@ -62,7 +66,7 @@
                     <div class="col-4">
                         <label> الحرف الأول </label>
                         <select id="firstLetter" name="first_letter" class="form-control">
-                            <option selected> الكل </option>
+                            <option value="" selected> الكل </option>
                             <option value="أ"> أ </option>
                             <option value="ب"> ب </option>
                             <option value="ح"> ح </option>
@@ -86,7 +90,7 @@
                     <div class="col-4">
                         <label> الحرف الثاني </label>
                         <select id="secondLetter" name="second_letter" class="form-control">
-                            <option selected> الكل </option>
+                            <option value="" selected> الكل </option>
                             <option value="أ"> أ </option>
                             <option value="ب"> ب </option>
                             <option value="ح"> ح </option>
@@ -110,7 +114,7 @@
                     <div class="col-4">
                         <label> الحرف الثالث </label>
                         <select id="thirdLetter" name="third_letter" class="form-control">
-                            <option selected> الكل </option>
+                            <option value="" selected> الكل </option>
                             <option value="أ"> أ </option>
                             <option value="ب"> ب </option>
                             <option value="ح"> ح </option>
@@ -135,7 +139,7 @@
                     <div class="col-3 cnt_firstNumber">
                         <label> الرقم الأول </label>
                         <select id="firstNumber" name="first_number" class="form-control">
-                            <option selected> الكل </option>
+                            <option value="" selected> الكل </option>
                             <option value="0"> 0 </option>
                             <option value="1"> 1 </option>
                             <option value="2"> 2 </option>
@@ -152,7 +156,7 @@
                     <div class="col-3 cnt_secondNumber">
                         <label> الرقم الثاني </label>
                         <select id="secondNumber" name="second_number" class="form-control">
-                            <option selected> الكل </option>
+                            <option value="" selected> الكل </option>
                             <option value="0"> 0 </option>
                             <option value="1"> 1 </option>
                             <option value="2"> 2 </option>
@@ -169,7 +173,7 @@
                     <div class="col-3 cnt_thirdNumber">
                         <label> الرقم الثالث </label>
                         <select id="thirdNumber" name="third_number" class="form-control">
-                            <option selected> الكل </option>
+                            <option value="" selected> الكل </option>
                             <option value="0"> 0 </option>
                             <option value="1"> 1 </option>
                             <option value="2"> 2 </option>
@@ -186,7 +190,7 @@
                     <div class="col-3 cnt_fourthNumber">
                         <label> الرقم الرابع </label>
                         <select id="fourthNumber" name="fourth_number" class="form-control">
-                            <option selected> الكل </option>
+                            <option value="" selected> الكل </option>
                             <option value="0"> 0 </option>
                             <option value="1"> 1 </option>
                             <option value="2"> 2 </option>
