@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Create Category
+إضافة قسم جديد
 @endsection
 
 @section('content')

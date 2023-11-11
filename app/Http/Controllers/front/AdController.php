@@ -32,7 +32,7 @@ class AdController extends Controller
 
         Ad::create($data + [
             'user_id' => auth()->id(),
-            'status' => 'pending',
+            'status' => config('app')['ad_status']['pending'],
         ]);
 
         return redirect()->route('ads.index')->with('success', 'تم إضافة اللوحة بنجاح');

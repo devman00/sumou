@@ -132,6 +132,20 @@ return [
             "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"
         ],
 
+    'ad_status' =>
+        [
+            "pending" => "قيد المراجعة",
+            "published" => "منشور",
+            "canceled" => "ملغى",
+        ],
+
+    // Administrators ID's
+    'administrators_id' =>
+    [
+         1,
+    ],
+
+
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
@@ -193,6 +207,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Carbon' => 'Carbon\Carbon',
     ])->toArray(),
 
 

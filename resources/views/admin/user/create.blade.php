@@ -25,7 +25,7 @@ Create User
                                         {{----  Avatar  --}}
                                         <div class="col-md-12 col-12">
                                             <x-admin.form-group>
-                                                <x-admin.form-label for="avatar" > Image </x-admin.form-label>
+                                                <x-admin.form-label for="avatar" > الصورة </x-admin.form-label>
                                                 <input type="file" name="avatar" class="form-control" >
                                                 <x-admin.form-error field="avatar"/>
                                             </x-admin.form-group>
@@ -34,7 +34,7 @@ Create User
                                         {{----  Name  --}}
                                         <div class="col-md-12 col-12">
                                             <x-admin.form-group>
-                                                <x-admin.form-label for="name" > Name </x-admin.form-label>
+                                                <x-admin.form-label for="name" > إسم المستخدم </x-admin.form-label>
                                                 <x-admin.form-input id="" name="name" placeholder="Add user Name" value="{{ old('name') }}" />
                                                 <x-admin.form-error field="name"/>
                                             </x-admin.form-group>
@@ -43,7 +43,7 @@ Create User
                                         {{----  Email  --}}
                                         <div class="col-md-12 col-12">
                                             <x-admin.form-group>
-                                                <x-admin.form-label for="email" > Email </x-admin.form-label>
+                                                <x-admin.form-label for="email" > البريد الإلكتروني </x-admin.form-label>
                                                 <x-admin.form-input id="" name="email" placeholder="Add user email" value="{{ old('email') }}" />
                                                 <x-admin.form-error field="email"/>
                                             </x-admin.form-group>
@@ -52,7 +52,7 @@ Create User
                                         {{----  Password  --}}
                                         <div class="col-md-12 col-12">
                                             <x-admin.form-group>
-                                                <x-admin.form-label for="password" > Password </x-admin.form-label>
+                                                <x-admin.form-label for="password" > كلمة المرور </x-admin.form-label>
                                                 <x-admin.form-password id="" name="password" placeholder="Add user password" value="{{ old('password') }}" />
                                                 <x-admin.form-error field="password"/>
                                             </x-admin.form-group>
@@ -61,7 +61,7 @@ Create User
                                          {{----  Phone  --}}
                                          <div class="col-md-12 col-12">
                                             <x-admin.form-group>
-                                                <x-admin.form-label for="phone" > Phone </x-admin.form-label>
+                                                <x-admin.form-label for="phone" > رقم الجوال </x-admin.form-label>
                                                 <x-admin.form-input id="" name="phone" placeholder="Ex. 0123456789" value="{{ old('phone') }}" />
                                                 <x-admin.form-error field="phone"/>
                                             </x-admin.form-group>
@@ -70,11 +70,17 @@ Create User
                                         {{----  Role  --}}
                                         <div class="col-md-12 col-12">
                                             <x-admin.form-group>
-                                                <x-admin.form-label for="role" > Role </x-admin.form-label>
+                                                <x-admin.form-label for="role" > الدور </x-admin.form-label>
                                                 <x-admin.form-select id="" name="role" isMultiple="false" >  
-                                                    <option value="">Select Role</option>
+                                                    
+                                                    <option value=""> إختر الدور </option>
                                                     @foreach ($roles as $role)
-                                                        <option value="{{ $role->id }}" > {{ $role->display_name }} </option>
+
+                                                        @if ($role->id != config('app.administrators_id')[0] )
+                                                            {{-- @if (Auth::user()->roles->first()->name !='superadministrator') --}}
+                                                                <option value="{{ $role->id }}" > {{ $role->display_name }} </option>
+                                                            {{-- @endif --}}
+                                                        @endif
                                                     @endforeach
                                                 </x-admin.form-select> 
                                                 <x-admin.form-error field="role"/>
@@ -84,11 +90,11 @@ Create User
                                         {{----  Status  --}}
                                         <div class="col-md-12 col-12">
                                             <x-admin.form-group>
-                                                <x-admin.form-label for="status" > Status </x-admin.form-label>
+                                                <x-admin.form-label for="status" > الحالة </x-admin.form-label>
                                                 <x-admin.form-select id="" name="status" isMultiple="false" >  
-                                                    <option value="">Select</option>
-                                                    <option value="1" {{ (old('status') == 1 ) ? 'selected' : '' }} >Enabled</option>
-                                                    <option value="0" {{ (old('status') != 1 ) ? 'selected' : '' }} >Disabled</option>
+                                                    <option value="">إخنر</option>
+                                                    <option value="1" {{ (old('status') == 1 ) ? 'selected' : '' }} >مفعل</option>
+                                                    <option value="0" {{ (old('status') != 1 ) ? 'selected' : '' }} >معطل</option>
                                                 </x-admin.form-select> 
                                                 <x-admin.form-error field="status"/>
                                             </x-admin.form-group>                                        
@@ -96,8 +102,8 @@ Create User
     
                                         {{----  Submit  --}}
                                         <div class="col-12 d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                                            <a href="{{ route('admin.users.index')}}" class="btn btn-light-secondary me-1 mb-1">Cancel</a>
+                                            <button type="submit" class="btn btn-primary me-1 mb-1">إضافة</button>
+                                            <a href="{{ route('admin.users.index')}}" class="btn btn-light-secondary me-1 mb-1">إلغاء</a>
                                         </div>
                                     </div>
                                 </form>

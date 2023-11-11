@@ -39,57 +39,81 @@
           {{-- <li class="sidebar-title">Menu</li> --}}
 
           {{-- Dashboard --}}
-          <x-admin.sidebar-link title="Dashboard" :link="route('admin.dashboard.index')" icon="bi bi-grid-fill" :hasDropdown=false activeLink="dashboard" /> 
+          <x-admin.sidebar-link title="لوحة التحكم" :link="route('admin.dashboard.index')" icon="bi bi-grid-fill" :hasDropdown=false activeLink="dashboard" /> 
 
           {{-- Posts --}}
           @if (Auth::user()->hasPermission('posts-read') || Auth::user()->hasPermission('posts-create'))
-          <x-admin.sidebar-link title="Posts" icon="icon dripicons dripicons-blog" :hasDropdown=true>
-            @permission('posts-read')<x-admin.sidebar-link title="Posts list" :link="route('admin.posts.index')" :hasDropdown=false :isChildren=true activeLink="admin.posts.index"/> @endpermission
-            @permission('posts-create')<x-admin.sidebar-link title="Create Post" :link="route('admin.posts.create')" :hasDropdown=false :isChildren=true activeLink="admin.posts.create" /> @endpermission
-          </x-admin.sidebar-link>
+            <x-admin.sidebar-link title="المقالات" icon="icon dripicons dripicons-blog" :hasDropdown=true>
+              @permission('posts-read')<x-admin.sidebar-link title="قائمة المقالات" :link="route('admin.posts.index')" :hasDropdown=false :isChildren=true activeLink="admin.posts.index"/> @endpermission
+              @permission('posts-create')<x-admin.sidebar-link title="إضافة مقال" :link="route('admin.posts.create')" :hasDropdown=false :isChildren=true activeLink="admin.posts.create" /> @endpermission
+            </x-admin.sidebar-link>
           @endif
 
           {{-- Categories --}}
           @if (Auth::user()->hasPermission('categories-read') || Auth::user()->hasPermission('categories-create'))
-           <x-admin.sidebar-link title="Categories" icon="icon dripicons dripicons-view-thumb" :hasDropdown=true >
-            @permission('categories-read') <x-admin.sidebar-link title="Categories List" :link="route('admin.categories.index')" :hasDropdown=false :isChildren=true activeLink="admin.categories.index" /> @endpermission
-            @permission('categories-create') <x-admin.sidebar-link title="Create Category" :link="route('admin.categories.create')" :hasDropdown=false :isChildren=true activeLink="admin.categories.create" /> @endpermission
-          </x-admin.sidebar-link>
+           <x-admin.sidebar-link title="التصنيفات" icon="icon dripicons dripicons-view-thumb" :hasDropdown=true >
+            @permission('categories-read') <x-admin.sidebar-link title="كل التصنيفات" :link="route('admin.categories.index')" :hasDropdown=false :isChildren=true activeLink="admin.categories.index" /> @endpermission
+            @permission('categories-create') <x-admin.sidebar-link title="إضافة تصنيف" :link="route('admin.categories.create')" :hasDropdown=false :isChildren=true activeLink="admin.categories.create" /> @endpermission
+            </x-admin.sidebar-link>
           @endif
+          
+          {{-- Ads --}}
+          @if (Auth::user()->hasPermission('ads-read') || Auth::user()->hasPermission('ads-create'))
+            <x-admin.sidebar-link title="اللوحات" icon="icon dripicons dripicons-card" :hasDropdown=true>
+              @permission('ads-read')<x-admin.sidebar-link title="قائمة اللوحات" :link="route('admin.ads.index')" :hasDropdown=false :isChildren=true activeLink="admin.ads.index"/> @endpermission
+              {{-- @permission('ads-create')<x-admin.sidebar-link title="إضافة لوحة" :link="route('admin.ads.create')" :hasDropdown=false :isChildren=true activeLink="admin.ads.create" /> @endpermission --}}
+            </x-admin.sidebar-link>
+          @endif
+
+          {{-- Treaties --}}
+          {{-- @if (Auth::user()->hasPermission('ads-read') || Auth::user()->hasPermission('ads-create')) --}}
+            <x-admin.sidebar-link title="المبايعات" icon="icon dripicons dripicons-briefcase" :hasDropdown=true>
+              {{-- @permission('ads-read')<x-admin.sidebar-link title="قائمة المبايعات" link="#" :hasDropdown=false :isChildren=true activeLink="#"/> @endpermission
+              @permission('ads-create')<x-admin.sidebar-link title="إضافة لوحة" link="#" :hasDropdown=false :isChildren=true activeLink="#" /> @endpermission 
+               --}}
+              <x-admin.sidebar-link title="قائمة المبايعات" link="#" :hasDropdown=false :isChildren=true activeLink="#"/>
+              <x-admin.sidebar-link title="عقد مبايعة" link="#" :hasDropdown=false :isChildren=true activeLink="#" />
+            </x-admin.sidebar-link>
+          {{-- @endif --}}
            
           {{-- Users --}}
           @if (Auth::user()->hasPermission('users-read') || Auth::user()->hasPermission('users-create'))
-          <x-admin.sidebar-link title="Users" icon="icon dripicons dripicons-user-group" :hasDropdown=true >
-            @permission('users-read') <x-admin.sidebar-link title="Users list" :link="route('admin.users.index')" :hasDropdown=false :isChildren=true activeLink="admin.users.index" /> @endpermission
-            @permission('users-create') <x-admin.sidebar-link title="Create User" :link="route('admin.users.create')" :hasDropdown=false :isChildren=true activeLink="admin.users.create" /> @endpermission
-          </x-admin.sidebar-link>
+            <x-admin.sidebar-link title="المستخدمين" icon="icon dripicons dripicons-user-group" :hasDropdown=true >
+              @permission('users-read') <x-admin.sidebar-link title="كل المستخدمين" :link="route('admin.users.index')" :hasDropdown=false :isChildren=true activeLink="admin.users.index" /> @endpermission
+              @permission('users-create') <x-admin.sidebar-link title="مستخدم جديد" :link="route('admin.users.create')" :hasDropdown=false :isChildren=true activeLink="admin.users.create" /> @endpermission
+            </x-admin.sidebar-link>
           @endif
           
           {{-- Permissions --}}
           @if (Auth::user()->hasPermission('permissions-read') || Auth::user()->hasPermission('permissions-create'))
-          <x-admin.sidebar-link title="Permissions" icon="icon dripicons dripicons-lock" :hasDropdown=true >
-            @permission('permissions-read') <x-admin.sidebar-link title="Permissions List" :link="route('admin.permissions.index')" :hasDropdown=false :isChildren=true activeLink="admin.permissions.index" /> @endpermission
-            @permission('permissions-create') <x-admin.sidebar-link title="Create Permission" :link="route('admin.permissions.create')" :hasDropdown=false :isChildren=true activeLink="admin.permissions.create" /> @endpermission
-          </x-admin.sidebar-link>
+            <x-admin.sidebar-link title="الصلاحيات" icon="icon dripicons dripicons-lock" :hasDropdown=true >
+              @permission('permissions-read') <x-admin.sidebar-link title="قائمة الصلاحيات" :link="route('admin.permissions.index')" :hasDropdown=false :isChildren=true activeLink="admin.permissions.index" /> @endpermission
+              @permission('permissions-create') <x-admin.sidebar-link title="إضافة صلاحية جديدة" :link="route('admin.permissions.create')" :hasDropdown=false :isChildren=true activeLink="admin.permissions.create" /> @endpermission
+            </x-admin.sidebar-link>
           @endif
 
           {{-- Roles --}}
           @if (Auth::user()->hasPermission('roles-read') || Auth::user()->hasPermission('roles-create')) 
-          <x-admin.sidebar-link title="Roles" icon="icon dripicons dripicons-user-id" :hasDropdown=true >
-            @permission('roles-read') <x-admin.sidebar-link title="Roles List" :link="route('admin.roles.index')" :hasDropdown=false :isChildren=true activeLink="admin.roles.index" /> @endpermission
-            @permission('roles-create') <x-admin.sidebar-link title="Create Role" :link="route('admin.roles.create')" :hasDropdown=false :isChildren=true activeLink="admin.roles.create" /> @endpermission
-          </x-admin.sidebar-link>
+            <x-admin.sidebar-link title="الأدوار" icon="icon dripicons dripicons-user-id" :hasDropdown=true >
+              @permission('roles-read') <x-admin.sidebar-link title="قائمة الأدوار" :link="route('admin.roles.index')" :hasDropdown=false :isChildren=true activeLink="admin.roles.index" /> @endpermission
+              @permission('roles-create') <x-admin.sidebar-link title="إضافة دور جديد" :link="route('admin.roles.create')" :hasDropdown=false :isChildren=true activeLink="admin.roles.create" /> @endpermission
+            </x-admin.sidebar-link>
           @endif
 
           {{-- Settings --}}
           @if (Auth::user()->hasPermission('settings-read'))
-            @permission('settings-read') <x-admin.sidebar-link title="Settings" icon="icon dripicons dripicons-gear" :hasDropdown=true > @endpermission
-            @permission('settings-update')<x-admin.sidebar-link title="General Settings" :link="route('admin.settings.index')" :hasDropdown=false :isChildren=true activeLink="admin.settings.index" /> @endpermission
-          </x-admin.sidebar-link>
+            {{-- @permission('settings-read')  --}}
+              {{-- <x-admin.sidebar-link title="الإعدادات" icon="icon dripicons dripicons-gear" :hasDropdown=true > @endpermission --}}
+                <x-admin.sidebar-link title="الإعدادات" icon="icon dripicons dripicons-gear" :hasDropdown=true >
+                  @permission('settings-update')<x-admin.sidebar-link title="الإعدادات العامة" :link="route('admin.settings.index')" :hasDropdown=false :isChildren=true activeLink="admin.settings.index" /> @endpermission 
+                </x-admin.sidebar-link>
           @endif
 
+          <x-admin.sidebar-link title="زيارة الموقع" icon="icon dripicons dripicons-backspace" :hasDropdown=false :link="route('home')" :targetBlank=1 >
+          </x-admin.sidebar-link>
+
           {{-- Logout --}}
-          <x-admin.sidebar-link title="Logout" icon="icon dripicons dripicons-exit" :link="route('logout')" :hasDropdown=false activeLink="logout" />
+          <x-admin.sidebar-link title="تسجيل الخروج" icon="icon dripicons dripicons-exit" :link="route('logout')" :hasDropdown=false activeLink="logout" />
 
         </ul>
       </div>

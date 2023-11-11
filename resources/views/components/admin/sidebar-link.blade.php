@@ -1,6 +1,10 @@
+@props([
+  'targetBlank' => 0,
+])
+
 <li class="{{ $isChildren ? 'submenu-item' : ($hasDropdown == 'true' ? 'sidebar-item has-sub' : 'sidebar-item') }}  @if(Route::currentRouteName() == $activeLink) active @endif ">
     @if ($isChildren)
-    <a href="{{ $link }}">
+    <a href="{{ $link }}" {{ $targetBlank === 1 ? 'target="_blank"' : '' }} >
         <span>{{ $title }}</span>
     </a>
     @else
@@ -13,7 +17,7 @@
             @csrf
           </form>
         @else 
-          <a href="{{ $link }}" class='sidebar-link'>
+          <a href="{{ $link }}" class='sidebar-link' {{ $targetBlank === 1 ? 'target="_blank"' : '' }}>
             <i class="{{ $icon }}"></i>
             <span>{{ $title }}</span>
           </a>

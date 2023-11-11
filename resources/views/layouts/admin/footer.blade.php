@@ -8,9 +8,9 @@
          &copy; {{ config('app.name', 'WMW') }}</p>
       </div>
       <div class="float-end">
-        <p>Crafted with <span class="text-danger">
+        <p> صمم عن  <span class="text-danger">
             <i class="bi bi-heart"></i>
-          </span> by <a href="#">Webmanway</a>
+          </span> من طرف <a href="#">Webmanway</a>
         </p>
       </div>
     </div>

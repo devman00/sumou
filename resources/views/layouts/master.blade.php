@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') - {{ config('app.name', 'WMW') }}</title>
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/main/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/main/app-dark.css')}}">
+    
+
+    
+    {{-- RTL / LTR style  --}}
+    @if (app()->getLocale() == 'ar')
+      <link rel="stylesheet" href="{{ asset('admin/assets/css/rtl.css')}}">
+      <link rel="stylesheet" href="{{ asset('admin/assets/css/main/app-rtl.css') }}">
+    @else
+      <link rel="stylesheet" href="{{ asset('admin/assets/css/main/app.css') }}">
+      <link rel="stylesheet" href="{{ asset('admin/assets/css/main/app-dark.css')}}">
+    @endif
+
     <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo/favicon.svg')}}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('admin/assets/images/logo/favicon.png')}}" type="image/png">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/shared/iconly.css')}}">
@@ -19,6 +29,21 @@
     {{-- Custom style  --}}
     <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css')}}">
 
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/ad/ad.css')}}">
+
+    
+        
+    
+    {{-- @if (app()->getLocale() == 'ar')
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/bootstrap-rtl.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ asset('assets/vendor/css/bootstrap.min.css') }}">
+    @endif --}}
+
+    {{-- @stack('component-styles') --}}
+
+    <!-- RTL Mode -->
+   
 
   </head>
   <body>

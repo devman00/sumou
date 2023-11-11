@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="homepage-lawhat-wrapper p-5 pt-4">
-                    @foreach ($ads as $ad)
+                    @forelse ($ads as $ad)
                         <x-front.ad.default
                         :ad="$ad->id" 
                         :date="$ad->created_at->diffForHumans()"
@@ -32,7 +32,10 @@
                         :allow_contact=0
                         :allow_actions=1
                         />
-                    @endforeach
+
+                    @empty
+                        <p class="alert alert-warning text-center"> لا توجد لوحات. </p>
+                    @endforelse
                 </div>
             </div>
 
