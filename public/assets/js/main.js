@@ -88,8 +88,195 @@
 
 
 
+// ---------- 
+$(document).ready(function(){ 
+
+  if ($('#numbersType').length) {
+    $('#numbersType').on('change', function() {
+      if ($(this).find('option:selected').attr('data-value') == '1') {
+        $('.cnt_firstNumber').show();
+        $('.cnt_secondNumber').hide();
+        $('.cnt_thirdNumber').hide();
+        $('.cnt_fourthNumber').hide();
+      } else if ($(this).find('option:selected').attr('data-value') == '2') {
+        $('.cnt_firstNumber').show();
+        $('.cnt_secondNumber').show();
+        $('.cnt_thirdNumber').hide();
+        $('.cnt_fourthNumber').hide();
+      } else if ($(this).find('option:selected').attr('data-value') == '3') {
+        $('.cnt_firstNumber').show();
+        $('.cnt_secondNumber').show();
+        $('.cnt_thirdNumber').show();
+        $('.cnt_fourthNumber').hide();
+      } else if ($(this).find('option:selected').attr('data-value') == '4') {
+        $('.cnt_firstNumber').show();
+        $('.cnt_secondNumber').show();
+        $('.cnt_thirdNumber').show();
+        $('.cnt_fourthNumber').show();
+      } else {
+        $('.cnt_firstNumber').show();
+        $('.cnt_secondNumber').show();
+        $('.cnt_thirdNumber').show();
+        $('.cnt_fourthNumber').show();
+      }
+    });
+  }
+
+  
 
 
+});
+
+// ---------------- 
+
+
+  if ($('select#first_letter').length) {
+    $('select#first_letter').on('change', function() {
+      if ($(this).val() != '') {
+        $('.letters .arabic-version .first').html($(this).val());
+        $('.letters .english-version .first').html(lettersTraduction($(this).val()));
+
+      }
+    });
+  }
+  if ($('select#second_letter').length) {
+    $('select#second_letter').on('change', function() {
+      if ($(this).val() != '') {
+        $('.letters .arabic-version .second').html($(this).val());
+        $('.letters .english-version .second').html(lettersTraduction($(this).val()));
+      }
+    });
+  }
+  if ($('select#third_letter').length) {
+    $('select#third_letter').on('change', function() {
+      if ($(this).val() != '') {
+        $('.letters .arabic-version .third').html($(this).val());
+        $('.letters .english-version .third').html(lettersTraduction($(this).val()));
+      }
+    });
+  }
+
+  if ($('select#first_number').length) {
+    $('select#first_number').on('change', function() {
+      if ($(this).val() != '') {
+        $('.numbers .arabic .first').html($(this).val());
+        $('.numbers .english .first').html(numbersTraduction($(this).val()));
+      }
+    });
+  }
+  if ($('select#second_number').length) {
+    $('select#second_number').on('change', function() {
+      if ($(this).val() != '') {
+        $('.numbers .arabic .second').html($(this).val());
+        $('.numbers .english .second').html(numbersTraduction($(this).val()));
+      }
+    });
+  }
+  if ($('select#third_number').length) {
+    $('select#third_number').on('change', function() {
+      if ($(this).val() != '') {
+        $('.numbers .arabic .third').html($(this).val());
+        $('.numbers .english .third').html(numbersTraduction($(this).val()));
+      }
+    });
+  }
+  if ($('select#fourth_number').length) {
+    $('select#fourth_number').on('change', function() {
+      if ($(this).val() != '') {
+        $('.numbers .arabic .fourth').html($(this).val());
+        $('.numbers .english .fourth').html(numbersTraduction($(this).val()));
+      }
+    });
+  }
+
+
+// ----  OWL Carousel 
+$(document).ready(function(){
+  $('.partnersCarousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:false
+        },
+        600:{
+            items:3,
+            nav:false
+        },
+        1000:{
+            items:5,
+            nav:true,
+            loop:false
+        }
+    }
+  })
+
+  $('.affair-process-steps').owlCarousel({
+    loop:true,
+    margin:5,
+    nav:true,
+    dots: false,
+    responsiveClass:false,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        800:{
+            items:3,
+            nav:false
+        }
+    }
+  })
+
+});
+// ---------------- 
+
+
+function lettersTraduction(letter) {
+  if (letter != "") {
+    var letterList = {
+      أ: 'A',
+      ب: 'B',
+      ح: 'H',
+      د: 'D',
+      ر: 'R',
+      س: 'S',
+      ص: '0',
+      ط: 'T',
+      ع: '0',
+      ق: '0',
+      ك: 'K',
+      ل: 'L',
+      م: 'M',
+      ن: 'N',
+      ه: '0',
+      و: 'W',
+      ي: 'I'
+    };
+    return letterList[letter];
+  }
+}
+
+function numbersTraduction(number) {
+  if (number != "") {
+    var numberList = {
+      '١': '1',
+      '٢': '2',
+      '٣': '3',
+      '٤': '4',
+      '٥': '5',
+      '٦': '6',
+      '٧': '7',
+      '٨': '8',
+      '٩': '9'
+    };
+    return numberList[number];
+  }
+}
 
 
 if ($('.mobSidebar').length) {
@@ -140,96 +327,5 @@ if ($('.mobSidebar').length) {
   mobSidebarCloseBtn.addEventListener("click", toggleSidebar);
 
 }
-
-
-
-
-
-// ---------- 
-$(document).ready(function(){ 
-
-  if ($('#numbersType').length) {
-    $('#numbersType').on('change', function() {
-      if ($(this).find('option:selected').attr('data-value') == '1') {
-        $('.cnt_firstNumber').show();
-        $('.cnt_secondNumber').hide();
-        $('.cnt_thirdNumber').hide();
-        $('.cnt_fourthNumber').hide();
-      } else if ($(this).find('option:selected').attr('data-value') == '2') {
-        $('.cnt_firstNumber').show();
-        $('.cnt_secondNumber').show();
-        $('.cnt_thirdNumber').hide();
-        $('.cnt_fourthNumber').hide();
-      } else if ($(this).find('option:selected').attr('data-value') == '3') {
-        $('.cnt_firstNumber').show();
-        $('.cnt_secondNumber').show();
-        $('.cnt_thirdNumber').show();
-        $('.cnt_fourthNumber').hide();
-      } else if ($(this).find('option:selected').attr('data-value') == '4') {
-        $('.cnt_firstNumber').show();
-        $('.cnt_secondNumber').show();
-        $('.cnt_thirdNumber').show();
-        $('.cnt_fourthNumber').show();
-      } else {
-        $('.cnt_firstNumber').show();
-        $('.cnt_secondNumber').show();
-        $('.cnt_thirdNumber').show();
-        $('.cnt_fourthNumber').show();
-      }
-    });
-  }
-
-});
-
-// ---------------- 
-
-
-
-
-// ----  OWL Carousel 
-$(document).ready(function(){
-  $('.partnersCarousel').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
-    responsiveClass:true,
-    responsive:{
-        0:{
-            items:1,
-            nav:false
-        },
-        600:{
-            items:3,
-            nav:false
-        },
-        1000:{
-            items:5,
-            nav:true,
-            loop:false
-        }
-    }
-  })
-
-  $('.affair-process-steps').owlCarousel({
-    loop:true,
-    margin:5,
-    nav:true,
-    dots: false,
-    responsiveClass:false,
-    responsive:{
-        0:{
-            items:1,
-            nav:true
-        },
-        800:{
-            items:3,
-            nav:false
-        }
-    }
-  })
-
-
-});
-// ---------------- 
 
 
