@@ -1318,3 +1318,21 @@ body.accountPage .main {padding-right: 75px;}
 .infos .btn-delete:hover{
   text-decoration: none!important;
 }
+
+/* ------------------------------- */
+
+.gradientBlueViolet_90{
+  background: linear-gradient(90deg, rgb(67 12 120) 0%, rgb(0 43 87) 100%)!important;
+}
+
+.gradientBlueViolet_180{
+  background: linear-gradient(180deg, rgb(67 12 120) 0%, rgb(0 43 87) 100%)!important;
+}
+
+.form_ads_search .form-control{
+  border: none!important;
+}
+
+.listing-page h3{
+  color: white;
+}

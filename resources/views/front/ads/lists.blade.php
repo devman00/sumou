@@ -7,19 +7,19 @@
 
 @section('content')
 
-    <section class="py-0 welcome-section__ px-3 px-md-0 px-lg-0 pt-8" id="welcome">
+    <section class="py-0 welcome-section__ px-3 px-md-0 px-lg-0 pt-8 gradientBlueViolet_90" id="welcome">
         <div class="bg-holder d-none d-md-block welcome-bg__">
         </div>
 
-        <div class="bg-holder d-block d-md-none"
+        {{-- <div class="bg-holder d-block d-md-none"
             style="background-image:url({{ asset('assets/') }}/img/illustrations/hero-bg.png);background-position:right top;background-size:contain;">
-        </div>
-        <div class="container-fluid pt-5 bg-gray listing-page">
+        </div> --}}
+        <div class="container-fluid pt-5 bg-gray__ listing-page ">
             <!-- Submit Form -->
             <h3 class="text-center font-tajawal">  البحث عن اللوحات </h3>
 
             <div class="row align-items-center pb-3 pb-md-7 pb-lg-7 px-md-5 px-lg-5 justify-content-center">
-                <form method="post" action="{{route('ads.lists')}}" class="row g-3">
+                <form method="post" action="{{route('ads.lists')}}" class="row g-3 form_ads_search">
                     @csrf
                     <div class="col-6">
                         <select id="boardType" name="board_type" class="form-control">
@@ -185,7 +185,7 @@
     </section>
 
     <!--start lawhat Listing -->
-    <section class="homepage-lawhat py-0 mb-5">
+    <section class="homepage-lawhat py-0 my-5">
         <div class="container flex-column justify-content-center align-content-center ">
             
             <!-- Filter ------  -->
