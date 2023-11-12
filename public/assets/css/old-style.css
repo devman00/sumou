@@ -1,0 +1,702 @@
+/* ----- RTL Style  */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700&display=swap');
+
+* , body,
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+    font-family: almarai, cairo;
+    /* text-align: right; */
+    
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box !important;
+
+}
+p,label,input{
+  font-family: tajawal !important;
+
+}
+p{
+  font-size: 16px!important;
+}
+input[type="date"]{
+  padding: 6px 14px 6px 8px;
+  border: var(--textfield-border) 1px solid !important;
+
+ }
+
+/* ----------------------  */
+:root {
+    --blue: #0192ea;
+    --dark-blue: #0d155c;
+    --violet: #9971b8;
+    --bg-gray: #F2F2F2;
+    --placeholder:#CFCFCF;
+    --textfield-border:#B3B3B3;
+  }
+
+.welcome-bg{
+    background: #000057;
+}
+
+.logo{
+    width: 100px;
+    margin-top: -10px;
+}
+
+.confirm-btn a{
+    /* color: var(--blue)!important; */
+    border: 1px dashed var(--blue);
+}
+
+.confirm-btn a:hover{
+    color: var(--blue)!important;
+}
+
+.confirm-btn i{
+    font-size: 25px;
+    vertical-align: bottom;
+    color: var(--blue);
+}
+
+.active{
+    color: #0490e4!important;
+}
+
+.nav-link:hover, .nav-link:focus{
+    color: #0490e4!important;
+}
+
+.btn-outline-primary-dashed {
+    border: 1px dashed #333;
+    border-radius: 1px;
+    color: #333;
+}
+
+.font-tajawal{
+    font-family: tajawal!important;
+}
+
+
+/* -------- text animation  */
+.ml11 {
+    font-weight: 700;
+    font-size: 3.5em;
+  }
+  
+  .ml11 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.1em;
+    padding-right: 0.05em;
+    padding-bottom: 0.15em;
+  }
+  
+  .ml11 .line {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: #fff;
+    transform-origin: 0 50%;
+  }
+  
+  .ml11 .line1 { 
+    top: 0; 
+    right: 0;
+  }
+  
+  .ml11 .letter {
+    letter-spacing: 0px;
+    display: inline;
+    line-height: 1em;
+    font-family: tajawal;
+    font-weight: 400;
+    font-size: 0.8em;
+}
+
+  /* ---------------------------------- */
+
+  .ml12 {
+    font-weight: 200;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+  }
+  
+  .ml12 .letter {
+    letter-spacing: 0px;
+    display: inline;
+    line-height: 1em;
+    font-family: tajawal;
+    font-weight: 400;
+    font-size: 1.3em;
+}
+
+.bg-primary{
+  background-color: var(--dark-blue)!important;
+}
+
+  
+  /* end Text Animation  */
+
+  /* Sign On Product Page Begin  */
+ hr{
+  background-color: var(--bg-gray); 
+  width:100%;
+  height: 1px;
+  margin-bottom: 29px;
+  margin-top: 29px;
+ }
+ .affair .affair-step .container > div:not(.not) {
+  border-right: var(--violet) 2px solid;
+
+ }
+ .affair .affair-step .container > div::before{
+  content: "";
+  height: 2px;
+  background-color: var(--blue);
+  width: 120px;
+  top: 0;
+  right:0;
+  position: absolute;
+ }
+
+ .affair-process-steps-step-icon{
+  transform: translateX(-50%);
+  left: 50%;
+  top: -26px;
+  background-color: white;
+  border-color: var(--violet);
+  border-width: 2px;
+  border-style: solid;
+ }
+
+ .affair-role .buyer,
+ .affair-role .seller{
+  border-color: var(--violet);
+  border-width: 3px;
+  border-style: solid;
+  position: relative;
+
+ }
+
+ .affair-role .buyer .innercard,
+ .affair-role .seller .innercard{
+  border: 2px dashed rgb(187, 187, 187);
+  width: 100%;
+  width: 300px;
+  cursor: pointer;
+
+ }
+
+ .seller.selected .innercard,
+ .buyer.selected .innercard{
+  background-color: rgb(197, 174, 197);
+ }
+
+ 
+ .seller.selected::before ,
+ .buyer.selected::before{
+ content: "";
+ background-image: url(../img/icons/icons8-double-arrow-50.png);
+ width: 50px;
+ display:inline-block;
+ height: 50px;
+ position: absolute;
+ animation: bounce forwards infinite 0.6s alternate;
+ left: 49%;
+ bottom: -65px; 
+
+ }
+
+ @keyframes bounce {
+  from{
+   transform: translateX(-50%) translateY(0);
+  }
+  to{
+    transform: translateX(-50%) translateY(-10px);
+
+  }
+ }
+ .fill-details .container:not(.not){
+  border-right: var(--violet) 2px solid;
+ }
+ .fill-details .container .title:not(.not){
+  margin-right: 10px;
+ }
+ .fill-details .container:not(.not)::before{
+  content:"";
+  position: absolute;
+  height: 2px;
+  width: 100px;
+  top: 0;
+  right: 0;
+  background-color: var(--blue);
+ }
+ .fill-details .box{
+  width: 55px;
+  height: 55px;
+  background: white;
+  right: -39px;
+  border-top: var(--blue) 2px solid;
+  border-bottom: var(--violet) 2px solid;
+  border-right: var(--violet) 2px solid;
+}
+
+
+ ::-webkit-input-placeholder,
+ input:-moz-placeholder { 
+  text-align:right;
+  color :  var(--bg-gray) !important; 
+}
+
+.fill-details .controls .textfield-input label{
+  width: 120px;
+    text-align: right;
+    margin: 0;
+
+    display: grid;
+    align-self: flex-start;
+
+}
+
+.fill-details .controls .textfield-input input[type="text"],
+.fill-details  .textfield-input select{
+  padding: 6px 14px 6px 8px;
+  border: var(--textfield-border) 1px solid;
+  background-color: transparent;
+  border-radius: 4px;
+  margin-right: 30px;
+  min-width: 180px;
+}
+
+.fill-details  .textfield-input select,
+  .controls select{
+  max-width: 226px;
+  width:181px;
+  min-width: 180px;
+  padding:6px 14px;
+  display: grid;
+  align-self: flex-start;
+
+}
+
+/* changing color of placeholder in textfield input */
+
+.fill-details .controls .textfield-input input[type="text"]::placeholder,
+.fill-details  .textfield-input select::placeholder{
+  color: var(--placeholder);
+  font-size: 18px;
+}
+/* changing default color of focus in textfield input */
+
+.fill-details .controls .textfield-input input[type="text"]:focus,
+.fill-details  .textfield-input select:focus
+{
+  outline: var(--violet) solid 1px;
+  box-shadow: none;
+}
+
+
+.fill-details .condition-text-container{
+    border: var(--textfield-border) 1px solid ;
+    padding: 15px;
+    overflow: scroll;
+    margin-bottom: 40px;
+}
+
+
+.h-20{
+ height: 300px;
+}
+
+
+.row.with-border::before{
+  content: "";
+  position: absolute;
+  right: 16px;
+  bottom: 0;
+  transform: translateX(-50%);
+  background-color: #cac7c7;
+  width: 160px;
+  height: 1px;
+}
+
+
+@media (max-width:767px) {
+  
+
+  form .checkboxes + .controls >div:nth-last-of-type(){
+    padding: 4rem 0;
+  }
+
+  form input[type="text"]{
+    width: 180px;
+
+  }
+
+  form  .textfield-input > label {
+    width: 33.41px !important;
+
+  }
+
+ 
+ 
+}
+
+
+@media (max-width:1199px) {
+  form .checkboxes + .controls,
+  form .col > .row:nth-of-type(0) {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+  }
+
+  form .checkboxes + .controls >.col:last-child{
+    padding: 2rem 0 !important;
+  }
+
+  form input[type="text"]{
+    width: 180px;
+
+  }
+
+  form  .textfield-input > label {
+    width: 33.41px !important;
+
+  }
+
+  .affair{
+    padding: 0 !important;
+  }
+  
+  .next-button{
+    padding: 2rem 0 !important;
+  }
+ 
+
+  /* affair page */
+  .affair-role > .container{
+    flex-direction: column;
+  }
+  .seller,.buyer{
+    width: 300px;
+  }
+  .selected {
+    order: 1;
+  }
+  .sawm-check{
+    justify-content: flex-start !important;
+   }
+
+   .affair-role{
+    padding: 7rem 0!important;
+
+   }
+
+   .affair-role>.container{
+    align-items: center;
+
+   }
+
+   .affair-requirements .container{
+    flex-direction: column;
+    gap: 10px;
+   }
+   .affair-requirements-condition{
+    height: auto !important;
+    width: auto !important;
+   }
+
+   .affair-requirements-condition:not(:last-child){
+    margin-bottom: 30px;
+
+   }
+   .affair-requirements-condition > div{ 
+    height: auto !important;
+    width: auto !important;
+
+   }
+   .affair-requirements-condition > div>img{ 
+    height: 70px !important;
+    width: 70px !important;
+    padding: 1rem;
+
+   }
+   .container{
+    width: 100% !important;
+    padding: 0 !important;
+   }
+   .plate-info >.container > .controls{
+    flex-direction: column;
+   }
+
+   .plate-info >.container > .controls > .textfields{
+    align-self: start;
+
+   }
+
+   p.h4{
+    max-width: 200px !important;
+   }
+   
+   .title.mb-3 >div,
+   .title.mb-4 >div{
+    display: none !important;
+   }
+   .title.mb-3 >p,.title.mb-4 >p{
+    padding-top: 10px;
+   }
+
+   .request-details >.container > .controls{
+    gap: 6px !important;
+   }
+   .request-details >.container > .controls>.date-checkbox{
+    flex-direction: column!important;
+
+   }
+
+   .request-details >.container > .controls>.date-checkbox > .row{
+
+    max-width: 100%;
+   }
+   .request-details >.container > .controls>.col> .row{
+    flex-direction: column !important;
+   }
+   .request-details >.container > .controls>.col> .row > .col-1.mb-3{
+    margin-right: 15px;
+   }
+   .uploads{
+    width: 100%!important;
+   }
+   .next-button .container{
+     justify-content: center!important;
+   }
+
+   input[type="date"]{
+    margin-bottom: 20px;
+
+   }
+
+   input[type="text"],input[type="select"]{
+    width: 181px !important;
+   }
+   label{
+    min-width: 120px!important;
+   }
+
+   #info-address{
+    width: 60%!important;
+   }
+
+
+   .row.not.bank-name-details,.row.not.bank-iban-details{
+    width: 100% !important;
+    padding: 0.75rem;
+    flex-wrap: nowrap;
+
+   }
+   .condition-text-container{
+    max-width: 90% !important;
+    justify-self: center;
+   }
+
+   .conditions-and-agreement{
+    max-width: 100% !important;
+   }
+
+ 
+
+   .type-lawha{
+    padding-right: 1rem !important;
+   }
+
+   
+  
+   .add-lawha-radio{
+    gap: 0 !important;
+    margin-bottom: 30px;
+
+   }
+   .no-gap{
+    gap: 0!important;
+   }
+
+  .sawm-check>div{
+    display: inline !important;
+  }
+   form>.col>.row.with-border>p{
+    border: none !important;
+   }
+
+
+   /* Login & register page  */
+
+   .register-login-section > .container > .row{
+    flex-direction: column;
+    margin-top: 40px;
+
+   }
+
+   .register-login-section > .container > .row > div{
+    width: 100% !important;
+   }
+
+}
+
+@media (max-width:598px) {
+  .checkboxes> .col > .row{
+    flex-direction: column !important;
+  } 
+  .checkboxes> .col > .row .col.mb-3{
+    margin-right: 20px;
+  }
+ 
+
+  
+}
+
+@media (max-width:991px) {
+   
+  .navbar-collapse{
+    display: grid;
+    justify-content: flex-start;
+   }
+   .navbar-collapse > img{
+   display: none;
+   }
+
+   .navbar-collapse button{
+    display: flex;
+    align-items: center;
+    margin-top: 8px  !important;
+    margin-bottom: 8px !important;
+   }
+   .navbar-collapse > ul> li:nth-child(2) > a,
+   .navbar-collapse > ul> li:nth-child(2){
+   border: none  !important;
+   padding:  0 !important;
+   }
+
+   .navbar-collapse > ul> li:nth-child(2)> a{
+    padding: 8px 0  !important;
+   }
+
+   .navbar-collapse > ul> li:nth-child(2) >a> i{
+    display: none;
+   }
+}
+
+/* Table */
+.td-content{
+ display: flex;
+ align-items: center;
+ justify-content: space-evenly;
+ border-radius: 13px !important;
+ height: 100%;
+
+}
+
+table{
+  border-color: #434343 !important;
+  border-width: 2px !important;
+}
+table td{
+  height: 56px;
+  padding: 0 0 !important;
+ 
+}
+
+.table-plate{
+  font-family: tajawal;
+  font-weight: bold;
+  font-size: 30px;
+  justify-content: space-between;
+  color: #434343;
+}
+
+
+
+
+
+
+
+
+
+
+  /* Login & Register Page   */
+
+  .login-register-ul .nav-link.active{
+   background-color: var(--dark-blue)!important;
+   color: var(--bg-gray) !important;
+   font-size: 17px;
+   
+  }
+
+  .login-register-ul .nav-link{
+    color: var(--dark-blue) !important;
+    font-family: almarai;
+    background-color: var(--bg-gray);
+    padding: 15px 0 !important;
+   font-size: 15px;
+
+  }
+  #pills-register,#pills-login{
+    display: inline-block;
+    flex-direction: column;
+    flex-wrap: wrap;
+    display: none;
+
+  }
+
+  #pills-register.show,#pills-login.show{
+    display: inline;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+
+  .login-form > form > input,  .register-form > form > input {
+    margin: 10px 0;
+    border: none;
+    border-bottom: var(--textfield-border) 1px solid;
+    padding: 10px ;
+    direction: rtl;
+    width: 100% !important;
+  }
+
+  .login-form > form > button, .register-form > form > button {
+    margin: 40px 0 0 ;
+    align-self: flex-end;
+    background-color: var(--blue);
+    color: white;
+    font-family: almarai;    
+    transition: 0.5s ;
+  }
+
+  .login-form > form > button:hover, .register-form > form > button:hover {
+    color: white;
+  }
+  .login-form > form > input:focus , .register-form > form > input:focus {
+    border: none;
+    outline: none;
+    border-bottom: black 1px solid;
+  }
+
+
+
+  .login-form > form > input::placeholder , .register-form > form > input::placeholder {
+  text-align: right;
+  }
+  .login-form > form > input:focus::placeholder , .register-form > form > input:focus::placeholder{
+    color: transparent !important;
+  }

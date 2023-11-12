@@ -1,0 +1,119 @@
+.hideit{
+    display: none!important;
+}
+.showit{
+    display: block !important;
+}
+
+.instruction-txt{
+    color: #403d40;
+    font-size: 17px!important;
+    line-height: 30px;
+}
+
+.text-light-blue{
+    color: var(--light-blue)!important
+}
+
+.affair-process-steps-step-icon{
+    border-width: 1px!important;
+}
+
+
+.seller.selected::before, .buyer.selected::before {
+   
+    width: 40px!important;
+    height: 30px!important;
+}
+
+.gradian-blue-bg{
+    background: linear-gradient(180deg, rgb(65 111 159) 0%, rgb(0 43 87) 100%)!important;
+}
+
+.gradian-violet-bg{
+    background: linear-gradient(180deg, rgb(153 113 184) 0%, rgb(77 54 94) 100%)!important;
+}
+
+.light-blue-bg{
+    background: #f8fcff!important;
+}
+
+.boxes-instr{
+    width: 20%;
+    border-radius: 3px;
+}
+
+.boxes-instr:hover{
+
+    border: 1px solid #555;
+    background: #fff!important;
+    cursor: pointer;
+}
+
+.d-inline-flex_2{
+    display: inline-flex;
+}
+
+.affair-role .tab-content > .active{
+    display: flex!important;
+}
+
+
+.affair-role .nav-tabs .nav-link {
+    border: 2px solid;
+    border-radius: 3px;
+}
+
+.affair-role .nav-tabs{
+    border-bottom: none!important;
+}
+
+.affair-role .nav-tabs .nav-link .icn2 {
+    /* width: 50px; */
+    position: absolute;
+    top: 73px;
+    margin-right: -75px;
+}
+
+.affair-role .nav-tabs .nav-link .icn3 {
+    /* width: 50px; */
+    position: absolute;
+    top: 73px;
+    margin-right: -60px;
+}
+
+.div-1{
+
+}
+
+.icn1 {
+    border: 2px solid;
+    border-radius: 100%;
+    padding: 10px;
+    background: #fff;
+}
+
+.authorization{
+    line-height: 35px;
+}
+
+.authorization-steps i{
+    color: green;
+    margin-left: 5px;
+}
+
+
+.authorization-steps{
+    line-height: 30px;
+}
+
+.authorization-steps a {
+    color: var(--dark-blue);
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+
+/* ------- Khalid ----------- */
+
+/* ----------------------- */
