@@ -53,19 +53,22 @@
 
 .ad-lawha >.lawha .letters .english-version p{
     font-size: 27px!important;
+    margin: 0px 2px !important;
 }
 
 .ad-lawha >.lawha .letters .arabic-version p{
     font-size: 38px!important;
+    margin: 0px 2px !important;
 }
 
 .ad-lawha >.lawha .numbers .english p{
     font-size: 30px!important;
+    margin: 0 2px !important;
 }
 
 .ad-lawha >.lawha .numbers .arabic p{
     font-size: 38px!important;
-    margin: -3px!important;
+    margin: -1px !important;
 }
 
 .ad-lawha > .lawha > .informations{

@@ -152,7 +152,7 @@
                                                         <x-front.form.error field="email" />
                                                     </x-front.form.group>
 
-                                                    <button type="submit" class="btn btn-primary btn-sm px-4 py-2 rounded-0"> حفظ </button>
+                                                    <button type="submit" class="btn btn-primary btn-sm px-4 py-2 rounded-0 mb-3"> حفظ </button>
                                                 </form>
                                             </div>
 
