@@ -1,10 +1,8 @@
-@extends('layouts.front-layout')
-
-@section('pagetitle')
+<?php $__env->startSection('pagetitle'); ?>
 منصة سمو | للوحات المميزة
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     
     <!-- Welcome Section --------- -->
     <section class="py-0 welcome-section px-3 px-md-0 px-lg-0 pt-8 gradientBlueViolet_180" id="welcome">
@@ -19,7 +17,7 @@
             <!-- Logo + Slogan  -->
             <div class="row align-items-center min-vh-md-75__ mt-7--">
                 <div class="col-md-5 col-lg-5 pt-lg-6 text-sm-start text-center d-none d-md-flex d-lg-flex">
-                    <img style="width: 100%;" src="{{ asset('assets/') }}/img/logo_white.png" alt="منصة سمو">
+                    <img style="width: 100%;" src="<?php echo e(asset('assets/')); ?>/img/logo_white.png" alt="منصة سمو">
                 </div>
                 <div class="col-md-7 col-lg-7 pt-lg-6 text-sm-start text-center">
                     <!-- <h1 class="text-white font-tajawal ml12">منصة سمو للوحات المميزة</h1> -->
@@ -40,8 +38,8 @@
 
             <!-- Submit Form -->
             <div class="row align-items-center pb-3 pb-md-7 pb-lg-7 justify-content-center search_form">
-                <form method="post" action="{{route('ads.lists')}}" class="row g-3">
-                    @csrf
+                <form method="post" action="<?php echo e(route('ads.lists')); ?>" class="row g-3">
+                    <?php echo csrf_field(); ?>
                     <div class="col-6">
                         <label> نوع اللوحة </label>
                         <select id="boardType" name="board_type" class="form-control">
@@ -349,24 +347,23 @@
 
             <div class="homepage-lawhat-wrapper p-3 p-md-0 p-lg-0">
 
-                @foreach ($ads as $ad)
-                    <x-front.ad.default 
-                    :ad="$ad->id"
-                    :date="$ad->created_at->diffForHumans()"
-                    :first_letter="$ad->first_letter" 
-                    :second_letter="$ad->second_letter" 
-                    :third_letter="$ad->third_letter" 
-                    :first_number="$ad->first_number" 
-                    :second_number="$ad->second_number" 
-                    :third_number="$ad->third_number" 
-                    :fourth_number="$ad->fourth_number" 
-                    :price="$ad->price"
-                    :phone="$ad->phone"
-                    :allow_contact=1
-                    :whatsapp="$ad->user->whatsapp"
-                    :username="$ad->user->name"
-                    />
-                @endforeach
+                <?php $__currentLoopData = $ads; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.front.ad.default','data' => ['ad' => $ad->id,'date' => $ad->created_at->diffForHumans(),'firstLetter' => $ad->first_letter,'secondLetter' => $ad->second_letter,'thirdLetter' => $ad->third_letter,'firstNumber' => $ad->first_number,'secondNumber' => $ad->second_number,'thirdNumber' => $ad->third_number,'fourthNumber' => $ad->fourth_number,'price' => $ad->price,'phone' => $ad->phone,'allowContact' => 1,'whatsapp' => $ad->user->whatsapp,'username' => $ad->user->name]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('front.ad.default'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['ad' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->id),'date' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->created_at->diffForHumans()),'first_letter' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->first_letter),'second_letter' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->second_letter),'third_letter' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->third_letter),'first_number' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->first_number),'second_number' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->second_number),'third_number' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->third_number),'fourth_number' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->fourth_number),'price' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->price),'phone' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->phone),'allow_contact' => 1,'whatsapp' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->user->whatsapp),'username' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->user->name)]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
+<?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
+<?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
+<?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
             </div>
 
@@ -386,11 +383,11 @@
             <div class="row">
 
                 <div class="partnersCarousel owl-carousel owl-theme">
-                    <div> <img src="{{ asset('assets/') }}/img/partners/1.png" alt=""> </div>
-                    <div> <img src="{{ asset('assets/') }}/img/partners/2.png" alt=""> </div>
-                    <div> <img src="{{ asset('assets/') }}/img/partners/3.png" alt=""> </div>
-                    <div> <img src="{{ asset('assets/') }}/img/partners/4.png" alt=""> </div>
-                    <div> <img src="{{ asset('assets/') }}/img/partners/5.png" alt=""> </div>
+                    <div> <img src="<?php echo e(asset('assets/')); ?>/img/partners/1.png" alt=""> </div>
+                    <div> <img src="<?php echo e(asset('assets/')); ?>/img/partners/2.png" alt=""> </div>
+                    <div> <img src="<?php echo e(asset('assets/')); ?>/img/partners/3.png" alt=""> </div>
+                    <div> <img src="<?php echo e(asset('assets/')); ?>/img/partners/4.png" alt=""> </div>
+                    <div> <img src="<?php echo e(asset('assets/')); ?>/img/partners/5.png" alt=""> </div>
 
                 </div>
 
@@ -400,4 +397,6 @@
     </section>
     <!-- <partners> close ============================-->
         
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.front-layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/sumou.sa/html/resources/views/front/home.blade.php ENDPATH**/ ?>
