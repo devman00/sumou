@@ -111,7 +111,7 @@
 }
 
 .card-price{
-    font-size: 2em!important;
+    font-size: 2em;
     color: #bb7900!important;
 }
 
@@ -176,4 +176,18 @@
 
 .ad-lawha > .lawha > .serial-number {
     width: 35%;
+}
+
+
+@media screen and (max-width: 800px) {
+    .homepage-lawhat-wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+        padding: 2rem !important;
+    }
+    .homepage-lawhat-wrapper .homepage-lawha {
+        padding: 5px;
+    }
+    .card-price {
+        font-size: 1.6em!important;
+    }
 }

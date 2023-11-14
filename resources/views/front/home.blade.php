@@ -7,7 +7,7 @@
 @section('content')
     
     <!-- Welcome Section --------- -->
-    <section class="py-0 welcome-section px-3 px-md-0 px-lg-0 pt-8" id="welcome">
+    <section class="py-0 welcome-section px-3 px-md-0 px-lg-0 pt-8 gradientBlueViolet_180" id="welcome">
 
         <div class="bg-holder d-none d-md-block gradientBlueViolet_180">
         </div>
@@ -238,6 +238,7 @@
                     </label>
                   </div> -->
 
+                    <!--
                     <div class="form-check form-check-inline col-3 mx-0">
                         <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
                             id="golden-check">
@@ -269,6 +270,7 @@
                             for="golden-check"> ألماسي
                         </label>
                     </div>
+                    -->
 
 
 

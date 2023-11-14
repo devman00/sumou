@@ -20,10 +20,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
   box-sizing: border-box !important;
 
 }
-p,label,input{
-  /* font-family: tajawal !important; */
 
-}
 p{
   font-size: 16px!important;
 }
@@ -427,11 +424,6 @@ input[type="date"]{
     justify-content: flex-start !important;
    }
 
-   .affair-role{
-    /* padding: 7rem 0!important; */
-
-   }
-
    .affair-role>.container{
     align-items: center;
 
@@ -517,14 +509,14 @@ input[type="date"]{
    }
 
    input[type="text"],input[type="select"]{
-    width: 181px !important;
+    width: 181px;
    }
    label{
-    min-width: 120px!important;
+    min-width: 120px;
    }
 
    #info-address{
-    width: 60%!important;
+    width: 60%;
    }
 
 
@@ -590,10 +582,10 @@ input[type="date"]{
     padding: 4rem 0;
   }
 
-  form input[type="text"]{
+  /* form input[type="text"]{
     width: 180px;
 
-  }
+  } */
 
   form  .textfield-input > label {
     width: 33.41px !important;
@@ -819,11 +811,11 @@ input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-fo
 
 
   .profile-details-textfields>.area>.input-textfield{
-  width: 50%!important;
+  width: 50%;
    padding: 10px;
   }
   .bank-info-edit .profile-details-textfields>.area>.input-textfield{
-  width: 100%!important;
+  width: 100%;
   padding: 10px;
   }
   select{
@@ -1264,6 +1256,20 @@ input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-fo
     visibility: hidden;
   }
 
+  .form-control {
+    padding: 0.5rem 0.5rem;
+    text-align: center;
+  }
+  .profile-details-textfields>.area>.input-textfield,
+  input[type="text"], input[type="select"],
+  form input[type="text"],
+  .col-6 {
+    width: 100%;
+  }
+  .confirm-btn {display: none;}
+  .confirm-btn-mob {display: block !important;}
+  
+
 }
 
 @media screen and (min-width: 801px) {
@@ -1291,10 +1297,6 @@ input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-fo
 .btn-primary {
   background-color: var(--dark-blue)!important;
   border-color: var(--dark-blue)!important;
-}
-
-.published-date{
-
 }
 
 body.accountPage .main {padding-right: 75px;}
