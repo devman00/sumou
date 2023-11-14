@@ -4,11 +4,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="logo">
             <a href="index.html">
-<<<<<<< HEAD
-              <img src="{{ asset('admin/assets/images/logo/logo.svg') }}" alt="Logo" srcset="">
-=======
               <img src="{{ asset('assets/img/logo_blue.png') }}" alt="Logo" srcset="">
->>>>>>> c832d41a6f6278dc77ae3e8cf3e510c8cb09214f
             </a>
             
           </div>

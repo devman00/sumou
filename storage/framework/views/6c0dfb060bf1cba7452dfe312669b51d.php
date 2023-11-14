@@ -1,0 +1,2 @@
+<textarea <?php echo e($attributes->merge(['class'=>'form-control'])); ?> id="<?php echo e($id); ?>" name="<?php echo e($name); ?>" rows="<?php echo e($rows); ?>" placeholder="<?php echo e($placeholder); ?>"><?php echo e($slot); ?></textarea>
+<?php /**PATH C:\wamp64\www\projects\sumou\resources\views/components/admin/form-textarea.blade.php ENDPATH**/ ?>
