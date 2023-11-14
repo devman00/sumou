@@ -10,6 +10,7 @@
               <img src="{{ asset('assets/img/logo_blue.png') }}" alt="Logo" srcset="">
 >>>>>>> c832d41a6f6278dc77ae3e8cf3e510c8cb09214f
             </a>
+            
           </div>
           <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
