@@ -1317,4 +1317,25 @@ body.accountPage .main {padding-right: 75px;}
 
 .infos .btn-delete:hover{
   text-decoration: none!important;
+<<<<<<< HEAD
+=======
+}
+
+/* ------------------------------- */
+
+.gradientBlueViolet_90{
+  background: linear-gradient(90deg, rgb(67 12 120) 0%, rgb(0 43 87) 100%)!important;
+}
+
+.gradientBlueViolet_180{
+  background: linear-gradient(180deg, rgb(67 12 120) 0%, rgb(0 43 87) 100%)!important;
+}
+
+.form_ads_search .form-control{
+  border: none!important;
+}
+
+.listing-page h3{
+  color: white;
+>>>>>>> c832d41a6f6278dc77ae3e8cf3e510c8cb09214f
 }

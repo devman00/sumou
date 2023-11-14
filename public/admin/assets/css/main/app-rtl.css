@@ -20223,7 +20223,11 @@
   }
   
   .sidebar-wrapper .sidebar-header img {
+<<<<<<< HEAD
     height: 1.2rem
+=======
+    height: 4.2rem
+>>>>>>> c832d41a6f6278dc77ae3e8cf3e510c8cb09214f
   }
   
   .sidebar-wrapper .sidebar-toggler.x {

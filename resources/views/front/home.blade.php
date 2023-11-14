@@ -9,7 +9,7 @@
     <!-- Welcome Section --------- -->
     <section class="py-0 welcome-section px-3 px-md-0 px-lg-0 pt-8" id="welcome">
 
-        <div class="bg-holder d-none d-md-block welcome-bg">
+        <div class="bg-holder d-none d-md-block gradientBlueViolet_180">
         </div>
 
         <div class="bg-holder d-block d-md-none"> </div>
