@@ -1,0 +1,21 @@
+.underline {
+    position : relative;
+     color : tomato ;
+    display : inline-block;
+  }
+  .underline::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--dark-blue);
+    bottom: 5px;
+    left: 0;
+    transform: scaleX(0.5);
+    transform-origin: bottom right;
+    transition: transform 0.25s linear;
+  }
+  .underline:hover::after {
+    transform-origin: bottom right;
+      transform: scaleX(1);
+  }

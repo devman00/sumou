@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+@extends('layouts.app')
+=======
 @extends('layouts.front-layout')
+>>>>>>> c832d41a6f6278dc77ae3e8cf3e510c8cb09214f
 
 @section('content')
 <div class="container">
@@ -52,7 +56,11 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
+<<<<<<< HEAD
+                                    {{ __('Reset Password') }}
+=======
                                     إعادة تعيين كلمة المرور
+>>>>>>> c832d41a6f6278dc77ae3e8cf3e510c8cb09214f
                                 </button>
                             </div>
                         </div>

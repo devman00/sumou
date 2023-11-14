@@ -230,9 +230,9 @@
                 <!------------->
                 <!-- <div class="lawha-feature-category d-flex flex-row justify-content-evenly align-content-center col"> -->
                 <div class="row ps-3">
-                    <p class="d-none d-md-flex d-lg-flex">فئة اللوحة</p>
+                    <!--<p class="d-none d-md-flex d-lg-flex">فئة اللوحة</p>
 
-                    <!-- <div class=" form-check d-flex -start justify-content-center gap-2 px-3 ">
+                     <div class=" form-check d-flex -start justify-content-center gap-2 px-3 ">
                     <input class="form-check-input align-self-center" name="golden-check" type="checkbox" id="golden-check">
                     <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="golden-check">ذهبي
                     </label>

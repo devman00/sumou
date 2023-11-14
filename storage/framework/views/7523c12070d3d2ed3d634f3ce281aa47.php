@@ -1,0 +1,1 @@
+components.front.link<?php /**PATH C:\wamp64\www\projects\sumou\storage\framework\views/5e76bd4c252c8424cf1390cc9e7a6247.blade.php ENDPATH**/ ?>
