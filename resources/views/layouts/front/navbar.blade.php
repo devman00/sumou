@@ -1,6 +1,6 @@
 
 <!-- NAV -------  -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white py-2" data-navbar-on-scroll="data-navbar-on-scroll">
+<nav class="bg-white navbar navbarHeadT navbar-expand-lg navbar-light fixed-top py-2" data-navbar-on-scroll="data-navbar-on-scroll">
     <div class="container">
 
         <!-- Logo -->
@@ -35,18 +35,18 @@
                 
                 @if (auth()->check())
                   <li class="nav-item "><a class="nav-link" href="{{route('ads.create')}}"> إضافة لوحة </a></li>
-                  <li class="nav-item "><a class="nav-link" href="{{route('user.profile')}}"> حسابي </a></li>
-                  <form method="POST" action="{{ route('logout') }}">
+                  <li class="nav-item navItemMob"><a class="nav-link" href="{{route('user.profile')}}"> حسابي </a></li>
+                  <form method="POST" class="navItemMob" action="{{ route('logout') }}">
                     @csrf
                     <x-front.link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">تسجيل الخروج </x-front.link>
                   </form>                                
                 @else
-                <li class="nav-item "><a class="nav-link" href="{{route('login')}}">  تسجيل الدخول </a></li>
+                <li class="nav-item navItemMob"><a class="nav-link" href="{{route('login')}}">  تسجيل الدخول </a></li>
                 @endif
 
             </ul>
             <div class="ps-lg-5">
-                {{-- <ul class="navbar-nav me-3 mb-2 mb-lg-0">
+                <ul class="navbar-nav me-3 mb-2 mb-lg-0 navItemDesk">
 
                     @if (auth()->check())
                         
@@ -86,7 +86,7 @@
                         </a>
                     @endif
                     
-                </ul> --}}
+                </ul>
 
 
 

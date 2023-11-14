@@ -1091,9 +1091,12 @@ input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-fo
 }
 
 
+.navbarHeadT  {
+  background-color: #fff !important;
+}
 
-
-
+.navItemDesk {display: block;}
+.navItemMob {display: none;}
 
 @media screen and (max-width: 800px) {
 
@@ -1269,6 +1272,8 @@ input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-fo
   .confirm-btn {display: none;}
   .confirm-btn-mob {display: block !important;}
   
+  .navItemDesk {display: none;}
+  .navItemMob {display: block;}
 
 }
 
