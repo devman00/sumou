@@ -39,12 +39,20 @@
                                 @enderror
 
                                 {{-- Email ------  --}}
-                                <input id="email" type="email" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="البريد الإلكتروني" required autocomplete="email">
+                                {{-- <input id="email" type="email" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="البريد الإلكتروني" required autocomplete="email">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                @enderror --}}
+
+                                 {{-- Phone ------  --}}
+                                 <input id="phone" type="phone" class=" @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" placeholder=" رقم الجوال" required autocomplete="phone">
+                                 @error('phone')
+                                     <span class="invalid-feedback" role="alert">
+                                         <strong>{{ $message }}</strong>
+                                     </span>
+                                 @enderror
 
 
                                 {{-- Password ------  --}}

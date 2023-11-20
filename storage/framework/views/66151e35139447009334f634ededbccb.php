@@ -51,23 +51,26 @@ endif;
 unset($__errorArgs, $__bag); ?>
 
                                 
-                                <input id="email" type="email" class=" <?php $__errorArgs = ['email'];
+                                
+
+                                 
+                                 <input id="phone" type="phone" class=" <?php $__errorArgs = ['phone'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="email" value="<?php echo e(old('email')); ?>" placeholder="البريد الإلكتروني" required autocomplete="email">
-                                <?php $__errorArgs = ['email'];
+unset($__errorArgs, $__bag); ?>" name="phone" value="<?php echo e(old('phone')); ?>" placeholder=" رقم الجوال" required autocomplete="phone">
+                                 <?php $__errorArgs = ['phone'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong><?php echo e($message); ?></strong>
-                                    </span>
-                                <?php unset($message);
+                                     <span class="invalid-feedback" role="alert">
+                                         <strong><?php echo e($message); ?></strong>
+                                     </span>
+                                 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>

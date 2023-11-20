@@ -34,7 +34,7 @@
                 <li class="nav-item "><a class="nav-link" href="contact.html"> إتصل بنا </a></li>
                 
                 @if (auth()->check())
-                  <li class="nav-item "><a class="nav-link" href="{{route('ads.create')}}"> إضافة لوحة </a></li>
+                  {{-- <li class="nav-item "><a class="nav-link" href="{{route('ads.create')}}"> إضافة لوحة </a></li> --}}
                   <li class="nav-item navItemMob"><a class="nav-link" href="{{route('user.profile')}}"> حسابي </a></li>
                   <form method="POST" class="navItemMob" action="{{ route('logout') }}">
                     @csrf
@@ -64,6 +64,14 @@
                                     حسابي
                                   </x-front.link>
                                 </li>
+
+                                <li>
+                                  <x-front.link :href="route('ads.create')" class="border border-white rounded">
+                                    <i style="font-size: 20px;" class="las la-plus px-1"></i>
+                                    إضافة لوحة 
+                                  </x-front.link>
+                                </li>
+
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                       @csrf

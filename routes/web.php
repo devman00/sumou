@@ -12,7 +12,7 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\front\AdController as FrontAdController;
 use App\Http\Controllers\front\UserController as UserAccountController;
-
+use App\Http\Controllers\PhoneNumberVerifyController;
 use App\Http\Controllers\SettingController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
@@ -145,7 +145,7 @@ use Illuminate\Support\Facades\Route;
     /** -------------
         Auth
     --------------- */
-    Route::middleware(['auth']) //  'verified'
+    Route::middleware(['auth','verifiedphone']) //  'verified'
     ->group(function ()
     {
         Route::prefix('account')->group(function ()
@@ -183,3 +183,8 @@ use Illuminate\Support\Facades\Route;
 
     // FRONT Routes -------- 
     Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+    // OTP Verification 
+    Route::get('phone/verify', [PhoneNumberVerifyController::class,'show'])->name('phoneverification.show');
+    Route::post('phone/verify', [PhoneNumberVerifyController::class,'verify'])->name('phoneverification.verify');

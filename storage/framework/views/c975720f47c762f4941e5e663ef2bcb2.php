@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
     <!-- Account begin ============================-->
     <section class="dashboard d-flex flex-column justify-content-between ">
@@ -247,7 +245,7 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
 
-                                                    <button type="submit" class="btn btn-primary btn-sm px-4 py-2 rounded-0"> حفظ </button>
+                                                    <button type="submit" class="btn btn-primary btn-sm px-4 py-2 rounded-0 mb-3"> حفظ </button>
                                                 </form>
                                             </div>
 
