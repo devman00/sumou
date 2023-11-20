@@ -25,7 +25,7 @@ class OurSMSServiceProvider implements SMSInterface {
                 CURLOPT_FOLLOWLOCATION => true,
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => json_encode($this->payload()),
+                CURLOPT_POSTFIELDS => $data_string, //json_encode($this->payload()),
                 ));
                 $response = curl_exec($curl);
                 curl_close($curl);
