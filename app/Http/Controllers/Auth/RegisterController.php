@@ -68,7 +68,7 @@ class RegisterController extends Controller
     {
         $user = User::create([
             'name' => $data['name'],
-            // 'email' => $data['email'],
+            'email' => 'email@'.str()->random().'.com',
             'phone' => $data['phone'],
             'password' => $data['password'],  // password hashed with "setPasswordAttribute" method in User model
             // 'password' => Hash::make($data['password']),
