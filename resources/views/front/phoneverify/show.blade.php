@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-12 col-md-7 col-lg-7 bg-white p-5">
                     
-                    <div class="alert alert-warning fs-14px py-2 px-5  mx-6"> <i class="las la-check-circle pe-1 align-top fs-18px"></i>  أدخل رمز التحقق الذي وصلك في رقم جوالك  </div>
+                    <div class="alert alert-warning fs-14px py-2 px-lg-5  mx-lg-6 px-0 ps-2"> <i class="las la-check-circle pe-1 align-top fs-18px"></i>  أدخل رمز التحقق الذي وصلك في رقم جوالك  </div>
 
                     <div class="container" style="  padding: 38px 75px;">
                         {{-- <ul class="nav nav-pills login-register-ul mb-3 nav-justified" id="pills-tab" role="tablist">

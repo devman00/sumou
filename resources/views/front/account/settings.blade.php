@@ -132,7 +132,7 @@
                                         <div class="row">
 
                                             {{-- Update whatsapp --- --}}
-                                            <div class="col-6">
+                                            <div class="col-6 px-0 pe-2">
                                                 <form action="{{ route('user.profile.update', $user) }}" method="post">
                                                     @csrf
                                                     @method('PUT')
@@ -157,7 +157,7 @@
                                             </div>
 
                                             {{-- Update password ---  --}}
-                                            <div class="col-6">
+                                            <div class="col-6 px-0 pe-3">
                                                 <form action="{{ route('user.password.update', $user) }}" method="post">
                                                     @csrf
                                                     @method('PUT')
@@ -202,7 +202,7 @@
 
 
 
-                                                    <button type="submit" class="btn btn-primary px-3"> حفظ كلمة المرور
+                                                    <button type="submit" class="btn btn-primary px-3 fs-14px"> حفظ كلمة المرور
                                                     </button>
                                                 </form>
                                             </div>

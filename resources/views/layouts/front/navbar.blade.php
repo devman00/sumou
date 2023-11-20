@@ -4,11 +4,11 @@
     <div class="container">
 
         <!-- Logo -->
-        <a class="navbar-brand d-flex align-items-center fw-semi-bold fs-3" href="{{ route('home') }}">
+        <a class="navbar-brand d-flex align-items-center fw-semi-bold fs-3 mx-0" href="{{ route('home') }}">
             <img class="me-3 logo" src="{{ asset('assets/') }}/img/logo_blue.png" alt="" />
         </a>
 
-        <a class="confirm-btn-mob nav-link px-1" href="#" style="font-size: 14px; display:none"> <i class="las la-check-circle"></i>
+        <a class="confirm-btn-mob nav-link py-1 btn px-3 gradientBlueViolet_90 text-white" href="#" style="font-size: 14px; display:none"> <i class="las la-check-circle"></i>
           اتمام المبايعة<br>عن طريق سمو
         </a>
 

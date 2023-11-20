@@ -1265,8 +1265,8 @@ input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-fo
   }
   .profile-details-textfields>.area>.input-textfield,
   input[type="text"], input[type="select"],
-  form input[type="text"],
-  .col-6 {
+  form input[type="text"]
+   {
     width: 100%;
   }
   .confirm-btn {display: none;}

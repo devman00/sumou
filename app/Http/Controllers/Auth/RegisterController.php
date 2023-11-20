@@ -76,7 +76,8 @@ class RegisterController extends Controller
             'verification_code' => $code
         ]);
 
-        (new SMSProvider($user->phone, $code))->send();
+        $sms = "رمز التحقق لسمو الخاص بك: ".$code;
+        (new SMSProvider($user->phone, $sms))->send();
 
         return $user;
     }

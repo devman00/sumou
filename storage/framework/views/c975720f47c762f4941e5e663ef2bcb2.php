@@ -117,7 +117,7 @@
                                         <div class="row">
 
                                             
-                                            <div class="col-6">
+                                            <div class="col-6 px-0 pe-2">
                                                 <form action="<?php echo e(route('user.profile.update', $user)); ?>" method="post">
                                                     <?php echo csrf_field(); ?>
                                                     <?php echo method_field('PUT'); ?>
@@ -250,7 +250,7 @@
                                             </div>
 
                                             
-                                            <div class="col-6">
+                                            <div class="col-6 px-0 pe-3">
                                                 <form action="<?php echo e(route('user.password.update', $user)); ?>" method="post">
                                                     <?php echo csrf_field(); ?>
                                                     <?php echo method_field('PUT'); ?>
@@ -373,7 +373,7 @@
 
 
 
-                                                    <button type="submit" class="btn btn-primary px-3"> حفظ كلمة المرور
+                                                    <button type="submit" class="btn btn-primary px-3 fs-14px"> حفظ كلمة المرور
                                                     </button>
                                                 </form>
                                             </div>
