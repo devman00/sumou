@@ -66,15 +66,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $code = random_int(100,9999);
         $user = User::create([
             'name' => $data['name'],
             'email' => 'email@'.str()->random().'.com',
             'phone' => $data['phone'],
             'password' => $data['password'],  // password hashed with "setPasswordAttribute" method in User model
             // 'password' => Hash::make($data['password']),
+            'verification_code' => $code
         ]);
 
-        dd((new SMSProvider($user->phone, 'السلام عليكم'))->send());
+        (new SMSProvider($user->phone, $code))->send();
 
         return $user;
     }
