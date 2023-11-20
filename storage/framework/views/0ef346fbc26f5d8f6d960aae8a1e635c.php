@@ -44,7 +44,7 @@
             <form action="<?php echo e(route('admin.login')); ?>" method="POST">
                 <?php echo csrf_field(); ?>
                 
-                <?php $__errorArgs = ['email|password'];
+                <?php $__errorArgs = ['phone|password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -55,7 +55,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input name="email" type="text" class="form-control form-control-xl" placeholder="Username">
+                    <input name="phone" type="text" class="form-control form-control-xl" placeholder="Username">
                     <div class="form-control-icon">
                         <i class="bi bi-person"></i>
                     </div>
