@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
    
 <section class="ad-page mt-4">
@@ -80,8 +78,8 @@
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-6 col-6">
-                    <a href="tel:<?php echo e($ad->user->phone); ?>" class="whatsapp">
-                        <i class=" las la-phone d-flex justify-content-center align-content-center flex-column text-center" style="font-size: 30px;"> <span class="fs-13px fw-bold"> <?php echo e($ad->user->phone); ?> </span></i>
+                    <a href="tel:<?php echo e($ad->phone); ?>" class="whatsapp text-dark-blue">
+                        <i class=" las la-phone d-flex justify-content-center align-content-center flex-column text-center" style="font-size: 30px;"> <span class="fs-13px fw-bold"> <?php echo e($ad->phone); ?> </span></i>
                     </a>
                 </div>
 

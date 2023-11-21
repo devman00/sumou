@@ -78,8 +78,8 @@
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-6 col-6">
-                    <a href="tel:{{$ad->user->phone}}" class="whatsapp">
-                        <i class=" las la-phone d-flex justify-content-center align-content-center flex-column text-center" style="font-size: 30px;"> <span class="fs-13px fw-bold"> {{$ad->user->phone }} </span></i>
+                    <a href="tel:{{$ad->phone}}" class="whatsapp text-dark-blue">
+                        <i class=" las la-phone d-flex justify-content-center align-content-center flex-column text-center" style="font-size: 30px;"> <span class="fs-13px fw-bold"> {{$ad->phone }} </span></i>
                     </a>
                 </div>
 

@@ -8,10 +8,13 @@
             <img class="me-3 logo" src="{{ asset('assets/') }}/img/logo_blue.png" alt="" />
         </a>
 
-        <a class="confirm-btn-mob nav-link py-1 btn px-3 gradientBlueViolet_90 text-white" href="#" style="font-size: 14px; display:none"> <i class="las la-check-circle"></i>
+        {{-- <a class="confirm-btn-mob nav-link py-1 btn px-3 gradientBlueViolet_90 text-white" href="#" style="font-size: 14px; display:none"> <i class="las la-check-circle"></i>
           اتمام المبايعة<br>عن طريق سمو
-        </a>
+        </a> --}}
 
+        <a class="confirm-btn-mob nav-link py-1 btn px-3 gradientBlueViolet_90 text-white" href="{{route('ads.create')}}" style="font-size: 14px; display:none"> <i class="las la-plus"></i>
+          إضافة إعلان
+        </a>
 
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -19,28 +22,37 @@
         </button>
 
         <!-- Menue  -->
-        <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0 px-3 px-md-0 px-lg-0"
-            id="navbarSupportedContent">
+        <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0 px-3 px-md-0 px-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
+                
                 <li class="nav-item "> <a class="nav-link fw-medium active" aria-current="page" href="{{ route('home') }}">الرئيسية</a> </li>
+                
+                @if (auth()->check())
+                  {{-- <li class="nav-item "><a class="nav-link" href="{{route('ads.create')}}"> إضافة لوحة </a></li> --}}
+                  <li class="nav-item navItemMob"><a class="nav-link" href="{{route('user.profile')}}"> حسابي </a></li>
+                @endif 
 
                 <li class="nav-item px-3 confirm-btn">
-                    <a class="nav-link px-3 text-white" href="#"> <i class="las la-check-circle"></i>
-                        اتمام المبايعة عن طريق سمو
-                    </a>
+                  {{-- <a class="nav-link px-3 text-white" href="#"> <i class="las la-check-circle"></i>
+                    اتمام المبايعة عن طريق سمو
+                  </a> --}}
+                  <a class="nav-link px-3 text-white" href="{{route('ads.create')}}"> <i class="las la-plus"></i>
+                   إضافة إعلان
+                  </a>
                 </li>
 
                 <li class="nav-item "><a class="nav-link" href="about.html">من نحن</a></li>
                 <li class="nav-item "><a class="nav-link" href="contact.html"> إتصل بنا </a></li>
                 
+                {{-- Logout --  --}}
                 @if (auth()->check())
-                  {{-- <li class="nav-item "><a class="nav-link" href="{{route('ads.create')}}"> إضافة لوحة </a></li> --}}
-                  <li class="nav-item navItemMob"><a class="nav-link" href="{{route('user.profile')}}"> حسابي </a></li>
                   <form method="POST" class="navItemMob" action="{{ route('logout') }}">
                     @csrf
-                    <x-front.link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">تسجيل الخروج </x-front.link>
-                  </form>                                
-                @else
+                    <x-front.link :href="route('logout')" class="mx-0" onclick="event.preventDefault(); this.closest('form').submit();">تسجيل الخروج </x-front.link>
+                  </form>
+                @endif                                
+                
+                @if (!auth()->check())
                 <li class="nav-item navItemMob"><a class="nav-link" href="{{route('login')}}">  تسجيل الدخول </a></li>
                 @endif
 

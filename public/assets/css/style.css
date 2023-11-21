@@ -599,6 +599,8 @@ input[type="date"]{
     display: initial;
 }
 
+body.accountPage .main {padding-right: 75px;}
+
  
 }
 
@@ -1304,7 +1306,6 @@ input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-fo
   border-color: var(--dark-blue)!important;
 }
 
-body.accountPage .main {padding-right: 75px;}
 
 
 .la, .las {
@@ -1342,4 +1343,21 @@ body.accountPage .main {padding-right: 75px;}
 
 .listing-page h3{
   color: white;
+}
+
+.fill-details .controls .textfield-input input[type="text"], 
+.fill-details .textfield-input select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 120px;
+    margin-right: 0;
+}
+
+.invalid-feedback{
+  color: red!important;
+}
+
+a {
+  color: var(--dark-blue);
+  text-decoration: none;
 }

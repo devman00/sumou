@@ -8,10 +8,11 @@
             <img class="me-3 logo" src="<?php echo e(asset('assets/')); ?>/img/logo_blue.png" alt="" />
         </a>
 
-        <a class="confirm-btn-mob nav-link py-1 btn px-3 gradientBlueViolet_90 text-white" href="#" style="font-size: 14px; display:none"> <i class="las la-check-circle"></i>
-          اتمام المبايعة<br>عن طريق سمو
-        </a>
+        
 
+        <a class="confirm-btn-mob nav-link py-1 btn px-3 gradientBlueViolet_90 text-white" href="<?php echo e(route('ads.create')); ?>" style="font-size: 14px; display:none"> <i class="las la-plus"></i>
+          إضافة إعلان
+        </a>
 
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -19,41 +20,48 @@
         </button>
 
         <!-- Menue  -->
-        <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0 px-3 px-md-0 px-lg-0"
-            id="navbarSupportedContent">
+        <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0 px-3 px-md-0 px-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
+                
                 <li class="nav-item "> <a class="nav-link fw-medium active" aria-current="page" href="<?php echo e(route('home')); ?>">الرئيسية</a> </li>
+                
+                <?php if(auth()->check()): ?>
+                  
+                  <li class="nav-item navItemMob"><a class="nav-link" href="<?php echo e(route('user.profile')); ?>"> حسابي </a></li>
+                <?php endif; ?> 
 
                 <li class="nav-item px-3 confirm-btn">
-                    <a class="nav-link px-3 text-white" href="#"> <i class="las la-check-circle"></i>
-                        اتمام المبايعة عن طريق سمو
-                    </a>
+                  
+                  <a class="nav-link px-3 text-white" href="<?php echo e(route('ads.create')); ?>"> <i class="las la-plus"></i>
+                   إضافة إعلان
+                  </a>
                 </li>
 
                 <li class="nav-item "><a class="nav-link" href="about.html">من نحن</a></li>
                 <li class="nav-item "><a class="nav-link" href="contact.html"> إتصل بنا </a></li>
                 
+                
                 <?php if(auth()->check()): ?>
-                  
-                  <li class="nav-item navItemMob"><a class="nav-link" href="<?php echo e(route('user.profile')); ?>"> حسابي </a></li>
                   <form method="POST" class="navItemMob" action="<?php echo e(route('logout')); ?>">
                     <?php echo csrf_field(); ?>
                     <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.front.link','data' => ['href' => route('logout'),'onclick' => 'event.preventDefault(); this.closest(\'form\').submit();']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.front.link','data' => ['href' => route('logout'),'class' => 'mx-0','onclick' => 'event.preventDefault(); this.closest(\'form\').submit();']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('front.link'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('logout')),'onclick' => 'event.preventDefault(); this.closest(\'form\').submit();']); ?>تسجيل الخروج  <?php echo $__env->renderComponent(); ?>
+<?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('logout')),'class' => 'mx-0','onclick' => 'event.preventDefault(); this.closest(\'form\').submit();']); ?>تسجيل الخروج  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-                  </form>                                
-                <?php else: ?>
+                  </form>
+                <?php endif; ?>                                
+                
+                <?php if(!auth()->check()): ?>
                 <li class="nav-item navItemMob"><a class="nav-link" href="<?php echo e(route('login')); ?>">  تسجيل الدخول </a></li>
                 <?php endif; ?>
 
