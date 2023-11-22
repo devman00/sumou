@@ -15,7 +15,8 @@
     'username',
     'ad',
     'in_auction' => 'no',
-])                
+])   
+
                 <!-- Item 1 -----  -->
                 <div class="homepage-lawha">
                     <div class="share-btn p-3 pb-0"> <i class="fas fa-share-alt"></i> 
@@ -46,12 +47,11 @@
                                             <p class="third"> {{ $third_letter }} </p>
                                         </div>
                                         <div class="english-version">
-                                            <p class="first">h</p>
-                                            <p class="second"> d </p>
-                                            <p class="third"> m</p>
+                                            <p class="first">{{ config('app')['english_letters'][$first_letter] }}</p>
+                                            <p class="second"> {{ config('app')['english_letters'][$second_letter] }} </p>
+                                            <p class="third"> {{ config('app')['english_letters'][$third_letter] }}</p>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div class="serial-number ltr d-block">
@@ -63,11 +63,10 @@
                                             <p class="fourth"> {{ $fourth_number }} </p>
                                         </div>
                                         <div class="english">
-                                            {{-- <p class="first"> {{ config('app')['english_numbers'][$first_number] }}</p> --}}
-                                            <p class="first">1</p>
-                                            <p class="second">2 </p>
-                                            <p class="third"> 3</p>
-                                            <p class="fourth"> 4</p>
+                                            <p class="first">@php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $first_number) @endphp </p>
+                                            <p class="second">@php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $second_number) @endphp </p>
+                                            <p class="third"> @php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $third_number) @endphp</p>
+                                            <p class="fourth"> @php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $fourth_number) @endphp</p>
                                         </div>
                                     </div>
                                 </div>
