@@ -40,7 +40,7 @@ class UpdateAdRequest extends FormRequest
            
             // preg_match('/^0[56][0-9]{7}$/' ==>  should be start with 05 + 7 numbers
             // 'phone' => 'required|regex:/^(0[5][0-9]*)$/|min:10|max:10,unique:unique:ads,phone,'.$this->route('ad') ?? 0,
-            'phone' => 'required|regex:/^(0[5][0-9]*)$/|min:10|max:10',
+            'phone' => 'required|regex:/^([5][0-9]*)$/|min:9|max:9',
 
             // Rule::unique('users', 'email')->ignore($this->route('user'))],
 

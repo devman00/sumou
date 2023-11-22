@@ -84,25 +84,25 @@
                         <div class="row  w-50 textfields py-1 d-flex flex-column align-items-center justify-content-center gap-3  ">
                             
                             {{-- Letter --}}
-                            <div class="textfield-input mb-2 d-flex justify-content-start align-items-center m-0">
+                            <div class="letterBlocAd textfield-input mb-2 d-flex justify-content-start align-items-center m-0">
                                 <label class="font-tajawal align-self-center"> الأحرف &nbsp; </label>
                                 <select id="first_letter" name="first_letter" class="form-select">
                                     @foreach (config('app')['arabic_letters'] as $key => $value )
-                                        <option value="{{$value}}" {{ old('first_letter') == $value ? 'selected' : '' }} > {{$value}}</option>
+                                        <option value="{{$value}}" {{ old('first_letter') == $value ? 'selected' : '' }} > {{$value}} - {{ config('app')['english_letters'][$value] }}</option>
                                     @endforeach                                
                                 </select>
                                 <x-front.form.error field="first_letter" />
 
                                 <select id="second_letter" name="second_letter" class="form-select mx-2 ms-md-4 ms-lg-4 me-md-0 me-lg-0">
                                     @foreach (config('app')['arabic_letters'] as $key => $value )
-                                        <option value="{{$value}}" {{ old('second_letter') == $value ? 'selected' : '' }} > {{$value}}</option>
+                                        <option value="{{$value}}" {{ old('second_letter') == $value ? 'selected' : '' }} > {{$value}} - {{ config('app')['english_letters'][$value] }}</option>
                                     @endforeach                                
                                 </select>
                                 <x-front.form.error field="second_letter" />
 
                                 <select id="third_letter" name="third_letter" class="form-select">
                                     @foreach (config('app')['arabic_letters'] as $key => $value )
-                                        <option value="{{$value}}" {{ old('third_letter') == $value ? 'selected' : '' }} > {{$value}}</option>
+                                        <option value="{{$value}}" {{ old('third_letter') == $value ? 'selected' : '' }} > {{$value}} - {{ config('app')['english_letters'][$value] }}</option>
                                     @endforeach                                
                                 </select>
                                 <x-front.form.error field="third_letter" />
@@ -115,7 +115,7 @@
                         <div class="row w-50 with-border textfields py-1 d-flex flex-column align-items-center justify-content-center gap-3  ">
                             
                             {{-- number --}}
-                            <div class="textfield-input mb-2 d-flex justify-content-start align-items-center">
+                            <div class="numberBlocAd textfield-input mb-2 d-flex justify-content-start align-items-center">
                                 <label class="font-tajawal align-self-center"> الأرقام &nbsp; </label>
                                 <select id="first_number" name="first_number"  class="form-select cnt_firstNumber">
                                     @foreach (config('app')['arabic_numbers'] as $key => $value )
@@ -253,11 +253,21 @@
                         
                         {{-- Contact  --}}
                         <div class="col textfields py-1 d-flex flex-column align-items-start justify-content-start gap-3 px-0 ">
-                            <div class="textfield-input    m-0 d-flex justify-content-center align-items-center">
+                            {{-- <div class="textfield-input m-0 d-flex justify-content-center align-items-center">
                                 <label style="width: auto;" class="font-tajawal align-self-center" for="phone">
                                     رقم التواصل</label>
-                                <input type="text" class="font-tajawal bg-transparent text-right custom_input ltr" name="phone" value="{{old('phone')}}" id="phone" placeholder="يبدأ ب 05" >
+                                <input type="text" class="font-tajawal bg-transparent text-right custom_input ltr" name="phone" value="{{old('phone')}}" id="phone" placeholder="5xxxxxxxx" >                              
+
+                            </div> --}}
+
+                            <div class="input-group">
+                                <input type="text" class="form-control font-tajawal bg-transparent text-right custom_input price_input ms-md-1 ms-lg-1" name="phone" value="{{old('phone')}}" id="phone" placeholder="5xxxxxxxx">
+                                <div class="input-group-append position-relative">
+                                    <img src="{{ asset('assets/') }}/img/icons/SaudiArabia.jpg" style="position: absolute; top: 10px; left: 4px; width: 33px;">
+                                  <span class="input-group-text ps-3"><span class="me-3">966+</span></span>
+                                </div>
                             </div>
+
                             <x-front.form.error field="phone" /> 
                         </div>
 
@@ -275,7 +285,7 @@
                             <div class="col">
                                 <div class="row sawm-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative" style="width: 159px;margin-right: 10px;">
                                     <div class=" form-check d-flex -start justify-content-between px-3 " style="width: 108px;">
-                                        <input class="form-check-input align-self-center" value="نعم" name="in_auction" type="checkbox" onClick="disablePrice()" id="in_auction" {{ old('in_auction') == 'نعم' ? 'checked' : '' }} >
+                                        <input class="form-check-input align-self-center" value="نعم" name="in_auction" type="checkbox" id="in_auction" {{ old('in_auction') == 'نعم' ? 'checked' : '' }} >
                                         <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="in_auction">على السوم</label>
                                     </div>
                                     <x-front.form.error field="in_auction" /> 

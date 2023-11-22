@@ -47,7 +47,14 @@
                                 @enderror --}}
 
                                  {{-- Phone ------  --}}
-                                 <input id="phone" type="phone" class=" @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" placeholder=" رقم الجوال" required autocomplete="phone">
+                                 {{-- <input id="phone" type="phone" class=" @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" placeholder=" رقم الجوال" required autocomplete="phone"> --}}
+                                 <div class="input-group">
+                                    <input type="text" class="form-control font-tajawal bg-transparent price_input @error('phone') is-invalid @enderror" name="phone" value="{{old('phone')}}" id="phone" required placeholder="5xxxxxxxx">
+                                    <div class="input-group-append position-relative">
+                                        <img src="{{ asset('assets/') }}/img/icons/SaudiArabia.jpg" style="position: absolute; top: 10px; left: 4px; width: 33px;">
+                                      <span class="input-group-text ps-3"><span class="me-3">966+</span></span>
+                                    </div>
+                                </div>
                                  @error('phone')
                                      <span class="invalid-feedback" role="alert">
                                          <strong>{{ $message }}</strong>

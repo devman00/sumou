@@ -1400,6 +1400,10 @@ a {
     min-width: fit-content;
     padding: 6px 6px;
   }
+  .fill-details .controls .textfield-input.letterBlocAd label, 
+  .fill-details .controls .textfield-input.numberBlocAd label {
+    min-width: 60px !important;
+  }
 
   .switch-field .form-check {
     padding-right: 0px;
