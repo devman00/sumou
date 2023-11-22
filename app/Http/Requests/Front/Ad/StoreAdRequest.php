@@ -39,7 +39,8 @@ class StoreAdRequest extends FormRequest
             'are_there_violations' => ['required', 'string'],
            
             // preg_match('/^0[56][0-9]{7}$/' ==>  should be start with 05 + 7 numbers
-            'phone' => 'required|regex:/^(0[5][0-9]*)$/|min:10|unique:ads,phone|max:10',
+            // 'phone' => 'required|regex:/^(0[5][0-9]*)$/|min:10|unique:ads,phone|max:10',
+            'phone' => 'required|regex:/^(0[5][0-9]*)$/|min:10|max:10',
             'price' => ['required', 'numeric'],
             'in_auction' => ['nullable'],
             'status' => ['string'],

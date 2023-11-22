@@ -7,7 +7,7 @@
 @section('content')
     
     <!-- Welcome Section --------- -->
-    <section class="py-0 welcome-section px-3 px-md-0 px-lg-0 pt-8 gradientBlueViolet_180" id="welcome">
+    <section class="py-0 welcome-section px-3 px-md-0 px-lg-0 pt-7 gradientBlueViolet_180" id="welcome">
 
         <div class="bg-holder d-none d-md-block gradientBlueViolet_180">
         </div>
@@ -365,6 +365,7 @@
                     :allow_contact=1
                     :whatsapp="$ad->user->whatsapp"
                     :username="$ad->user->name"
+                    :in_auction="$ad->in_auction"
                     />
                 @endforeach
 

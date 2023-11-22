@@ -38,7 +38,7 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
         
         if($file = $request->file('avatar'))
         {

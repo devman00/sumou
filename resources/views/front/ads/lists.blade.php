@@ -7,16 +7,6 @@
 
 @section('content')
 
-<<<<<<< HEAD
-    <section class="py-0 welcome-section__ px-3 px-md-0 px-lg-0 pt-8" id="welcome">
-        <div class="bg-holder d-none d-md-block welcome-bg__">
-        </div>
-
-        <div class="bg-holder d-block d-md-none"
-            style="background-image:url({{ asset('assets/') }}/img/illustrations/hero-bg.png);background-position:right top;background-size:contain;">
-        </div>
-        <div class="container-fluid pt-5 bg-gray listing-page">
-=======
     <section class="py-0 welcome-section__ px-3 px-md-0 px-lg-0 pt-8 gradientBlueViolet_90" id="welcome">
         <div class="bg-holder d-none d-md-block welcome-bg__">
         </div>
@@ -25,16 +15,11 @@
             style="background-image:url({{ asset('assets/') }}/img/illustrations/hero-bg.png);background-position:right top;background-size:contain;">
         </div> --}}
         <div class="container-fluid pt-5 bg-gray__ listing-page ">
->>>>>>> c832d41a6f6278dc77ae3e8cf3e510c8cb09214f
             <!-- Submit Form -->
             <h3 class="text-center font-tajawal">  البحث عن اللوحات </h3>
 
             <div class="row align-items-center pb-3 pb-md-7 pb-lg-7 px-md-5 px-lg-5 justify-content-center">
-<<<<<<< HEAD
-                <form method="post" action="{{route('ads.lists')}}" class="row g-3">
-=======
                 <form method="post" action="{{route('ads.lists')}}" class="row g-3 form_ads_search">
->>>>>>> c832d41a6f6278dc77ae3e8cf3e510c8cb09214f
                     @csrf
                     <div class="col-6">
                         <select id="boardType" name="board_type" class="form-control">
@@ -200,15 +185,11 @@
     </section>
 
     <!--start lawhat Listing -->
-<<<<<<< HEAD
-    <section class="homepage-lawhat py-0 mb-5">
-=======
     <section class="homepage-lawhat py-0 my-5">
->>>>>>> c832d41a6f6278dc77ae3e8cf3e510c8cb09214f
         <div class="container flex-column justify-content-center align-content-center ">
             
             <!-- Filter ------  -->
-            <div class="dashboard-lawhat-menu mb-5">
+            {{-- <div class="dashboard-lawhat-menu mb-5">
                 
                 <div class="lawha-feature-category d-flex flex-row justify-content-evenly align-content-center col">
                     <p>فئة اللوحة</p>
@@ -277,7 +258,7 @@
 
 
 
-            </div>
+            </div> --}}
 
             <div class="homepage-lawhat-wrapper p-3 p-md-0 p-lg-0">
 

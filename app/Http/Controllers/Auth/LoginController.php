@@ -38,4 +38,11 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    # This method returns the login username to be employed by the controller.
+    # it’s basically saying “This is that the sector within the database you need to search due to the username when authenticating a user”.
+    public function username()
+    {
+        return 'phone';
+    }
 }

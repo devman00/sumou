@@ -44,17 +44,17 @@
             <form action="{{ route('admin.login') }}" method="POST">
                 @csrf
                 
-                @error('email|password')
+                @error('phone|password')
                    البيانات المدخلة غير صحيحة
                 @enderror
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input name="email" type="text" class="form-control form-control-xl" placeholder="Username">
+                    <input name="phone" type="text" class="form-control form-control-xl" placeholder="إسم المستخدم">
                     <div class="form-control-icon">
                         <i class="bi bi-person"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input name="password" type="password" class="form-control form-control-xl" placeholder="Password">
+                    <input name="password" type="password" class="form-control form-control-xl" placeholder="كلمة المرور">
                     <div class="form-control-icon">
                         <i class="bi bi-shield-lock"></i>
                     </div>

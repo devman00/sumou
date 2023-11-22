@@ -28,7 +28,7 @@ class User extends Authenticatable implements LaratrustUser
         'phone',
         'whatsapp',
         'status',
-        'otp',
+        'verification_code',
     ];
 
     /**
@@ -49,6 +49,7 @@ class User extends Authenticatable implements LaratrustUser
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'phone_verified_at' => 'datetime',
     ];
 
 
@@ -64,4 +65,17 @@ class User extends Authenticatable implements LaratrustUser
     }
 
 
+    #  checks to ascertain if the telephone number of the user is verified.
+    public function userPhoneVerified()
+    {
+        return ! is_null($this->phone_verified_at);  
+    }
+
+    # verifies the telephone number of the user by setting the phone_verified_at field of the user to the present timestamp.
+    public function phoneVerifiedAt()
+    {
+        return $this->forceFill([
+            'phone_verified_at' => $this->freshTimestamp(),
+        ])->save();
+    }
 }

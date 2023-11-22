@@ -185,76 +185,7 @@
         <div class="container flex-column justify-content-center align-content-center ">
             
             <!-- Filter ------  -->
-            <div class="dashboard-lawhat-menu mb-5">
-                
-                <div class="lawha-feature-category d-flex flex-row justify-content-evenly align-content-center col">
-                    <p>فئة اللوحة</p>
-                    <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative"
-                        style="margin-left: 20px;">
-                        <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
-                            <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
-                                id="golden-check">
-                            <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                                for="golden-check">ذهبي
-                            </label>
-
-                        </div>
-
-
-                    </div>
-                    <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative"
-                        style="margin-left: 20px;">
-                        <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
-                            <input class="form-check-input align-self-center" name="silver-check" type="checkbox"
-                                id="silver-check">
-                            <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                                for="silver-check">فضي
-                            </label>
-
-                        </div>
-
-
-                    </div>
-                    <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative"
-                        style="margin-left: 20px;">
-                        <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
-                            <input class="form-check-input align-self-center" name="bronze-check" type="checkbox"
-                                id="bronze-check">
-                            <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                                for="bronze-check">برونزي
-                            </label>
-
-                        </div>
-
-
-                    </div>
-                    <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative"
-                        style="margin-left: 20px;">
-                        <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
-                            <input class="form-check-input align-self-center" name="platinium-check" type="checkbox"
-                                id="platinium-check">
-                            <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                                for="platinium-check">ألماسي
-                            </label>
-
-                        </div>
-
-
-                    </div>
-
-
-
-                </div>
-
-                <div class="newer-older-filter d-flex justify-content-center align-items-center col-2">
-                    <p class="selected">الأحدث</p>
-                    <p class="">الأقدم</p>
-
-                </div>
-
-
-
-            </div>
+            
 
             <div class="homepage-lawhat-wrapper p-3 p-md-0 p-lg-0">
 

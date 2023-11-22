@@ -14,6 +14,7 @@
     'whatsapp',
     'username',
     'ad',
+    'in_auction' => 'no',
 ])                
                 <!-- Item 1 -----  -->
                 <div class="homepage-lawha">
@@ -62,6 +63,7 @@
                                             <p class="fourth"> {{ $fourth_number }} </p>
                                         </div>
                                         <div class="english">
+                                            {{-- <p class="first"> {{ config('app')['english_numbers'][$first_number] }}</p> --}}
                                             <p class="first">1</p>
                                             <p class="second">2 </p>
                                             <p class="third"> 3</p>
@@ -79,8 +81,13 @@
 
                         <i class="las la-tags"></i>
 
-                        <p class="m-0 fw-bold text-center text-black-- text-dark-gray"> <span
-                                class="card-price px-0">{{ $price }}.00</span> ريال</p>
+                        <p class="m-0 fw-bold text-center text-black-- text-dark-gray"> 
+                            @if ($in_auction == 'نعم')
+                                <span class="card-price px-0">على السوم</span>
+                            @else
+                                <span class="card-price px-0">{{ $price }}.00</span> ريال
+                            @endif
+                        </p>
                     </div>
 
 
@@ -89,7 +96,7 @@
                         <div class="infos d-flex justify-content-between align-items-center px-3">
                             <div class=" number d-flex justify-content-center align-content-center flex-column">
                                 <p class="m-0 text-black">رقم التواصل</p>
-                                <p class="m-0 text-black"> {{ $phone }} </p>
+                                <p class="m-0 text-dark-blue"> {{ $phone }} </p>
                             </div>
 
                             <a href="https://wa.me/{{ $whatsapp }}" target="_blank" class="whatsapp">

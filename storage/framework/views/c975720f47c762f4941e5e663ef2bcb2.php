@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
     <!-- Account begin ============================-->
     <section class="dashboard d-flex flex-column justify-content-between ">
@@ -119,7 +117,7 @@
                                         <div class="row">
 
                                             
-                                            <div class="col-6">
+                                            <div class="col-6 px-0 pe-2">
                                                 <form action="<?php echo e(route('user.profile.update', $user)); ?>" method="post">
                                                     <?php echo csrf_field(); ?>
                                                     <?php echo method_field('PUT'); ?>
@@ -247,12 +245,12 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
 
-                                                    <button type="submit" class="btn btn-primary btn-sm px-4 py-2 rounded-0"> حفظ </button>
+                                                    <button type="submit" class="btn btn-primary btn-sm px-4 py-2 rounded-0 mb-3"> حفظ </button>
                                                 </form>
                                             </div>
 
                                             
-                                            <div class="col-6">
+                                            <div class="col-6 px-0 pe-3">
                                                 <form action="<?php echo e(route('user.password.update', $user)); ?>" method="post">
                                                     <?php echo csrf_field(); ?>
                                                     <?php echo method_field('PUT'); ?>
@@ -375,7 +373,7 @@
 
 
 
-                                                    <button type="submit" class="btn btn-primary px-3"> حفظ كلمة المرور
+                                                    <button type="submit" class="btn btn-primary px-3 fs-14px"> حفظ كلمة المرور
                                                     </button>
                                                 </form>
                                             </div>

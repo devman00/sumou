@@ -44,12 +44,20 @@
                                 @csrf
 
                                 {{-- Email ---  --}} 
-                                <input class="w-100" id="email" type="email"  placeholder="الإيميل" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus >
+                                {{-- <input class="w-100" id="email" type="email"  placeholder="الإيميل" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus >
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                @enderror --}}
+
+                                 {{-- Phone ---  --}} 
+                                 <input class="w-100" id="phone" type="phone"  placeholder="رقم الجوال" @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus >
+                                 @error('phone')
+                                     <span class="invalid-feedback" role="alert">
+                                         <strong>{{ $message }}</strong>
+                                     </span>
+                                 @enderror
                                 
                                 {{-- Password ---  --}} 
                                 <input class="w-100" id="password" type="password"  @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="كلمة المرور" >

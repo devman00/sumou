@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Services\SMS\SMSProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::ACCOUNT;
 
     /**
      * Create a new controller instance.
@@ -51,8 +52,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            //'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['required', 'numeric', 'digits:10', 'unique:users'],
+            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -65,13 +66,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $code = random_int(100,9999);
+        $user = User::create([
             'name' => $data['name'],
-            'email' => '', //$data['email'],
+            'email' => 'email@'.str()->random().'.com',
             'phone' => $data['phone'],
-            'password' => $data['password'],
-            'status' => 0,
+            'password' => $data['password'],  // password hashed with "setPasswordAttribute" method in User model
             // 'password' => Hash::make($data['password']),
+            'verification_code' => $code
         ]);
+
+        $sms = "رمز التحقق لسمو الخاص بك: ".$code;
+        (new SMSProvider($user->phone, $sms))->send();
+
+        return $user;
     }
+
 }

@@ -310,6 +310,7 @@ input[type="date"]{
 
     display: grid;
     align-self: flex-start;
+    padding-left: 5px;
 
 }
 
@@ -598,6 +599,8 @@ input[type="date"]{
   .uploads > .row {
     display: initial;
 }
+
+body.accountPage .main {padding-right: 75px;}
 
  
 }
@@ -1098,6 +1101,117 @@ input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-fo
 .navItemDesk {display: block;}
 .navItemMob {display: none;}
 
+
+
+.search_form label{
+  color: #e6cbff!important;
+  font-size: 14px!important;
+}
+
+.border-top-gray{
+  border-top: 1px solid #f3f3f3;
+}
+
+
+.btn-primary {
+  background-color: var(--dark-blue)!important;
+  border-color: var(--dark-blue)!important;
+}
+
+
+
+.la, .las {
+  font-family: 'Line Awesome Free'!important;
+}
+
+.custom_input::placeholder{
+  color: var(--blue);
+  font-size: 14px!important;
+  text-align: right!important;
+}
+
+
+.sidebar_icns i{
+  font-size: 20px;
+}
+
+.infos .btn-delete:hover{
+  text-decoration: none!important;
+}
+
+/* ------------------------------- */
+
+.gradientBlueViolet_90{
+  background: linear-gradient(90deg, rgb(67 12 120) 0%, rgb(0 43 87) 100%)!important;
+}
+
+.gradientBlueViolet_180{
+  background: linear-gradient(180deg, rgb(67 12 120) 0%, rgb(0 43 87) 100%)!important;
+}
+
+.form_ads_search .form-control{
+  border: none!important;
+}
+
+.listing-page h3{
+  color: white;
+}
+
+
+.invalid-feedback{
+  color: red!important;
+}
+
+a {
+  color: var(--dark-blue);
+  text-decoration: none;
+}
+
+
+
+.switch-field {
+	display: flex;
+	overflow: hidden;
+}
+.switch-field input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+.switch-field label {
+	background-color: #e4e4e4;
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+	padding: 10px 20px;
+	margin-right: -1px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+	transition: all 0.1s ease-in-out;
+  min-width: max-content;
+}
+.switch-field label:hover {
+	cursor: pointer;
+}
+.switch-field input:checked + label {
+	background-color: #0d155c;
+	box-shadow: none;
+  color: #fff;
+}
+.switch-field label:first-of-type {
+	border-radius: 5px;
+}
+.switch-field label:last-of-type {
+	border-radius: 5px;
+}
+
+
+
+
 @media screen and (max-width: 800px) {
 
   /* Pre css */
@@ -1265,8 +1379,8 @@ input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-fo
   }
   .profile-details-textfields>.area>.input-textfield,
   input[type="text"], input[type="select"],
-  form input[type="text"],
-  .col-6 {
+  form input[type="text"]
+   {
     width: 100%;
   }
   .confirm-btn {display: none;}
@@ -1274,6 +1388,27 @@ input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-fo
   
   .navItemDesk {display: none;}
   .navItemMob {display: block;}
+
+  .fill-details .controls .textfield-input input[type="text"], 
+  .fill-details .textfield-input select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 120px;
+    margin-right: 0;
+  }
+  .fill-details .textfield-input select {
+    min-width: fit-content;
+    padding: 6px 6px;
+  }
+
+  .switch-field .form-check {
+    padding-right: 0px;
+    padding-left: 5px;
+  }
+  .switch-field label {
+    padding: 10px 12px;
+    min-width: auto;
+  }
 
 }
 
@@ -1288,58 +1423,3 @@ input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-fo
 }
 
 
-
-.search_form label{
-  color: #e6cbff!important;
-  font-size: 14px!important;
-}
-
-.border-top-gray{
-  border-top: 1px solid #f3f3f3;
-}
-
-
-.btn-primary {
-  background-color: var(--dark-blue)!important;
-  border-color: var(--dark-blue)!important;
-}
-
-body.accountPage .main {padding-right: 75px;}
-
-
-.la, .las {
-  font-family: 'Line Awesome Free'!important;
-}
-
-.custom_input::placeholder{
-  color: var(--blue);
-  font-size: 14px!important;
-  text-align: right!important;
-}
-
-
-.sidebar_icns i{
-  font-size: 20px;
-}
-
-.infos .btn-delete:hover{
-  text-decoration: none!important;
-}
-
-/* ------------------------------- */
-
-.gradientBlueViolet_90{
-  background: linear-gradient(90deg, rgb(67 12 120) 0%, rgb(0 43 87) 100%)!important;
-}
-
-.gradientBlueViolet_180{
-  background: linear-gradient(180deg, rgb(67 12 120) 0%, rgb(0 43 87) 100%)!important;
-}
-
-.form_ads_search .form-control{
-  border: none!important;
-}
-
-.listing-page h3{
-  color: white;
-}

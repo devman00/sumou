@@ -31,6 +31,7 @@
                         :phone="$ad->phone"
                         :allow_contact=0
                         :allow_actions=1
+                        :in_auction="$ad->in_auction"
                         />
 
                     @empty
