@@ -15,6 +15,7 @@
     'whatsapp',
     'username',
     'ad',
+    'in_auction' => 'no',
 ]) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
@@ -34,6 +35,7 @@
     'whatsapp',
     'username',
     'ad',
+    'in_auction' => 'no',
 ]); ?>
 <?php foreach (array_filter(([
     'first_letter',
@@ -51,6 +53,7 @@
     'whatsapp',
     'username',
     'ad',
+    'in_auction' => 'no',
 ]), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
@@ -106,6 +109,7 @@
                                             <p class="fourth"> <?php echo e($fourth_number); ?> </p>
                                         </div>
                                         <div class="english">
+                                            
                                             <p class="first">1</p>
                                             <p class="second">2 </p>
                                             <p class="third"> 3</p>
@@ -123,8 +127,13 @@
 
                         <i class="las la-tags"></i>
 
-                        <p class="m-0 fw-bold text-center text-black-- text-dark-gray"> <span
-                                class="card-price px-0"><?php echo e($price); ?>.00</span> ريال</p>
+                        <p class="m-0 fw-bold text-center text-black-- text-dark-gray"> 
+                            <?php if($in_auction == 'نعم'): ?>
+                                <span class="card-price px-0">على السوم</span>
+                            <?php else: ?>
+                                <span class="card-price px-0"><?php echo e($price); ?>.00</span> ريال
+                            <?php endif; ?>
+                        </p>
                     </div>
 
 
@@ -133,7 +142,7 @@
                         <div class="infos d-flex justify-content-between align-items-center px-3">
                             <div class=" number d-flex justify-content-center align-content-center flex-column">
                                 <p class="m-0 text-black">رقم التواصل</p>
-                                <p class="m-0 text-black"> <?php echo e($phone); ?> </p>
+                                <p class="m-0 text-dark-blue"> <?php echo e($phone); ?> </p>
                             </div>
 
                             <a href="https://wa.me/<?php echo e($whatsapp); ?>" target="_blank" class="whatsapp">

@@ -329,3 +329,26 @@ if ($('.mobSidebar').length) {
 }
 
 
+// disable price if Auction is Checked 
+// $('#in_auction').change(function(){
+//   if($(this).is(":checked")) {
+//       $('.price_input').addClass('bg-gray');
+//   } else {
+//       $('.price_input').removeClass('bg-gray');
+//   }
+// });
+
+
+function disablePrice() {
+  // Get the checkbox
+  var checkBox = document.getElementById("in_auction");
+  // Get the output text
+  var lbl = document.getElementById("price");
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    lbl.classList.remove('disabled');
+  } else {
+    lbl.classList.add('disabled');
+  }
+}

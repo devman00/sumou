@@ -1423,3 +1423,6 @@ a {
 }
 
 
+[dir="rtl"] .rtl_arrow .form-select {
+  background-position: left 0.5rem center;
+}

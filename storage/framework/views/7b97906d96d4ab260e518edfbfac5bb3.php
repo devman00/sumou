@@ -59,9 +59,9 @@
               <p class="third"> <?php echo e($third_letter); ?> </p>
             </div>
             <div class="english-version">
-              <p class="first">h</p>
-              <p class="second"> d </p>
-              <p class="third"> m</p>
+              <p class="first">-</p>
+              <p class="second"> - </p>
+              <p class="third"> -</p>
             </div>
           </div>
 
@@ -76,10 +76,10 @@
               <p class="fourth"> <?php echo e($fourth_number); ?> </p>
             </div>
             <div class="english">
-              <p class="first">1</p>
-              <p class="second">2 </p>
-              <p class="third"> 3</p>
-              <p class="fourth"> 4</p>
+              <p class="first">-</p>
+              <p class="second">- </p>
+              <p class="third"> -</p>
+              <p class="fourth"> -</p>
             </div>
           </div>
         </div>
