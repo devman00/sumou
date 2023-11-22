@@ -31,9 +31,9 @@
               <p class="third"> {{ $third_letter }} </p>
             </div>
             <div class="english-version">
-              <p class="first">-</p>
-              <p class="second"> - </p>
-              <p class="third"> -</p>
+              <p class="first">{{ config('app')['english_letters'][$first_letter] }}</p>
+              <p class="second"> {{ config('app')['english_letters'][$second_letter] }} </p>
+              <p class="third"> {{ config('app')['english_letters'][$third_letter] }}</p>
             </div>
           </div>
 
@@ -48,10 +48,10 @@
               <p class="fourth"> {{ $fourth_number }} </p>
             </div>
             <div class="english">
-              <p class="first">-</p>
-              <p class="second">- </p>
-              <p class="third"> -</p>
-              <p class="fourth"> -</p>
+              <p class="first">@php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $first_number) @endphp </p>
+              <p class="second">@php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $second_number) @endphp </p>
+              <p class="third"> @php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $third_number) @endphp</p>
+              <p class="fourth"> @php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $fourth_number) @endphp</p>
             </div>
           </div>
         </div>
