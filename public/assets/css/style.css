@@ -1209,6 +1209,9 @@ a {
 	border-radius: 5px;
 }
 
+.fieldPhoneFlag {
+  min-width: max-content;
+}
 
 
 
@@ -1411,6 +1414,9 @@ a {
   }
   .switch-field label {
     padding: 10px 12px;
+    min-width: auto;
+  }
+  .fieldPhoneFlag {
     min-width: auto;
   }
 

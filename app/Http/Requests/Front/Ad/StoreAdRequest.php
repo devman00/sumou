@@ -29,9 +29,9 @@ class StoreAdRequest extends FormRequest
             'second_letter' => ['required', 'string' , 'max:1'],
             'third_letter' => ['required', 'string' , 'max:1'],
             'first_number' => ['required', 'string' ,  Rule::in($ar_n)],
-            'second_number' => ['required', 'string' ,  Rule::in($ar_n)],
-            'third_number' => ['required', 'string' ,  Rule::in($ar_n)],
-            'fourth_number' => ['required', 'string' ,  Rule::in($ar_n)],
+            'second_number' => ['string' ,  Rule::in($ar_n)],
+            'third_number' => ['string' ,  Rule::in($ar_n)],
+            'fourth_number' => ['string' ,  Rule::in($ar_n)],
 
             'validity_of_periodic_examination' => ['required', 'string'],
             'validity_of_driving_form' => ['required', 'string'],
@@ -41,7 +41,7 @@ class StoreAdRequest extends FormRequest
             // preg_match('/^0[56][0-9]{7}$/' ==>  should be start with 05 + 7 numbers
             // 'phone' => 'required|regex:/^(0[5][0-9]*)$/|min:10|unique:ads,phone|max:10',
             'phone' => 'required|regex:/^([5][0-9]*)$/|min:9|max:9',
-            'price' => ['required', 'numeric'],
+            'price' => ['numeric'],
             'in_auction' => ['nullable'],
             'status' => ['string'],
 

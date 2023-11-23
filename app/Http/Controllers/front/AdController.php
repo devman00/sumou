@@ -30,6 +30,19 @@ class AdController extends Controller
         $data = $request->all();
         // dd($data);
 
+        if (!empty($request->input('numbers_type')) && $request->input('numbers_type')==1) {
+            $data['second_number'] = '';
+            $data['third_number'] = '';
+            $data['fourth_number'] = '';
+        }
+        if (!empty($request->input('numbers_type')) && $request->input('numbers_type')==2) {
+            $data['third_number'] = '';
+            $data['fourth_number'] = '';
+        }
+        if (!empty($request->input('numbers_type')) && $request->input('numbers_type')==3) {
+            $data['fourth_number'] = '';
+        }
+
         Ad::create($data + [
             'user_id' => auth()->id(),
             'status' => config('app')['ad_status']['pending'],

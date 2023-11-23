@@ -56,10 +56,10 @@
                                 <label class="font-tajawal align-self-center"> نوع الأرقام </label>
                                 <select id="numbersType" name="numbers_type" class="form-select" style="min-width: 100px;">
                                     <option value="" selected> الكل </option>
-                                    <option data-value="1" value="فردي"> فردي </option>
-                                    <option data-value="2" value="ثنائي"> ثنائي </option>
-                                    <option data-value="3" value="ثلاثي"> ثلاثي </option>
-                                    <option data-value="4" value="رباعي"> رباعي </option>                                
+                                    <option data-value="1" value="1"> فردي </option>
+                                    <option data-value="2" value="2"> ثنائي </option>
+                                    <option data-value="3" value="3"> ثلاثي </option>
+                                    <option data-value="4" value="4"> رباعي </option>                                
                                 </select>
                             </div>
                         </div>
@@ -252,22 +252,15 @@
                     <div class="d-flex controls d-flex flex-row align-items-center justify-content-start py-2 gap-1">
                         
                         {{-- Contact  --}}
-                        <div class="col textfields py-1 d-flex flex-column align-items-start justify-content-start gap-3 px-0 ">
+                        <div class="col textfields py-1 d-flex flex-column align-items-start justify-content-start gap-3 px-0 fieldPhoneFlag">
                             {{-- <div class="textfield-input m-0 d-flex justify-content-center align-items-center">
                                 <label style="width: auto;" class="font-tajawal align-self-center" for="phone">
                                     رقم التواصل</label>
                                 <input type="text" class="font-tajawal bg-transparent text-right custom_input ltr" name="phone" value="{{old('phone')}}" id="phone" placeholder="5xxxxxxxx" >                              
 
                             </div> --}}
-
-                            <div class="input-group">
-                                <input type="text" class="form-control font-tajawal bg-transparent text-right custom_input price_input ms-md-1 ms-lg-1" name="phone" value="{{old('phone')}}" id="phone" placeholder="5xxxxxxxx">
-                                <div class="input-group-append position-relative">
-                                    <img src="{{ asset('assets/') }}/img/icons/SaudiArabia.jpg" style="position: absolute; top: 10px; left: 4px; width: 33px;">
-                                  <span class="input-group-text ps-3"><span class="me-3">966+</span></span>
-                                </div>
-                            </div>
-
+                            
+                            <x-front.form.phone name="phone" class="ltr" placeholder="5xxxxxxxx" id="phone" :value="old('phone')" />
                             <x-front.form.error field="phone" /> 
                         </div>
 
