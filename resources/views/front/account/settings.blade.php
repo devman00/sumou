@@ -139,7 +139,7 @@
                                                     <x-front.form.group class="mb-3">
                                                         <x-front.form.label for="whatsapp"> رقم الواتساب </x-front.form.label> {{-- @if (empty($user->whatsapp))  {{$user->phone}} @else {{$user->whatsapp}} @endif --}}
                                                         <x-front.form.phone name="whatsapp" class="ltr" placeholder="5xxxxxxxx" id="whatsapp" :value="empty($user->whatsapp)
-                                                            ? $user->phone
+                                                            ? ''
                                                             : $user->whatsapp" />
                             
                                                         {{-- <x-front.form.input name="whatsapp" class="ltr"

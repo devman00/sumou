@@ -71,6 +71,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => 'email@'.str()->random().'.com',
             'phone' => $data['phone'],
+            'whatsapp' => $data['phone'],
             'password' => $data['password'],  // password hashed with "setPasswordAttribute" method in User model
             // 'password' => Hash::make($data['password']),
             'verification_code' => $code

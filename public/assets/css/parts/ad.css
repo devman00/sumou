@@ -158,6 +158,10 @@
     color: var(--violet);
 }
 
+.ad-lawha >.lawha .numbers .arabic p, .ad-lawha >.lawha .numbers .english p {
+    min-width: 20px;
+    margin: 0 !important;
+}
 
 @media screen and (max-width: 800px) {
     .ad-lawha > .lawha > .informations > .letters> div {
