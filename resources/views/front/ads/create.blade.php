@@ -118,6 +118,7 @@
                             <div class="numberBlocAd textfield-input mb-2 d-flex justify-content-start align-items-center">
                                 <label class="font-tajawal align-self-center"> الأرقام &nbsp; </label>
                                 <select id="first_number" name="first_number"  class="form-select cnt_firstNumber">
+                                    <option class="font-tajawal" value="" {{ old('first_number') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_numbers'] as $key => $value )
                                         <option class="font-tajawal" value="{{$value}}" {{ old('first_number') == $value ? 'selected' : '' }} > {{$value}}</option>
                                     @endforeach
@@ -125,22 +126,25 @@
                                 <x-front.form.error field="first_number" />
                             
                                 <select id="second_number" name="second_number" class="form-select cnt_secondNumber mx-2 ms-md-4 me-md-0 ms-lg-4 me-lg-0">
+                                    <option class="font-tajawal" value="" {{ old('second_number') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_numbers'] as $key => $value )
-                                        <option class="font-tajawal" value="{{$value}}" {{ old('first_number') == $value ? 'selected' : '' }} > {{$value}}</option>
+                                        <option class="font-tajawal" value="{{$value}}" {{ old('second_number') == $value ? 'selected' : '' }} > {{$value}}</option>
                                     @endforeach                                
                                 </select>
                                 <x-front.form.error field="second_number" />
                             
                                 <select id="third_number" name="third_number" class="form-select cnt_thirdNumber me-2 me-md-0 me-lg-0">
+                                    <option class="font-tajawal" value="" {{ old('third_number') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_numbers'] as $key => $value )
-                                        <option class="font-tajawal" value="{{$value}}" {{ old('first_number') == $value ? 'selected' : '' }} > {{$value}}</option>
+                                        <option class="font-tajawal" value="{{$value}}" {{ old('third_number') == $value ? 'selected' : '' }} > {{$value}}</option>
                                     @endforeach                                    
                                 </select>
                                 <x-front.form.error field="third_number" />
                             
                                 <select id="fourth_number" name="fourth_number" class="form-select cnt_fourthNumber">
+                                    <option class="font-tajawal" value="" {{ old('fourth_number') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_numbers'] as $key => $value )
-                                        <option class="font-tajawal" value="{{$value}}" {{ old('first_number') == $value ? 'selected' : '' }} > {{$value}}</option>
+                                        <option class="font-tajawal" value="{{$value}}" {{ old('fourth_number') == $value ? 'selected' : '' }} > {{$value}}</option>
                                     @endforeach
                                 </select>
                                 <x-front.form.error field="fourth_number" />
