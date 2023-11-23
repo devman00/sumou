@@ -172,8 +172,11 @@
     .ad-lawha >.lawha .letters .arabic-version p, .ad-lawha >.lawha .numbers .arabic p {
         font-size: 30px!important;
     }
-    .ad-lawha >.lawha .letters .english-version p, .ad-lawha >.lawha .numbers .english p {
+    .ad-lawha >.lawha .letters .english-version p {
         font-size: 20px!important;
+    }
+    .ad-lawha >.lawha .numbers .english p {
+        font-size: 26px!important;
     }
      
     
