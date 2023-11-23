@@ -98,13 +98,13 @@
                                 <p class="m-0 text-dark-blue ltr"> +966{{ $phone }} </p>
                             </div>
 
-                            
+                            @if ($whatsapp != '' && $whatsapp != 0)
                             <a href="https://wa.me/00966{{ $whatsapp }}" target="_blank" class="whatsapp">
                                 <i class=" lab la-whatsapp d-flex justify-content-center align-content-center flex-column text-center"
                                     style="font-size: 30px; color: green;"> <span class="fs-13px fw-bold"> الواتس اب </span>
                                 </i>
                             </a>
-                            
+                            @endif
 
                             <div class=" d-flex publisher justify-content-center align-content-center flex-column">
                                 <div class="name  d-flex justify-content-start flex-row align-content-center">
