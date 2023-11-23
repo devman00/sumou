@@ -99,7 +99,7 @@
                             </div>
 
                             @if ($whatsapp != '' && $whatsapp != 0)
-                            <a href="https://wa.me/00966{{ $whatsapp }}" target="_blank" class="whatsapp">
+                            <a href="https://wa.me/+966{{ $whatsapp }}" target="_blank" class="whatsapp">
                                 <i class=" lab la-whatsapp d-flex justify-content-center align-content-center flex-column text-center"
                                     style="font-size: 30px; color: green;"> <span class="fs-13px fw-bold"> الواتس اب </span>
                                 </i>
