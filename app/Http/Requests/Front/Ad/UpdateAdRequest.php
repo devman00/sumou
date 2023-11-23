@@ -29,9 +29,9 @@ class UpdateAdRequest extends FormRequest
             'second_letter' => ['required', 'string' , 'max:1'],
             'third_letter' => ['required', 'string' , 'max:1'],
             'first_number' => ['required', 'string' ,  Rule::in($ar_n)],
-            'second_number' => ['string' ,  Rule::in($ar_n)],
-            'third_number' => ['string' ,  Rule::in($ar_n)],
-            'fourth_number' => ['string' ,  Rule::in($ar_n)],
+            // 'second_number' => ['string' ,  Rule::in($ar_n)],
+            // 'third_number' => ['string' ,  Rule::in($ar_n)],
+            // 'fourth_number' => ['string' ,  Rule::in($ar_n)],
 
             'validity_of_periodic_examination' => ['required', 'string'],
             'validity_of_driving_form' => ['required', 'string'],
