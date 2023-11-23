@@ -58,15 +58,15 @@
                                     <div class="numbers">
                                         <div class="arabic">
                                             <p class="first"> {{ $first_number }} </p>
-                                            <p class="second"> {{ $second_number }} </p>
-                                            <p class="third"> {{ $third_number }} </p>
-                                            <p class="fourth"> {{ $fourth_number }} </p>
+                                            @if ($second_number != "")<p class="second"> {{ $second_number }} </p>@endif
+                                            @if ($third_number != "")<p class="third"> {{ $third_number }} </p>@endif
+                                            @if ($fourth_number != "")<p class="fourth"> {{ $fourth_number }} </p>@endif
                                         </div>
                                         <div class="english">
                                             <p class="first">@php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $first_number) @endphp </p>
-                                            <p class="second">@php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $second_number) @endphp </p>
-                                            <p class="third"> @php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $third_number) @endphp</p>
-                                            <p class="fourth"> @php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $fourth_number) @endphp</p>
+                                            @if ($second_number != "")<p class="second">@php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $second_number) @endphp </p>@endif
+                                            @if ($third_number != "")<p class="third"> @php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $third_number) @endphp</p>@endif
+                                            @if ($fourth_number != "")<p class="fourth"> @php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $fourth_number) @endphp</p>@endif
                                         </div>
                                     </div>
                                 </div>
