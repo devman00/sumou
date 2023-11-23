@@ -63,10 +63,10 @@
                                             @if ($fourth_number != "")<p class="fourth"> {{ $fourth_number }} </p>@endif
                                         </div>
                                         <div class="english">
-                                            <p class="first">@php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $first_number) @endphp </p>
-                                            @if ($second_number != "")<p class="second">@php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $second_number) @endphp </p>@endif
-                                            @if ($third_number != "")<p class="third"> @php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $third_number) @endphp</p>@endif
-                                            @if ($fourth_number != "")<p class="fourth"> @php echo str_replace(array('١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('1', '2', '3', '4', '5', '6', '7', '8', '9'), $fourth_number) @endphp</p>@endif
+                                            <p class="first">@php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $first_number) @endphp </p>
+                                            @if ($second_number != "")<p class="second">@php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $second_number) @endphp </p>@endif
+                                            @if ($third_number != "")<p class="third"> @php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $third_number) @endphp</p>@endif
+                                            @if ($fourth_number != "")<p class="fourth"> @php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $fourth_number) @endphp</p>@endif
                                         </div>
                                     </div>
                                 </div>

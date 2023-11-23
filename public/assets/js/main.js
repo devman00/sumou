@@ -284,6 +284,7 @@ function lettersTraduction(letter) {
 function numbersTraduction(number) {
   if (number != "") {
     var numberList = {
+      '٠': '0',
       '١': '1',
       '٢': '2',
       '٣': '3',

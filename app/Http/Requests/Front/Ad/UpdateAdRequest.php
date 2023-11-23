@@ -22,7 +22,7 @@ class UpdateAdRequest extends FormRequest
      */
     public function rules(): array
     {
-        $ar_n = ["١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+        $ar_n = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
         return [
             'plate_type' => ['required', 'string'],
             'first_letter' => ['required', 'string' , 'max:1'],
