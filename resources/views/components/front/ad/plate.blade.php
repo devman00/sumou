@@ -31,9 +31,9 @@
               <p class="third"> {{ $third_letter }} </p>
             </div>
             <div class="english-version">
-              <p class="first">{{ config('app')['english_letters'][$first_letter] }}</p>
-              <p class="second"> {{ config('app')['english_letters'][$second_letter] }} </p>
-              <p class="third"> {{ config('app')['english_letters'][$third_letter] }}</p>
+              <p class="first">@if ($first_letter != '' && $first_letter != '-')  {{ config('app')['english_letters'][$first_letter] }} @else {{ $first_letter }} @endif</p>
+              <p class="second">@if ($second_letter != '' && $second_letter != '-')  {{ config('app')['english_letters'][$second_letter] }} @else {{ $second_letter }} @endif</p>
+              <p class="third">@if ($third_letter != '' && $third_letter != '-')  {{ config('app')['english_letters'][$third_letter] }} @else {{ $third_letter }} @endif</p>
             </div>
           </div>
 
