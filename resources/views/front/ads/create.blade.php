@@ -87,6 +87,7 @@
                             <div class="letterBlocAd textfield-input mb-2 d-flex justify-content-start align-items-center m-0">
                                 <label class="font-tajawal align-self-center"> الأحرف &nbsp; </label>
                                 <select id="first_letter" name="first_letter" class="form-select">
+                                    <option value="" {{ old('first_letter') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_letters'] as $key => $value )
                                         <option value="{{$value}}" {{ old('first_letter') == $value ? 'selected' : '' }} > {{$value}} - {{ config('app')['english_letters'][$value] }}</option>
                                     @endforeach                                
@@ -94,6 +95,7 @@
                                 <x-front.form.error field="first_letter" />
 
                                 <select id="second_letter" name="second_letter" class="form-select mx-2 ms-md-4 ms-lg-4 me-md-0 me-lg-0">
+                                    <option value="" {{ old('second_letter') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_letters'] as $key => $value )
                                         <option value="{{$value}}" {{ old('second_letter') == $value ? 'selected' : '' }} > {{$value}} - {{ config('app')['english_letters'][$value] }}</option>
                                     @endforeach                                
@@ -101,6 +103,7 @@
                                 <x-front.form.error field="second_letter" />
 
                                 <select id="third_letter" name="third_letter" class="form-select">
+                                    <option value="" {{ old('third_letter') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_letters'] as $key => $value )
                                         <option value="{{$value}}" {{ old('third_letter') == $value ? 'selected' : '' }} > {{$value}} - {{ config('app')['english_letters'][$value] }}</option>
                                     @endforeach                                
