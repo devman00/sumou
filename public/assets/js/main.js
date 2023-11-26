@@ -302,6 +302,7 @@ function numbersTraduction(number) {
 
 // disable price if Auction is Checked 
 $('input#in_auction').change(function(){
+  console.log("111");
   if($(this).is(":checked")) {
       $('.price_input').addClass('bg-gray');
       $("input#price").prop('disabled', true)

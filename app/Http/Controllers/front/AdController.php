@@ -65,10 +65,27 @@ class AdController extends Controller
 
     public function update(Ad $ad, UpdateAdRequest $request){
         $data = $request->all();
-        // dd($data);
+
+        if (!empty($request->input('numbers_type')) && $request->input('numbers_type')==1) {
+            $data['second_number'] = '';
+            $data['third_number'] = '';
+            $data['fourth_number'] = '';
+        }
+        if (!empty($request->input('numbers_type')) && $request->input('numbers_type')==2) {
+            $data['third_number'] = '';
+            $data['fourth_number'] = '';
+        }
+        if (!empty($request->input('numbers_type')) && $request->input('numbers_type')==3) {
+            $data['fourth_number'] = '';
+        }
+        if (empty($request->input('in_auction')) || $request->input('in_auction')!='نعم') {
+            $data['in_auction'] = 'لا';
+        }
+
+        //dd($data);
         $ad->update($data + ['user_id' => auth()->id()] );
 
-        return redirect()->back()->with('success', 'تم تحديث اللوحة بنجاح');
+        return redirect()->route('ads.index')->with('success', 'تم تحديث اللوحة بنجاح');
     }
 
     // ---- DELETE AD -----
@@ -83,15 +100,12 @@ class AdController extends Controller
         $ads_q = Ad::query();
 
         if ($request->filled('board_type')) {
-            echo "board_type: ". $request->input('board_type') . "<br>";
             $ads_q->where('plate_type', $request->input('board_type'));
         }
         if ($request->filled('first_letter')) {
-            echo "first_letter: ". $request->input('first_letter') . "<br>";
             $ads_q->where('first_letter', $request->input('first_letter'));
         }
         if ($request->filled('second_letter')) {
-            echo "second_letter: ". $request->input('second_letter') . "<br>";
             $ads_q->where('second_letter', $request->input('second_letter'));
         }
         if ($request->filled('third_letter')) {

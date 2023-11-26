@@ -55,10 +55,10 @@
                         <label> نوع الأرقام </label>
                         <select id="numbersType" name="numbers_type" class="form-control">
                             <option value="" selected> الكل </option>
-                            <option data-value="1" value="فردي"> فردي </option>
-                            <option data-value="2" value="ثنائي"> ثنائي </option>
-                            <option data-value="3" value="ثلاثي"> ثلاثي </option>
-                            <option data-value="4" value="رباعي"> رباعي </option>
+                            <option data-value="1" value="1"> فردي </option>
+                            <option data-value="2" value="2"> ثنائي </option>
+                            <option data-value="3" value="3"> ثلاثي </option>
+                            <option data-value="4" value="4"> رباعي </option>
                         </select>
                     </div>
 
@@ -67,23 +67,9 @@
                         <label> الحرف الأول </label>
                         <select id="firstLetter" name="first_letter" class="form-control">
                             <option value="" selected> الكل </option>
-                            <option value="أ"> أ </option>
-                            <option value="ب"> ب </option>
-                            <option value="ح"> ح </option>
-                            <option value="د"> د </option>
-                            <option value="ر"> ر </option>
-                            <option value="س"> س </option>
-                            <option value="ص"> ص </option>
-                            <option value="ط"> ط </option>
-                            <option value="ع"> ع </option>
-                            <option value="ق"> ق </option>
-                            <option value="ك"> ك </option>
-                            <option value="ل"> ل </option>
-                            <option value="م"> م </option>
-                            <option value="ن"> ن </option>
-                            <option value="ه"> ه </option>
-                            <option value="و"> و </option>
-                            <option value="ي"> ي </option>
+                            @foreach (config('app')['arabic_letters'] as $key => $value )
+                                <option value="{{$value}}" {{ old('first_letter') == $value ? 'selected' : '' }} > {{$value}} </option>
+                            @endforeach 
                         </select>
                     </div>
 
@@ -91,23 +77,9 @@
                         <label> الحرف الثاني </label>
                         <select id="secondLetter" name="second_letter" class="form-control">
                             <option value="" selected> الكل </option>
-                            <option value="أ"> أ </option>
-                            <option value="ب"> ب </option>
-                            <option value="ح"> ح </option>
-                            <option value="د"> د </option>
-                            <option value="ر"> ر </option>
-                            <option value="س"> س </option>
-                            <option value="ص"> ص </option>
-                            <option value="ط"> ط </option>
-                            <option value="ع"> ع </option>
-                            <option value="ق"> ق </option>
-                            <option value="ك"> ك </option>
-                            <option value="ل"> ل </option>
-                            <option value="م"> م </option>
-                            <option value="ن"> ن </option>
-                            <option value="ه"> ه </option>
-                            <option value="و"> و </option>
-                            <option value="ي"> ي </option>
+                            @foreach (config('app')['arabic_letters'] as $key => $value )
+                                <option value="{{$value}}" {{ old('second_letter') == $value ? 'selected' : '' }} > {{$value}} </option>
+                            @endforeach 
                         </select>
                     </div>
 
@@ -115,23 +87,9 @@
                         <label> الحرف الثالث </label>
                         <select id="thirdLetter" name="third_letter" class="form-control">
                             <option value="" selected> الكل </option>
-                            <option value="أ"> أ </option>
-                            <option value="ب"> ب </option>
-                            <option value="ح"> ح </option>
-                            <option value="د"> د </option>
-                            <option value="ر"> ر </option>
-                            <option value="س"> س </option>
-                            <option value="ص"> ص </option>
-                            <option value="ط"> ط </option>
-                            <option value="ع"> ع </option>
-                            <option value="ق"> ق </option>
-                            <option value="ك"> ك </option>
-                            <option value="ل"> ل </option>
-                            <option value="م"> م </option>
-                            <option value="ن"> ن </option>
-                            <option value="ه"> ه </option>
-                            <option value="و"> و </option>
-                            <option value="ي"> ي </option>
+                            @foreach (config('app')['arabic_letters'] as $key => $value )
+                                <option value="{{$value}}" {{ old('third_letter') == $value ? 'selected' : '' }} > {{$value}} </option>
+                            @endforeach 
                         </select>
                     </div>
 
@@ -140,16 +98,9 @@
                         <label> الرقم الأول </label>
                         <select id="firstNumber" name="first_number" class="form-control">
                             <option value="" selected> الكل </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                            <option value="5"> 5 </option>
-                            <option value="6"> 6 </option>
-                            <option value="7"> 7 </option>
-                            <option value="8"> 8 </option>
-                            <option value="9"> 9 </option>
+                            @foreach (config('app')['arabic_numbers'] as $key => $value )
+                                <option class="font-tajawal" value="{{$value}}" {{ old('first_number') == $value ? 'selected' : '' }} > {{$value}}</option>
+                            @endforeach
                         </select>
                     </div>
 
@@ -157,16 +108,9 @@
                         <label> الرقم الثاني </label>
                         <select id="secondNumber" name="second_number" class="form-control">
                             <option value="" selected> الكل </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                            <option value="5"> 5 </option>
-                            <option value="6"> 6 </option>
-                            <option value="7"> 7 </option>
-                            <option value="8"> 8 </option>
-                            <option value="9"> 9 </option>
+                            @foreach (config('app')['arabic_numbers'] as $key => $value )
+                                <option class="font-tajawal" value="{{$value}}" {{ old('second_number') == $value ? 'selected' : '' }} > {{$value}}</option>
+                            @endforeach
                         </select>
                     </div>
 
@@ -174,16 +118,9 @@
                         <label> الرقم الثالث </label>
                         <select id="thirdNumber" name="third_number" class="form-control">
                             <option value="" selected> الكل </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                            <option value="5"> 5 </option>
-                            <option value="6"> 6 </option>
-                            <option value="7"> 7 </option>
-                            <option value="8"> 8 </option>
-                            <option value="9"> 9 </option>
+                            @foreach (config('app')['arabic_numbers'] as $key => $value )
+                                <option class="font-tajawal" value="{{$value}}" {{ old('third_number') == $value ? 'selected' : '' }} > {{$value}}</option>
+                            @endforeach
                         </select>
                     </div>
 
@@ -191,16 +128,9 @@
                         <label> الرقم الرابع </label>
                         <select id="fourthNumber" name="fourth_number" class="form-control">
                             <option value="" selected> الكل </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                            <option value="5"> 5 </option>
-                            <option value="6"> 6 </option>
-                            <option value="7"> 7 </option>
-                            <option value="8"> 8 </option>
-                            <option value="9"> 9 </option>
+                            @foreach (config('app')['arabic_numbers'] as $key => $value )
+                                <option class="font-tajawal" value="{{$value}}" {{ old('fourth_number') == $value ? 'selected' : '' }} > {{$value}}</option>
+                            @endforeach
                         </select>
                     </div>
 
