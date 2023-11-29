@@ -91,6 +91,8 @@
 
   <a target="_blank" href="https://wa.me/+966539437574" style="background: #25D366; border-radius: 50%; font-size: 44px; position: fixed; bottom: 10px; right: 10px; width: 60px; height: 60px; z-index: 999; text-align: center;"><i class='bx bxl-whatsapp' style="color: #fff; line-height: 60px;"></i></a>
     
+  @stack('scripts')
+
 </body>
 
 </html>

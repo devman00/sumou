@@ -149,7 +149,13 @@ class AdController extends Controller
             $ads_q->whereNotNull('second_number')->whereNotNull('third_number')->whereNotNull('fourth_number');
         }
 
-        $ads = $ads_q->get();
+        //$ads = $ads_q->get();
+        $ads = $ads_q->paginate(9);
+
+        if ($request->ajax()) {
+            $view = view('front.parts.data', compact('ads'))->render();
+            return response()->json(['html' => $view]);
+        }
 
         return view('front.ads.lists', compact('ads'));
     }

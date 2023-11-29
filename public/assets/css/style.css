@@ -1213,8 +1213,18 @@ a {
   min-width: max-content;
 }
 
+[dir="rtl"] .rtl_arrow .form-select {
+  background-position: left 0.5rem center;
+}
+
+.btn-dark-blue {
+  border: 1px solid var(--dark-blue);
+  color: var(--dark-blue);
+}
 
 
+
+/* loader */
 .cs-loader {
   position: fixed;
   top: 0;
@@ -1522,6 +1532,3 @@ a {
 }
 
 
-[dir="rtl"] .rtl_arrow .form-select {
-  background-position: left 0.5rem center;
-}

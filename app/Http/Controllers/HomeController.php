@@ -42,7 +42,15 @@ class HomeController extends Controller
             $ads_q->whereNotNull('second_number')->whereNotNull('third_number')->whereNotNull('fourth_number');
         }
 
-        $ads = $ads_q->latest()->get();
+        //$ads = $ads_q->latest()->get();
+        $ads = $ads_q->latest()->paginate(9);
+
+        if ($request->ajax()) {
+            $view = view('front.parts.data', compact('ads'))->render();
+            return response()->json(['html' => $view]);
+        }
+
+        
 
         return view('front.home', compact('ads'));
     }

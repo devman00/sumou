@@ -159,38 +159,84 @@
             </div>
 
 
-            <div class="homepage-lawhat-wrapper p-3 p-md-0 p-lg-0">
-
-                @foreach ($ads as $ad)
-
-                    <x-front.ad.default
-                        :ad="$ad->id" 
-                        :date="$ad->created_at->diffForHumans()"
-                        :first_letter="$ad->first_letter" 
-                        :second_letter="$ad->second_letter" 
-                        :third_letter="$ad->third_letter" 
-                        :first_number="$ad->first_number" 
-                        :second_number="$ad->second_number" 
-                        :third_number="$ad->third_number" 
-                        :fourth_number="$ad->fourth_number" 
-                        :price="$ad->price"
-                        :phone="$ad->phone"
-                        :whatsapp="$ad->whatsapp"
-                        :username="$ad->username"
-                        :allow_contact=1
-                        :allow_actions=0
-                    />
-
-                @endforeach
-                
+            <div id="data-wrapper">
+                @include('front.parts.data')
             </div>
-            <!-- ---------------------------------- -->
 
+            {{-- ----- Load more button  --}}
+            <div class="align-self-center d-flex justify-content-center">
+                <button class="btn btn-dark-blue fw-bold align-self-center d-flex justify-content-center load-more-data" id="loadMore">عرض المزيد</button>
+            </div>
 
-            <button class="btn show-more align-self-center d-flex justify-content-center">عرض المزيد</button>
+            <!-- Data Loader -->
+            <div class="auto-load text-center" style="display: none;">
+                <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="60" viewBox="0 0 100 100"
+                    enable-background="new 0 0 0 0" xml:space="preserve">
+                    <path fill="#000"
+                        d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+                            from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                    </path>
+                </svg>
+            </div>
 
         </div>
     </section>
     <!-- end lawhat -->
 
 @endsection
+
+
+@push('scripts')
+    <script>
+        var URL = "{{ route('ads.lists') }}";
+        var page = 1;
+        
+        /*------------------------------------------
+        Call on Click
+        --------------------------------------------*/
+        $(".load-more-data").click(function(){
+            page++;
+            infinteLoadMore(page);
+
+            // scrollIntoView();
+            var elem = document.getElementById("loadMore"); 
+
+            $('html, body').animate({
+                scrollTop: $(elem).offset().top
+            }, 300)
+        });
+
+        /*------------------------------------------
+        --------------------------------------------
+        call infinteLoadMore()
+        --------------------------------------------
+        --------------------------------------------*/
+        function infinteLoadMore(page) 
+        {
+            $.ajax({
+                    url: URL + "?page=" + page,
+                    datatype: "html",
+                    type: "get",
+                    beforeSend: function() {
+                        $('.auto-load').show();
+                    }
+                })
+                .done(function(response) {
+                    if (response.html == '') {
+                        $('.auto-load').html("لا يوجد المزيد من البيانات لعرضها :(");
+                        return;
+                    }
+
+                    $('.auto-load').hide();
+                    $("#data-wrapper").append(response.html);
+                })
+                .fail(function(jqXHR, ajaxOptions, thrownError) {
+                    console.log('Server error occured');
+                });
+        }
+
+
+    </script>
+@endpush
