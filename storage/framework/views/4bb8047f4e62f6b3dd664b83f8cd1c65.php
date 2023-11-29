@@ -1,9 +1,8 @@
 <?php $__env->startSection('pagetitle'); ?>
-منصة سمو | للوحات المميزة
+    منصة سمو | للوحات المميزة
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
-    
     <!-- Welcome Section --------- -->
     <section class="py-0 welcome-section px-3 px-md-0 px-lg-0 pt-7 gradientBlueViolet_180" id="welcome">
 
@@ -230,146 +229,153 @@
                 <div class="row ps-3">
                     <!--<p class="d-none d-md-flex d-lg-flex">فئة اللوحة</p>
 
-                     <div class=" form-check d-flex -start justify-content-center gap-2 px-3 ">
-                    <input class="form-check-input align-self-center" name="golden-check" type="checkbox" id="golden-check">
-                    <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="golden-check">ذهبي
-                    </label>
-                  </div> -->
+                         <div class=" form-check d-flex -start justify-content-center gap-2 px-3 ">
+                        <input class="form-check-input align-self-center" name="golden-check" type="checkbox" id="golden-check">
+                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="golden-check">ذهبي
+                        </label>
+                      </div> -->
 
                     <!--
-                    <div class="form-check form-check-inline col-3 mx-0">
-                        <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
-                            id="golden-check">
-                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                            for="golden-check">ذهبي
-                        </label>
-                    </div>
+                        <div class="form-check form-check-inline col-3 mx-0">
+                            <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
+                                id="golden-check">
+                            <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
+                                for="golden-check">ذهبي
+                            </label>
+                        </div>
 
-                    <div class="form-check form-check-inline col-3 mx-0">
-                        <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
-                            id="golden-check">
-                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                            for="golden-check">فضي
-                        </label>
-                    </div>
+                        <div class="form-check form-check-inline col-3 mx-0">
+                            <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
+                                id="golden-check">
+                            <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
+                                for="golden-check">فضي
+                            </label>
+                        </div>
 
-                    <div class="form-check form-check-inline col-3 mx-0">
-                        <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
-                            id="golden-check">
-                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                            for="golden-check"> برونزي
-                        </label>
-                    </div>
+                        <div class="form-check form-check-inline col-3 mx-0">
+                            <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
+                                id="golden-check">
+                            <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
+                                for="golden-check"> برونزي
+                            </label>
+                        </div>
 
-                    <div class="form-check form-check-inline col-3 mx-0">
-                        <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
-                            id="golden-check">
-                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                            for="golden-check"> ألماسي
-                        </label>
-                    </div>
-                    -->
+                        <div class="form-check form-check-inline col-3 mx-0">
+                            <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
+                                id="golden-check">
+                            <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
+                                for="golden-check"> ألماسي
+                            </label>
+                        </div>
+                        -->
 
 
 
                     <!-- <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">1</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label" for="inlineCheckbox2">2</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-                    <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
-                  </div> -->
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label" for="inlineCheckbox1">1</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                        <label class="form-check-label" for="inlineCheckbox2">2</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
+                        <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+                      </div> -->
 
                 </div>
 
                 <!-- <div class="lawha-feature-category d-flex flex-row justify-content-evenly align-content-center col">
-                  <p>فئة اللوحة</p>
-                  <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative" style="margin-left: 20px;">
-                    <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
-                      <input class="form-check-input align-self-center" name="golden-check" type="checkbox" id="golden-check">
-                      <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                        for="golden-check">ذهبي
-                      </label>
+                      <p>فئة اللوحة</p>
+                      <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative" style="margin-left: 20px;">
+                        <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
+                          <input class="form-check-input align-self-center" name="golden-check" type="checkbox" id="golden-check">
+                          <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
+                            for="golden-check">ذهبي
+                          </label>
+                        </div>
+                      </div>
+                      
+                      <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative"
+                        style="margin-left: 20px;">
+                        <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
+                          <input class="form-check-input align-self-center" name="silver-check" type="checkbox" id="silver-check">
+                          <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
+                            for="silver-check">فضي
+                          </label>
+          
+                        </div>
+          
+          
+                      </div>
+                      
+                      <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative"
+                        style="margin-left: 20px;">
+                        <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
+                          <input class="form-check-input align-self-center" name="bronze-check" type="checkbox" id="bronze-check">
+                          <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
+                            for="bronze-check">برونزي
+                          </label>
+          
+                        </div>
+          
+          
+                      </div>
+          
+                      <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative"
+                        style="margin-left: 20px;">
+                        <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
+                          <input class="form-check-input align-self-center" name="platinium-check" type="checkbox"
+                            id="platinium-check">
+                          <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
+                            for="platinium-check">ألماسي
+                          </label>
+          
+                        </div>
+                      </div>
+                      
                     </div>
-                  </div>
-                  
-                  <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative"
-                    style="margin-left: 20px;">
-                    <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
-                      <input class="form-check-input align-self-center" name="silver-check" type="checkbox" id="silver-check">
-                      <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                        for="silver-check">فضي
-                      </label>
-      
-                    </div>
-      
-      
-                  </div>
-                  
-                  <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative"
-                    style="margin-left: 20px;">
-                    <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
-                      <input class="form-check-input align-self-center" name="bronze-check" type="checkbox" id="bronze-check">
-                      <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                        for="bronze-check">برونزي
-                      </label>
-      
-                    </div>
-      
-      
-                  </div>
-      
-                  <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative"
-                    style="margin-left: 20px;">
-                    <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
-                      <input class="form-check-input align-self-center" name="platinium-check" type="checkbox"
-                        id="platinium-check">
-                      <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                        for="platinium-check">ألماسي
-                      </label>
-      
-                    </div>
-                  </div>
-                  
-                </div>
 
-                <div class="newer-older-filter d-flex justify-content-center align-items-center col-2">
-                    <p class="selected">الأحدث</p>
-                    <p class="">الأقدم</p>
-                </div> -->
+                    <div class="newer-older-filter d-flex justify-content-center align-items-center col-2">
+                        <p class="selected">الأحدث</p>
+                        <p class="">الأقدم</p>
+                    </div> -->
 
             </div>
 
-            <div class="homepage-lawhat-wrapper p-3 p-md-0 p-lg-0">
 
-                <?php $__currentLoopData = $ads; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.front.ad.default','data' => ['ad' => $ad->id,'date' => $ad->created_at->diffForHumans(),'firstLetter' => $ad->first_letter,'secondLetter' => $ad->second_letter,'thirdLetter' => $ad->third_letter,'firstNumber' => $ad->first_number,'secondNumber' => $ad->second_number,'thirdNumber' => $ad->third_number,'fourthNumber' => $ad->fourth_number,'price' => $ad->price,'phone' => $ad->phone,'allowContact' => 1,'whatsapp' => $ad->user->whatsapp,'username' => $ad->user->name,'inAuction' => $ad->in_auction]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('front.ad.default'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes(['ad' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->id),'date' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->created_at->diffForHumans()),'first_letter' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->first_letter),'second_letter' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->second_letter),'third_letter' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->third_letter),'first_number' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->first_number),'second_number' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->second_number),'third_number' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->third_number),'fourth_number' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->fourth_number),'price' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->price),'phone' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->phone),'allow_contact' => 1,'whatsapp' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->user->whatsapp),'username' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->user->name),'in_auction' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->in_auction)]); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
-<?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
-<?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
-<?php endif; ?>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
+            <div id="data-wrapper">
+                <?php echo $__env->make('front.parts.data', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
+
+            
+            <div class="align-self-center d-flex justify-content-center">
+                <button class="btn btn-dark-blue fw-bold align-self-center d-flex justify-content-center load-more-data" id="loadMore">عرض المزيد</button>
+            </div>
+
+
+            <!-- Data Loader -->
+            <div class="auto-load text-center" style="display: none;">
+                <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="60" viewBox="0 0 100 100"
+                    enable-background="new 0 0 0 0" xml:space="preserve">
+                    <path fill="#000"
+                        d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+                            from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                    </path>
+                </svg>
+            </div>
+
+
 
         </div>
     </section>
     <!-- end lawhat -->
+
+    
+    
 
     <!-- Partners section  begin ============================-->
     <section class="bg-100 pb-0">
@@ -396,7 +402,85 @@
 
     </section>
     <!-- <partners> close ============================-->
-        
 <?php $__env->stopSection(); ?>
+
+<?php $__env->startPush('scripts'); ?>
+    <script>
+        var URL = "<?php echo e(route('home')); ?>";
+        var page = 1;
+
+        /*------------------------------------------
+        Call on Scroll
+        --------------------------------------------*/
+        // $(window).scroll(function() {
+        //     // if ($(window).scrollTop() + $(window).height() >= ($(document).height() - 20)) {
+        //     if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+        //         page++;
+        //         infinteLoadMore(page);
+        //     }
+        // });
+        
+        /*------------------------------------------
+        Call on Click
+        --------------------------------------------*/
+        $(".load-more-data").click(function(){
+            page++;
+            infinteLoadMore(page);
+
+            // scrollIntoView();
+            var elem = document.getElementById("loadMore"); 
+            // elem.scrollIntoView(); 
+            // document.querySelector("#loadMore").scrollIntoView({
+            //     behavior: "smooth",
+            // });
+
+            $('html, body').animate({
+                scrollTop: $(elem).offset().top
+            }, 300)
+        });
+
+
+        // const element = $('#loadMore');
+      
+        // $('.load-more-data').click(function(e){
+        // $('html, body').animate({
+        //         scrollTop: $(element).offset().top
+        //     }, 300);
+        // })
+
+
+
+        /*------------------------------------------
+        --------------------------------------------
+        call infinteLoadMore()
+        --------------------------------------------
+        --------------------------------------------*/
+        function infinteLoadMore(page) 
+        {
+            $.ajax({
+                    url: URL + "?page=" + page,
+                    datatype: "html",
+                    type: "get",
+                    beforeSend: function() {
+                        $('.auto-load').show();
+                    }
+                })
+                .done(function(response) {
+                    if (response.html == '') {
+                        $('.auto-load').html("لا يوجد المزيد من البيانات لعرضها :(");
+                        return;
+                    }
+
+                    $('.auto-load').hide();
+                    $("#data-wrapper").append(response.html);
+                })
+                .fail(function(jqXHR, ajaxOptions, thrownError) {
+                    console.log('Server error occured');
+                });
+        }
+
+
+    </script>
+<?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('layouts.front-layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\wamp64\www\projects\sumou\resources\views/front/home.blade.php ENDPATH**/ ?>

@@ -1426,3 +1426,10 @@ a {
 [dir="rtl"] .rtl_arrow .form-select {
   background-position: left 0.5rem center;
 }
+
+
+/* ------------- 11/28/2023  */
+.btn-dark-blue {
+  border: 1px solid var(--dark-blue);
+  color: var(--dark-blue);
+}

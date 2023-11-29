@@ -288,8 +288,11 @@
             <!-- ---------------------------------- -->
 
 
-            <button class="btn show-more align-self-center d-flex justify-content-center">عرض المزيد</button>
-
+            {{-- ----- Load more button  --}}
+            <div class="align-self-center d-flex justify-content-center">
+                <button class="btn btn-dark-blue fw-bold align-self-center d-flex justify-content-center load-more-data">عرض المزيد</button>
+            </div>
+            
         </div>
     </section>
     <!-- end lawhat -->
