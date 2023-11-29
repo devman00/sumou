@@ -183,6 +183,7 @@ use Illuminate\Support\Facades\Route;
 
     // FRONT Routes -------- 
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::post('/', [HomeController::class, 'index'])->name('home');
 
 
     // OTP Verification 

@@ -36,11 +36,10 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        {{-- {{dd(Auth::user()->roles()->first()->name)}} --}}
+                                        {{-- {{ dd(Auth::user()->roles()->first()->id) }}  --}}
                                             @forelse ($users as $user )
                                                 @if (Auth::user()->roles()->first()->name != 'superadministrator')
-                                                            
-                                                    @if ($user->roles()->first()->id != config('app.administrators_id')[0])
+                                                    @if ($user->id != config('app.administrators_id')[0])
                                                     <tr @if ($user->status == 0) class="disabled-gray" @endif >
                                                         <td class="text-bold-500"> 
                                                             <img src="{{ url('storage/images/users/' . $user->avatar) }}" class="w70 p-1 rounded-circle bg-info" alt="">

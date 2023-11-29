@@ -58,6 +58,16 @@
 
 <body @if(Route::currentRouteName() == 'user.profile' OR Route::currentRouteName() == 'ads.create' OR Route::currentRouteName() == 'ads.index') class="accountPage" @endif>
 
+  <div class="cs-loader">
+    <div class="cs-loader-inner">
+      <label>S</label>
+      <label>U</label>
+      <label>M</label>
+      <label>O</label>
+      <label>U</label>
+    </div>
+  </div>
+  
   <!-- ===============================================-->
   <!--    Main Content-->
   <!-- ===============================================-->

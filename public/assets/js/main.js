@@ -86,7 +86,9 @@
 //       alert($(this).val());
 //   });
 
-
+$(window).on('load', function () {
+  $('.cs-loader').hide();
+});
 
 // ---------- 
 $(document).ready(function(){ 
@@ -142,7 +144,9 @@ $(document).ready(function(){
     });
   }
 
-  
+  $('.filterHomeForm0').on('change',function(){
+    $('.formFilter0').submit();
+  });
 
 
 });
@@ -208,6 +212,15 @@ $(document).ready(function(){
       }
     });
   }
+
+
+$('input[type=radio][name=plate_type]').change(function() {
+  if (this.value == 'نقل') {
+      $('.lawha .ksa-board').addClass('ksa-board2');
+  } else {
+    $('.lawha .ksa-board').removeClass('ksa-board2');
+  }
+});
 
 
 // ----  OWL Carousel 

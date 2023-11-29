@@ -84,7 +84,7 @@
                             @if ($in_auction == 'نعم')
                                 <span class="card-price px-0">على السوم</span>
                             @else
-                                <span class="card-price px-0">{{ $price }}.00</span> ريال
+                                <span class="card-price px-0">{{ number_format($price) }}</span> ريال
                             @endif
                         </p>
                     </div>

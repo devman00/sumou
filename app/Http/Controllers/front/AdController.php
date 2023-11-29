@@ -123,6 +123,31 @@ class AdController extends Controller
         if ($request->filled('fourth_number')) {
             $ads_q->where('fourth_number', $request->input('fourth_number'));
         }
+        if (!empty($request->input('numbers_type')) && $request->input('numbers_type')==1) {
+            $ads_q->whereNull('second_number')->whereNull('third_number')->whereNull('fourth_number');
+        }
+        if (!empty($request->input('numbers_type')) && $request->input('numbers_type')==2) {
+            $ads_q->whereNotNull('second_number')->whereNull('third_number')->whereNull('fourth_number');
+        }
+        if (!empty($request->input('numbers_type')) && $request->input('numbers_type')==3) {
+            $ads_q->whereNotNull('second_number')->whereNotNull('third_number')->whereNull('fourth_number');
+        }
+        if (!empty($request->input('numbers_type')) && $request->input('numbers_type')==4) {
+            $ads_q->whereNotNull('second_number')->whereNotNull('third_number')->whereNotNull('fourth_number');
+        }
+
+        if (!empty($request->input('numbers_type-check')) && $request->input('numbers_type-check')==1) {
+            $ads_q->whereNull('second_number')->whereNull('third_number')->whereNull('fourth_number');
+        }
+        if (!empty($request->input('numbers_type-check')) && $request->input('numbers_type-check')==2) {
+            $ads_q->whereNotNull('second_number')->whereNull('third_number')->whereNull('fourth_number');
+        }
+        if (!empty($request->input('numbers_type-check')) && $request->input('numbers_type-check')==3) {
+            $ads_q->whereNotNull('second_number')->whereNotNull('third_number')->whereNull('fourth_number');
+        }
+        if (!empty($request->input('numbers_type-check')) && $request->input('numbers_type-check')==4) {
+            $ads_q->whereNotNull('second_number')->whereNotNull('third_number')->whereNotNull('fourth_number');
+        }
 
         $ads = $ads_q->get();
 
