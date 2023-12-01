@@ -163,19 +163,19 @@
                   <div class="row ps-3">
                     {{-- <p class="d-none d-md-flex d-lg-flex">فئة اللوحة</p> --}}
                     <div class="form-check form-check-inline col-3 mx-0">
-                        <input class="form-check-input align-self-center filterHomeForm0" name="numbers_type-check" type="radio" id="monocular-check" value="1" {{ request()->input('numbers_type-check') && request()->input('numbers_type-check') == '1' ? 'checked' : '' }}>
+                        <input class="form-check-input align-self-center filterHomeForm0" name="monocular-check" type="checkbox" id="monocular-check" {{ request()->input('monocular-check') ? 'checked' : '' }}>
                         <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="monocular-check">أحادي</label>
                     </div>
                     <div class="form-check form-check-inline col-3 mx-0">
-                        <input class="form-check-input align-self-center filterHomeForm0" name="numbers_type-check" type="radio" id="bilateral-check" value="2" {{ request()->input('numbers_type-check') && request()->input('numbers_type-check') == '2' ? 'checked' : '' }}>
+                        <input class="form-check-input align-self-center filterHomeForm0" name="bilateral-check" type="checkbox" id="bilateral-check" {{ request()->input('bilateral-check') ? 'checked' : '' }}>
                         <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="bilateral-check">ثنائي</label>
                     </div>
                     <div class="form-check form-check-inline col-3 mx-0">
-                        <input class="form-check-input align-self-center filterHomeForm0" name="numbers_type-check" type="radio" id="tripartite-check" value="3" {{ request()->input('numbers_type-check') && request()->input('numbers_type-check') == '3' ? 'checked' : '' }}>
+                        <input class="form-check-input align-self-center filterHomeForm0" name="tripartite-check" type="checkbox" id="tripartite-check" {{ request()->input('tripartite-check') ? 'checked' : '' }}>
                         <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="tripartite-check">ثلاثي</label>
                     </div>
                     <div class="form-check form-check-inline col-3 mx-0">
-                        <input class="form-check-input align-self-center filterHomeForm0" name="numbers_type-check" type="radio" id="quadrant-check" value="4" {{ request()->input('numbers_type-check') && request()->input('numbers_type-check') == '4' ? 'checked' : '' }}>
+                        <input class="form-check-input align-self-center filterHomeForm0" name="quadrant-check" type="checkbox" id="quadrant-check" {{ request()->input('quadrant-check') ? 'checked' : '' }}>
                         <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="quadrant-check">رباعي</label>
                     </div>
                   </div>
@@ -194,7 +194,7 @@
 
             {{-- ----- Load more button  --}}
             <div class="align-self-center d-flex justify-content-center">
-                <button class="btn btn-dark-blue fw-bold align-self-center d-flex justify-content-center load-more-data" id="loadMore">عرض المزيد</button>
+                <button class="btn btn-dark-blue fw-bold align-self-center d-flex-- justify-content-center load-more-data" id="loadMore">عرض المزيد</button>
             </div>
 
 
@@ -281,8 +281,9 @@
                     }
                 })
                 .done(function(response) {
-                    if (response.html == '') {
+                    if (response.html == '' || response.html == '<div class=\"homepage-lawhat-wrapper p-3 p-md-0 p-lg-0 mb-4\">\r\n</div>') {
                         $('.auto-load').html("لا يوجد المزيد من البيانات لعرضها :(");
+                        $("#loadMore").hide();
                         return;
                     }
 
