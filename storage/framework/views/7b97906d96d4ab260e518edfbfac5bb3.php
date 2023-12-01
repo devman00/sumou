@@ -7,6 +7,7 @@
     'second_number',
     'third_number',
     'fourth_number',
+    'is_update' => 0,
 ]) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
@@ -18,6 +19,7 @@
     'second_number',
     'third_number',
     'fourth_number',
+    'is_update' => 0,
 ]); ?>
 <?php foreach (array_filter(([
     'first_letter',
@@ -27,6 +29,7 @@
     'second_number',
     'third_number',
     'fourth_number',
+    'is_update' => 0,
 ]), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
@@ -59,9 +62,9 @@
               <p class="third"> <?php echo e($third_letter); ?> </p>
             </div>
             <div class="english-version">
-              <p class="first">-</p>
-              <p class="second"> - </p>
-              <p class="third"> -</p>
+              <p class="first"><?php if($first_letter != '' && $first_letter != '-'): ?>  <?php echo e(config('app')['english_letters'][$first_letter]); ?> <?php else: ?> <?php echo e($first_letter); ?> <?php endif; ?></p>
+              <p class="second"><?php if($second_letter != '' && $second_letter != '-'): ?>  <?php echo e(config('app')['english_letters'][$second_letter]); ?> <?php else: ?> <?php echo e($second_letter); ?> <?php endif; ?></p>
+              <p class="third"><?php if($third_letter != '' && $third_letter != '-'): ?>  <?php echo e(config('app')['english_letters'][$third_letter]); ?> <?php else: ?> <?php echo e($third_letter); ?> <?php endif; ?></p>
             </div>
           </div>
 
@@ -71,15 +74,15 @@
           <div class="numbers">
             <div class="arabic">
               <p class="first"> <?php echo e($first_number); ?> </p>
-              <p class="second"> <?php echo e($second_number); ?>  </p>
-              <p class="third"> <?php echo e($third_number); ?> </p>
-              <p class="fourth"> <?php echo e($fourth_number); ?> </p>
+              <?php if($second_number != "" || $is_update == 1): ?><p class="second"> <?php echo e($second_number); ?>  </p><?php endif; ?>
+              <?php if($third_number != "" || $is_update == 1): ?><p class="third"> <?php echo e($third_number); ?> </p><?php endif; ?>
+              <?php if($fourth_number != "" || $is_update == 1): ?><p class="fourth"> <?php echo e($fourth_number); ?> </p><?php endif; ?>
             </div>
             <div class="english">
-              <p class="first">-</p>
-              <p class="second">- </p>
-              <p class="third"> -</p>
-              <p class="fourth"> -</p>
+              <p class="first"><?php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $first_number) ?> </p>
+              <?php if($second_number != "" || $is_update == 1): ?><p class="second"><?php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $second_number) ?> </p><?php endif; ?>
+              <?php if($third_number != "" || $is_update == 1): ?><p class="third"> <?php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $third_number) ?></p><?php endif; ?>
+              <?php if($fourth_number != "" || $is_update == 1): ?><p class="fourth"> <?php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $fourth_number) ?></p><?php endif; ?>
             </div>
           </div>
         </div>

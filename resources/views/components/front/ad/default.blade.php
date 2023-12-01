@@ -17,7 +17,7 @@
     'in_auction' => 'no',
 ])   
 
-                <!-- Item 1 -----  -->
+                <!-- Item  -----  -->
                 <div class="homepage-lawha">
                     <div class="share-btn p-3 pb-0"> <i class="fas fa-share-alt"></i> 
                         <span class="published-date float-end fs-15px"> {{ $date }} <i class="las la-history"></i> </span> 
@@ -156,4 +156,4 @@
                         </div>
                     @endif
 
-                </div> <!-- END Item 1 -->
+                </div> <!-- END Item -->

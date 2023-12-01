@@ -29,29 +29,25 @@ class HomeController extends Controller
         //$ads = Ad::latest()->get();
         //dd($request);
 
-        // if (!empty($request->input('numbers_type-check')) && $request->input('numbers_type-check')==1) {
-        //     $ads_q->whereNull('second_number')->whereNull('third_number')->whereNull('fourth_number');
-        // }
-        // if (!empty($request->input('numbers_type-check')) && $request->input('numbers_type-check')==2) {
-        //     $ads_q->whereNotNull('second_number')->whereNull('third_number')->whereNull('fourth_number');
-        // }
-        // if (!empty($request->input('numbers_type-check')) && $request->input('numbers_type-check')==3) {
-        //     $ads_q->whereNotNull('second_number')->whereNotNull('third_number')->whereNull('fourth_number');
-        // }
-        // if (!empty($request->input('numbers_type-check')) && $request->input('numbers_type-check')==4) {
-        //     $ads_q->whereNotNull('second_number')->whereNotNull('third_number')->whereNotNull('fourth_number');
-        // }
         if (!empty($request->input('monocular-check'))) {
-            $ads_q->whereNull('second_number')->whereNull('third_number')->whereNull('fourth_number');
+            $ads_q->orWhere(function ($query) {
+                $query->whereNull('second_number')->whereNull('third_number')->whereNull('fourth_number');
+            });
         }
         if (!empty($request->input('bilateral-check'))) {
-            $ads_q->whereNotNull('second_number')->whereNull('third_number')->whereNull('fourth_number');
+            $ads_q->orWhere(function ($query) {
+                $query->whereNotNull('second_number')->whereNull('third_number')->whereNull('fourth_number');
+            });
         }
         if (!empty($request->input('tripartite-check'))) {
-            $ads_q->whereNotNull('second_number')->whereNotNull('third_number')->whereNull('fourth_number');
+            $ads_q->orWhere(function ($query) {
+                $query->whereNotNull('second_number')->whereNotNull('third_number')->whereNull('fourth_number');
+            });
         }
         if (!empty($request->input('quadrant-check'))) {
-            $ads_q->whereNotNull('second_number')->whereNotNull('third_number')->whereNotNull('fourth_number');
+            $ads_q->orWhere(function ($query) {
+                $query->whereNotNull('second_number')->whereNotNull('third_number')->whereNotNull('fourth_number');
+            });
         }
 
         //$ads = $ads_q->latest()->get();

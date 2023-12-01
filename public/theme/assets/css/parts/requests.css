@@ -1,0 +1,168 @@
+
+  .talabat-form{
+    /* row-gap: 3rem !important; */
+    gap: 30px;
+    display: grid!important;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr))!important;
+  }
+
+  .talabat-ul{
+    display: flex;
+    justify-content: center;
+    min-width: 57%;
+    align-items: center;
+    align-self: center;
+  }
+
+  
+
+  .talabat-ul > li > button{
+    align-self: flex-end;
+    background-color: white!important;
+    color: var(--dark-blue)!important;
+    font-family: almarai;    
+    transition: 0.5s ;
+  }
+  .talabat-ul > li > button.active{
+    color: white !important;
+    background-color: var(--dark-blue)!important;
+
+  }
+
+  .talabat-ul > li > button:hover {
+    color: white;
+  }
+
+
+  .talabat-warid{
+    background-color: #F2F2F2;
+  }
+  .talab-warid,.talab-morsal{
+    background-color: #F2F2F2;
+  }
+
+  .talab-warid .date p,  .talab-morsal .date p{
+    font-size: 14px !important;
+    color: #9A9D9A;
+  }
+
+
+  .talab-warid .details .from-info , .talab-morsal .details .from-info {
+    row-gap: 10px;
+    text-align: center;
+    border-left: 2px solid var(--textfield-border);
+    justify-content: center;
+    align-items: center;
+  }
+   .talab-warid .details .from-info p, .talab-morsal .details .from-info p{
+    
+    font-size: 16px !important;
+    color: #9A9D9A !important;
+  }
+
+  .whatsapp>p{
+    /* font-size: 15px !important; */
+  }
+
+
+  .talab-details{
+    row-gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-right: 30px;
+  }
+  .talab-details p{
+    color: #7e807e;
+    font-size: 16px !important;
+    margin: 0!important;
+  
+  }
+
+  .talab-manage{
+
+    gap: 10px;
+
+  }
+
+  .accept,.reject{
+    padding: 6px 28px;
+    color: white!important;
+    border: none;
+    border-radius: 5px;
+
+    
+  }
+  .accept{
+  background-color: green;
+  }
+  
+
+  .reject{
+    background-color: red;
+
+  }
+
+  .accepted{
+    background-color: #dfffebbd!important;
+    order: -1;
+  }
+  .pending{
+    background-color: #fff8e5!important;
+    order: 9999999999;
+  }
+  .rejected{
+    background-color: rgb(255 2 2 / 9%)!important;
+    order: -1;
+
+    
+  }
+
+  .status-accepted{
+   color: green !important;
+   font-weight: bold;
+  }
+  .status-rejected{
+   color: red !important;
+   font-weight: bold;
+    
+  }
+  .status-pending{
+   color: orange !important;
+   font-weight: bold;
+    
+  }
+
+  @media (max-width:991px) {
+
+
+
+    .talab-morsal .date p,.talab-warid .date p{
+      padding: 0!important;
+      padding-left: 64px!important;
+  
+     }
+   
+  
+    .talab-details {
+      padding-right: 15px;
+    }
+  
+  }
+
+
+  .tab-pane{
+    padding: 30px;
+    background-color: white;
+  }
+
+
+  @media screen and (max-width: 800px) {
+    .talabat-form {
+      display: flex !important;
+    }
+    .itemRequestList .whatsapp>p {
+      font-size: 12px !important;
+    }
+  }

@@ -31,10 +31,10 @@
                 <?php endif; ?> 
 
                 <li class="nav-item px-3 confirm-btn">
-                  
-                  <a class="nav-link px-3 text-white" href="<?php echo e(route('ads.create')); ?>"> <i class="las la-plus"></i>
-                   إضافة إعلان
+                  <a class="nav-link px-3 text-white" href="<?php echo e(route('requests.type')); ?>"> <i class="las la-check-circle"></i>
+                    اتمام المبايعة عن طريق سمو
                   </a>
+                  
                 </li>
 
                 <li class="nav-item "><a class="nav-link" href="about.html">من نحن</a></li>

@@ -5,7 +5,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-    <section class="py-0 welcome-section__ px-3 px-md-0 px-lg-0 pt-8 gradientBlueViolet_90" id="welcome">
+    <section class="py-0 welcome-section__ px-3 px-md-0 px-lg-0 pt-8 gradientBlueViolet_180" id="welcome">
         <div class="bg-holder d-none d-md-block welcome-bg__">
         </div>
 
@@ -14,159 +14,98 @@
             <!-- Submit Form -->
             <h3 class="text-center font-tajawal">  البحث عن اللوحات </h3>
 
-            <div class="row align-items-center pb-3 pb-md-7 pb-lg-7 px-md-5 px-lg-5 justify-content-center">
+            <div class="row align-items-center pb-3 pb-md-7 pb-lg-7 px-md-5 px-lg-5 justify-content-center search_form">
                 <form method="post" action="<?php echo e(route('ads.lists')); ?>" class="row g-3 form_ads_search">
                     <?php echo csrf_field(); ?>
                     <div class="col-6">
+                        <label> نوع اللوحة </label>
                         <select id="boardType" name="board_type" class="form-control">
-                            <option value="" selected> نوع اللوحة </option>
-                            <option value="خصوصي" > خصوصي </option>
-                            <option value="نقل"> نقل </option>
+                            <option value="" selected> - </option>
+                            <option value="خصوصي" <?php echo e(request()->input('board_type') == 'خصوصي' ? 'selected' : ''); ?>  > خصوصي </option>
+                            <option value="نقل" <?php echo e(request()->input('board_type') == 'نقل' ? 'selected' : ''); ?>  > نقل </option>
                         </select>
                     </div>
 
                     <div class="col-6">
+                        <label> نوع الأرقام </label>
                         <select id="numbersType" name="numbers_type" class="form-control">
-                            <option value="" selected> نوع الأرقام </option>
-                            <option value="فردي"> فردي </option>
-                            <option value="ثنائي"> ثنائي </option>
-                            <option value="ثلاثي"> ثلاثي </option>
-                            <option value="رباعي"> رباعي </option>
+                            <option value="" selected> - </option>
+                            <option data-value="1" value="1" <?php echo e(request()->input('numbers_type') == '1' ? 'selected' : ''); ?>> فردي </option>
+                            <option data-value="2" value="2" <?php echo e(request()->input('numbers_type') == '2' ? 'selected' : ''); ?>> ثنائي </option>
+                            <option data-value="3" value="3" <?php echo e(request()->input('numbers_type') == '3' ? 'selected' : ''); ?>> ثلاثي </option>
+                            <option data-value="4" value="4" <?php echo e(request()->input('numbers_type') == '4' ? 'selected' : ''); ?>> رباعي </option>
                         </select>
                     </div>
-
+                    
                     <!-- First Letter -------- -->
-                    <div class="col-4">
+                    <div class="col-4"> 
+                        <label> الحرف الأول </label>
                         <select id="firstLetter" name="first_letter" class="form-control">
-                            <option value="" selected> الحرف الأول </option>
-                            <option value="أ"> أ </option>
-                            <option value="ب"> ب </option>
-                            <option value="ح"> ح </option>
-                            <option value="د"> د </option>
-                            <option value="ر"> ر </option>
-                            <option value="س"> س </option>
-                            <option value="ص"> ص </option>
-                            <option value="ط"> ط </option>
-                            <option value="ع"> ع </option>
-                            <option value="ق"> ق </option>
-                            <option value="ك"> ك </option>
-                            <option value="ل"> ل </option>
-                            <option value="م"> م </option>
-                            <option value="ن"> ن </option>
-                            <option value="ه"> ه </option>
-                            <option value="و"> و </option>
-                            <option value="ي"> ي </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_letters']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($value); ?>" <?php echo e(request()->input('first_letter') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?> </option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                         </select>
                     </div>
 
                     <div class="col-4">
+                        <label> الحرف الثاني </label>
                         <select id="secondLetter" name="second_letter" class="form-control">
-                            <option value="" selected> الحرف الثاني </option>
-                            <option value="أ"> أ </option>
-                            <option value="ب"> ب </option>
-                            <option value="ح"> ح </option>
-                            <option value="د"> د </option>
-                            <option value="ر"> ر </option>
-                            <option value="س"> س </option>
-                            <option value="ص"> ص </option>
-                            <option value="ط"> ط </option>
-                            <option value="ع"> ع </option>
-                            <option value="ق"> ق </option>
-                            <option value="ك"> ك </option>
-                            <option value="ل"> ل </option>
-                            <option value="م"> م </option>
-                            <option value="ن"> ن </option>
-                            <option value="ه"> ه </option>
-                            <option value="و"> و </option>
-                            <option value="ي"> ي </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_letters']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($value); ?>" <?php echo e(request()->input('second_letter') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?> </option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                         </select>
                     </div>
 
                     <div class="col-4">
+                        <label> الحرف الثالث </label>
                         <select id="thirdLetter" name="third_letter" class="form-control">
-                            <option value="" selected> الحرف الثالث </option>
-                            <option value="أ"> أ </option>
-                            <option value="ب"> ب </option>
-                            <option value="ح"> ح </option>
-                            <option value="د"> د </option>
-                            <option value="ر"> ر </option>
-                            <option value="س"> س </option>
-                            <option value="ص"> ص </option>
-                            <option value="ط"> ط </option>
-                            <option value="ع"> ع </option>
-                            <option value="ق"> ق </option>
-                            <option value="ك"> ك </option>
-                            <option value="ل"> ل </option>
-                            <option value="م"> م </option>
-                            <option value="ن"> ن </option>
-                            <option value="ه"> ه </option>
-                            <option value="و"> و </option>
-                            <option value="ي"> ي </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_letters']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($value); ?>" <?php echo e(request()->input('third_letter') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?> </option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                         </select>
                     </div>
 
                     <!-- First Number -------- -->
-                    <div class="col-3">
+                    <div class="col-3 cnt_firstNumber">
+                        <label> الرقم الأول </label>
                         <select id="firstNumber" name="first_number" class="form-control">
-                            <option value="" selected> الرقم الأول </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                            <option value="5"> 5 </option>
-                            <option value="6"> 6 </option>
-                            <option value="7"> 7 </option>
-                            <option value="8"> 8 </option>
-                            <option value="9"> 9 </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_numbers']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option class="font-tajawal" value="<?php echo e($value); ?>" <?php echo e(request()->input('first_number') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-3 cnt_secondNumber" style="<?php echo e(request()->input('numbers_type') == '1' ? 'display:none' : ''); ?>">
+                        <label> الرقم الثاني </label>
                         <select id="secondNumber" name="second_number" class="form-control">
-                            <option value="" selected> الرقم الثاني </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                            <option value="5"> 5 </option>
-                            <option value="6"> 6 </option>
-                            <option value="7"> 7 </option>
-                            <option value="8"> 8 </option>
-                            <option value="9"> 9 </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_numbers']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option class="font-tajawal" value="<?php echo e($value); ?>" <?php echo e(request()->input('second_number') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-3 cnt_thirdNumber" style="<?php echo e(request()->input('numbers_type') == '1' ||  request()->input('numbers_type') == '2' ? 'display:none' : ''); ?>">
+                        <label> الرقم الثالث </label>
                         <select id="thirdNumber" name="third_number" class="form-control">
-                            <option value="" selected> الرقم الثالث </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                            <option value="5"> 5 </option>
-                            <option value="6"> 6 </option>
-                            <option value="7"> 7 </option>
-                            <option value="8"> 8 </option>
-                            <option value="9"> 9 </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_numbers']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option class="font-tajawal" value="<?php echo e($value); ?>" <?php echo e(request()->input('third_number') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-3 cnt_fourthNumber" style="<?php echo e(request()->input('numbers_type') == '1' ||  request()->input('numbers_type') == '2' ||  request()->input('numbers_type') == '3' ? 'display:none' : ''); ?>">
+                        <label> الرقم الرابع </label>
                         <select id="fourthNumber" name="fourth_number" class="form-control">
-                            <option value="" selected> الرقم الرابع </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                            <option value="5"> 5 </option>
-                            <option value="6"> 6 </option>
-                            <option value="7"> 7 </option>
-                            <option value="8"> 8 </option>
-                            <option value="9"> 9 </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_numbers']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option class="font-tajawal" value="<?php echo e($value); ?>" <?php echo e(request()->input('fourth_number') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
 
@@ -185,39 +124,116 @@
         <div class="container flex-column justify-content-center align-content-center ">
             
             <!-- Filter ------  -->
-            
+            <div class="dashboard-lawhat-menu mb-5 p-3">
+                <div class="title col-2">
+                    <i></i>
+                    <p class="fw-bold text-black"> </p>
+                </div>
 
-            <div class="homepage-lawhat-wrapper p-3 p-md-0 p-lg-0">
-
-                <?php $__currentLoopData = $ads; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ad): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-                    <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.front.ad.default','data' => ['ad' => $ad->id,'date' => $ad->created_at->diffForHumans(),'firstLetter' => $ad->first_letter,'secondLetter' => $ad->second_letter,'thirdLetter' => $ad->third_letter,'firstNumber' => $ad->first_number,'secondNumber' => $ad->second_number,'thirdNumber' => $ad->third_number,'fourthNumber' => $ad->fourth_number,'price' => $ad->price,'phone' => $ad->phone,'whatsapp' => $ad->whatsapp,'username' => $ad->username,'allowContact' => 1,'allowActions' => 0]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('front.ad.default'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes(['ad' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->id),'date' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->created_at->diffForHumans()),'first_letter' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->first_letter),'second_letter' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->second_letter),'third_letter' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->third_letter),'first_number' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->first_number),'second_number' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->second_number),'third_number' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->third_number),'fourth_number' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->fourth_number),'price' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->price),'phone' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->phone),'whatsapp' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->whatsapp),'username' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($ad->username),'allow_contact' => 1,'allow_actions' => 0]); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
-<?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
-<?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
-<?php endif; ?>
-
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                
+                <form method="post" action="" class="formFilter0">
+                  <?php echo csrf_field(); ?>
+                  <div class="row ps-3">
+                    
+                    <div class="form-check form-check-inline col-3 mx-0">
+                        <input class="form-check-input align-self-center filterHomeForm0" name="numbers_type-check" type="radio" id="monocular-check" value="1" <?php echo e(request()->input('numbers_type-check') && request()->input('numbers_type-check') == '1' ? 'checked' : ''); ?>>
+                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="monocular-check">أحادي</label>
+                    </div>
+                    <div class="form-check form-check-inline col-3 mx-0">
+                        <input class="form-check-input align-self-center filterHomeForm0" name="numbers_type-check" type="radio" id="bilateral-check" value="2" <?php echo e(request()->input('numbers_type-check') && request()->input('numbers_type-check') == '2' ? 'checked' : ''); ?>>
+                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="bilateral-check">ثنائي</label>
+                    </div>
+                    <div class="form-check form-check-inline col-3 mx-0">
+                        <input class="form-check-input align-self-center filterHomeForm0" name="numbers_type-check" type="radio" id="tripartite-check" value="3" <?php echo e(request()->input('numbers_type-check') && request()->input('numbers_type-check') == '3' ? 'checked' : ''); ?>>
+                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="tripartite-check">ثلاثي</label>
+                    </div>
+                    <div class="form-check form-check-inline col-3 mx-0">
+                        <input class="form-check-input align-self-center filterHomeForm0" name="numbers_type-check" type="radio" id="quadrant-check" value="4" <?php echo e(request()->input('numbers_type-check') && request()->input('numbers_type-check') == '4' ? 'checked' : ''); ?>>
+                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="quadrant-check">رباعي</label>
+                    </div>
+                  </div>
+                </form>
             </div>
-            <!-- ---------------------------------- -->
 
 
-            <button class="btn show-more align-self-center d-flex justify-content-center">عرض المزيد</button>
+            <div id="data-wrapper">
+                <?php echo $__env->make('front.parts.data', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            </div>
+
+            
+            <div class="align-self-center d-flex justify-content-center">
+                <button class="btn btn-dark-blue fw-bold align-self-center d-flex justify-content-center load-more-data" id="loadMore">عرض المزيد</button>
+            </div>
+
+            <!-- Data Loader -->
+            <div class="auto-load text-center" style="display: none;">
+                <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="60" viewBox="0 0 100 100"
+                    enable-background="new 0 0 0 0" xml:space="preserve">
+                    <path fill="#000"
+                        d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+                            from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                    </path>
+                </svg>
+            </div>
 
         </div>
     </section>
     <!-- end lawhat -->
 
 <?php $__env->stopSection(); ?>
+
+
+<?php $__env->startPush('scripts'); ?>
+    <script>
+        var URL = "<?php echo e(route('ads.lists')); ?>";
+        var page = 1;
+        
+        /*------------------------------------------
+        Call on Click
+        --------------------------------------------*/
+        $(".load-more-data").click(function(){
+            page++;
+            infinteLoadMore(page);
+
+            // scrollIntoView();
+            var elem = document.getElementById("loadMore"); 
+
+            $('html, body').animate({
+                scrollTop: $(elem).offset().top
+            }, 300)
+        });
+
+        /*------------------------------------------
+        --------------------------------------------
+        call infinteLoadMore()
+        --------------------------------------------
+        --------------------------------------------*/
+        function infinteLoadMore(page) 
+        {
+            $.ajax({
+                    url: URL + "?page=" + page,
+                    datatype: "html",
+                    type: "get",
+                    beforeSend: function() {
+                        $('.auto-load').show();
+                    }
+                })
+                .done(function(response) {
+                    if (response.html == '') {
+                        $('.auto-load').html("لا يوجد المزيد من البيانات لعرضها :(");
+                        return;
+                    }
+
+                    $('.auto-load').hide();
+                    $("#data-wrapper").append(response.html);
+                })
+                .fail(function(jqXHR, ajaxOptions, thrownError) {
+                    console.log('Server error occured');
+                });
+        }
+
+
+    </script>
+<?php $__env->stopPush(); ?>
 <?php echo $__env->make('layouts.front-layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\wamp64\www\projects\sumou\resources\views/front/ads/lists.blade.php ENDPATH**/ ?>

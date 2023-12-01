@@ -1,7 +1,7 @@
 @extends('layouts.front-layout')
 
 @section('pagetitle')
-منصة سمو | للوحات المميزة
+    منصة سمو | للوحات المميزة
 @endsection
 
 @section('content')
@@ -39,7 +39,7 @@
 
             <!-- Submit Form -->
             <div class="row align-items-center pb-3 pb-md-7 pb-lg-7 justify-content-center search_form">
-                <form method="post" action="{{route('ads.lists')}}" class="row g-3">
+                <form method="post" action="{{ route('ads.lists') }}" class="row g-3">
                     @csrf
                     <div class="col-6">
                         <label> نوع اللوحة </label>
@@ -158,28 +158,28 @@
 
                 <!------------->
                 <!-- <div class="lawha-feature-category d-flex flex-row justify-content-evenly align-content-center col"> -->
-                <form method="post" action="" class="formFilter0">
-                  @csrf
-                  <div class="row ps-3">
-                    {{-- <p class="d-none d-md-flex d-lg-flex">فئة اللوحة</p> --}}
-                    <div class="form-check form-check-inline col-3 mx-0">
-                        <input class="form-check-input align-self-center filterHomeForm0" name="monocular-check" type="checkbox" id="monocular-check" {{ request()->input('monocular-check') ? 'checked' : '' }}>
-                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="monocular-check">أحادي</label>
-                    </div>
-                    <div class="form-check form-check-inline col-3 mx-0">
-                        <input class="form-check-input align-self-center filterHomeForm0" name="bilateral-check" type="checkbox" id="bilateral-check" {{ request()->input('bilateral-check') ? 'checked' : '' }}>
-                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="bilateral-check">ثنائي</label>
-                    </div>
-                    <div class="form-check form-check-inline col-3 mx-0">
-                        <input class="form-check-input align-self-center filterHomeForm0" name="tripartite-check" type="checkbox" id="tripartite-check" {{ request()->input('tripartite-check') ? 'checked' : '' }}>
-                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="tripartite-check">ثلاثي</label>
-                    </div>
-                    <div class="form-check form-check-inline col-3 mx-0">
-                        <input class="form-check-input align-self-center filterHomeForm0" name="quadrant-check" type="checkbox" id="quadrant-check" {{ request()->input('quadrant-check') ? 'checked' : '' }}>
-                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="quadrant-check">رباعي</label>
-                    </div>
-                  </div>
-                </form>
+                    <form method="post" action="" class="formFilter0">
+                        @csrf
+                        <div class="row ps-3">
+                          {{-- <p class="d-none d-md-flex d-lg-flex">فئة اللوحة</p> --}}
+                          <div class="form-check form-check-inline col-3 mx-0">
+                              <input class="form-check-input align-self-center filterHomeForm0" name="monocular-check" type="checkbox" id="monocular-check" {{ request()->input('monocular-check') ? 'checked' : '' }}>
+                              <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="monocular-check">أحادي</label>
+                          </div>
+                          <div class="form-check form-check-inline col-3 mx-0">
+                              <input class="form-check-input align-self-center filterHomeForm0" name="bilateral-check" type="checkbox" id="bilateral-check" {{ request()->input('bilateral-check') ? 'checked' : '' }}>
+                              <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="bilateral-check">ثنائي</label>
+                          </div>
+                          <div class="form-check form-check-inline col-3 mx-0">
+                              <input class="form-check-input align-self-center filterHomeForm0" name="tripartite-check" type="checkbox" id="tripartite-check" {{ request()->input('tripartite-check') ? 'checked' : '' }}>
+                              <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="tripartite-check">ثلاثي</label>
+                          </div>
+                          <div class="form-check form-check-inline col-3 mx-0">
+                              <input class="form-check-input align-self-center filterHomeForm0" name="quadrant-check" type="checkbox" id="quadrant-check" {{ request()->input('quadrant-check') ? 'checked' : '' }}>
+                              <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="quadrant-check">رباعي</label>
+                          </div>
+                        </div>
+                    </form>
 
                 {{-- <div class="newer-older-filter d-flex justify-content-center align-items-center col-2">
                     <p class="selected">الأحدث</p>
@@ -216,6 +216,9 @@
     </section>
     <!-- end lawhat -->
 
+    {{-- Pagination ----  --}}
+    {{-- {!! $ads->links() !!} --}}
+
     <!-- Partners section  begin ============================-->
     <section class="bg-100 pb-0">
 
@@ -241,9 +244,7 @@
 
     </section>
     <!-- <partners> close ============================-->
-        
 @endsection
-
 
 @push('scripts')
     <script>
@@ -281,7 +282,7 @@
                     }
                 })
                 .done(function(response) {
-                    if (response.html == '' || response.html == '<div class=\"homepage-lawhat-wrapper p-3 p-md-0 p-lg-0 mb-4\">\r\n</div>') {
+                    if (response.html == '' || response.html == '<div class=\"homepage-lawhat-wrapper p-3 p-md-0 p-lg-0 mb-4\"></div>' || response.html == '<div class=\"homepage-lawhat-wrapper p-3 p-md-0 p-lg-0 mb-4\">\n<\/div>' || response.html == '<div class=\"homepage-lawhat-wrapper p-3 p-md-0 p-lg-0 mb-4\">\r\n</div>') {
                         $('.auto-load').html("لا يوجد المزيد من البيانات لعرضها :(");
                         $("#loadMore").hide();
                         return;
