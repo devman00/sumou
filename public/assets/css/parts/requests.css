@@ -2,7 +2,7 @@
   .talabat-form{
     /* row-gap: 3rem !important; */
     gap: 30px;
-    display: grid!important;
+    /* display: grid; */
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr))!important;
   }
 

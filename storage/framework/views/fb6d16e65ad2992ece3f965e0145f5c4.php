@@ -61,8 +61,9 @@
 <?php foreach ($attributes as $__key => $__value) {
     if (array_key_exists($__key, $__defined_vars)) unset($$__key);
 } ?>
-<?php unset($__defined_vars); ?>                
-                <!-- Item 1 -----  -->
+<?php unset($__defined_vars); ?>   
+
+                <!-- Item  -----  -->
                 <div class="homepage-lawha">
                     <div class="share-btn p-3 pb-0"> <i class="fas fa-share-alt"></i> 
                         <span class="published-date float-end fs-15px"> <?php echo e($date); ?> <i class="las la-history"></i> </span> 
@@ -92,28 +93,26 @@
                                             <p class="third"> <?php echo e($third_letter); ?> </p>
                                         </div>
                                         <div class="english-version">
-                                            <p class="first">h</p>
-                                            <p class="second"> d </p>
-                                            <p class="third"> m</p>
+                                            <p class="first"><?php echo e(config('app')['english_letters'][$first_letter]); ?></p>
+                                            <p class="second"> <?php echo e(config('app')['english_letters'][$second_letter]); ?> </p>
+                                            <p class="third"> <?php echo e(config('app')['english_letters'][$third_letter]); ?></p>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div class="serial-number ltr d-block">
                                     <div class="numbers">
                                         <div class="arabic">
                                             <p class="first"> <?php echo e($first_number); ?> </p>
-                                            <p class="second"> <?php echo e($second_number); ?> </p>
-                                            <p class="third"> <?php echo e($third_number); ?> </p>
-                                            <p class="fourth"> <?php echo e($fourth_number); ?> </p>
+                                            <?php if($second_number != ""): ?><p class="second"> <?php echo e($second_number); ?> </p><?php endif; ?>
+                                            <?php if($third_number != ""): ?><p class="third"> <?php echo e($third_number); ?> </p><?php endif; ?>
+                                            <?php if($fourth_number != ""): ?><p class="fourth"> <?php echo e($fourth_number); ?> </p><?php endif; ?>
                                         </div>
                                         <div class="english">
-                                            
-                                            <p class="first">1</p>
-                                            <p class="second">2 </p>
-                                            <p class="third"> 3</p>
-                                            <p class="fourth"> 4</p>
+                                            <p class="first"><?php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $first_number) ?> </p>
+                                            <?php if($second_number != ""): ?><p class="second"><?php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $second_number) ?> </p><?php endif; ?>
+                                            <?php if($third_number != ""): ?><p class="third"> <?php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $third_number) ?></p><?php endif; ?>
+                                            <?php if($fourth_number != ""): ?><p class="fourth"> <?php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $fourth_number) ?></p><?php endif; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -131,7 +130,7 @@
                             <?php if($in_auction == 'نعم'): ?>
                                 <span class="card-price px-0">على السوم</span>
                             <?php else: ?>
-                                <span class="card-price px-0"><?php echo e($price); ?>.00</span> ريال
+                                <span class="card-price px-0"><?php echo e(number_format($price)); ?></span> ريال
                             <?php endif; ?>
                         </p>
                     </div>
@@ -142,14 +141,16 @@
                         <div class="infos d-flex justify-content-between align-items-center px-3">
                             <div class=" number d-flex justify-content-center align-content-center flex-column">
                                 <p class="m-0 text-black">رقم التواصل</p>
-                                <p class="m-0 text-dark-blue"> <?php echo e($phone); ?> </p>
+                                <p class="m-0 text-dark-blue ltr"> +966<?php echo e($phone); ?> </p>
                             </div>
 
-                            <a href="https://wa.me/<?php echo e($whatsapp); ?>" target="_blank" class="whatsapp">
+                            <?php if($whatsapp != '' && $whatsapp != 0): ?>
+                            <a href="https://wa.me/+966<?php echo e($whatsapp); ?>" target="_blank" class="whatsapp">
                                 <i class=" lab la-whatsapp d-flex justify-content-center align-content-center flex-column text-center"
                                     style="font-size: 30px; color: green;"> <span class="fs-13px fw-bold"> الواتس اب </span>
                                 </i>
                             </a>
+                            <?php endif; ?>
 
                             <div class=" d-flex publisher justify-content-center align-content-center flex-column">
                                 <div class="name  d-flex justify-content-start flex-row align-content-center">
@@ -198,5 +199,5 @@
                         </div>
                     <?php endif; ?>
 
-                </div> <!-- END Item 1 -->
+                </div> <!-- END Item -->
 <?php /**PATH C:\wamp64\www\projects\sumou\resources\views/components/front/ad/default.blade.php ENDPATH**/ ?>

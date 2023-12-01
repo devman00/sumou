@@ -42,7 +42,7 @@
                     <div class="col-6">
                         <label> نوع اللوحة </label>
                         <select id="boardType" name="board_type" class="form-control">
-                            <option value="" selected> الكل </option>
+                            <option value="" selected> - </option>
                             <option value="خصوصي"> خصوصي </option>
                             <option value="نقل"> نقل </option>
                         </select>
@@ -51,11 +51,11 @@
                     <div class="col-6">
                         <label> نوع الأرقام </label>
                         <select id="numbersType" name="numbers_type" class="form-control">
-                            <option value="" selected> الكل </option>
-                            <option data-value="1" value="فردي"> فردي </option>
-                            <option data-value="2" value="ثنائي"> ثنائي </option>
-                            <option data-value="3" value="ثلاثي"> ثلاثي </option>
-                            <option data-value="4" value="رباعي"> رباعي </option>
+                            <option value="" selected> - </option>
+                            <option data-value="1" value="1"> فردي </option>
+                            <option data-value="2" value="2"> ثنائي </option>
+                            <option data-value="3" value="3"> ثلاثي </option>
+                            <option data-value="4" value="4"> رباعي </option>
                         </select>
                     </div>
 
@@ -63,72 +63,30 @@
                     <div class="col-4">
                         <label> الحرف الأول </label>
                         <select id="firstLetter" name="first_letter" class="form-control">
-                            <option value="" selected> الكل </option>
-                            <option value="أ"> أ </option>
-                            <option value="ب"> ب </option>
-                            <option value="ح"> ح </option>
-                            <option value="د"> د </option>
-                            <option value="ر"> ر </option>
-                            <option value="س"> س </option>
-                            <option value="ص"> ص </option>
-                            <option value="ط"> ط </option>
-                            <option value="ع"> ع </option>
-                            <option value="ق"> ق </option>
-                            <option value="ك"> ك </option>
-                            <option value="ل"> ل </option>
-                            <option value="م"> م </option>
-                            <option value="ن"> ن </option>
-                            <option value="ه"> ه </option>
-                            <option value="و"> و </option>
-                            <option value="ي"> ي </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_letters']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($value); ?>" <?php echo e(old('first_letter') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?> </option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                         </select>
                     </div>
 
                     <div class="col-4">
                         <label> الحرف الثاني </label>
                         <select id="secondLetter" name="second_letter" class="form-control">
-                            <option value="" selected> الكل </option>
-                            <option value="أ"> أ </option>
-                            <option value="ب"> ب </option>
-                            <option value="ح"> ح </option>
-                            <option value="د"> د </option>
-                            <option value="ر"> ر </option>
-                            <option value="س"> س </option>
-                            <option value="ص"> ص </option>
-                            <option value="ط"> ط </option>
-                            <option value="ع"> ع </option>
-                            <option value="ق"> ق </option>
-                            <option value="ك"> ك </option>
-                            <option value="ل"> ل </option>
-                            <option value="م"> م </option>
-                            <option value="ن"> ن </option>
-                            <option value="ه"> ه </option>
-                            <option value="و"> و </option>
-                            <option value="ي"> ي </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_letters']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($value); ?>" <?php echo e(old('second_letter') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?> </option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                         </select>
                     </div>
 
                     <div class="col-4">
                         <label> الحرف الثالث </label>
                         <select id="thirdLetter" name="third_letter" class="form-control">
-                            <option value="" selected> الكل </option>
-                            <option value="أ"> أ </option>
-                            <option value="ب"> ب </option>
-                            <option value="ح"> ح </option>
-                            <option value="د"> د </option>
-                            <option value="ر"> ر </option>
-                            <option value="س"> س </option>
-                            <option value="ص"> ص </option>
-                            <option value="ط"> ط </option>
-                            <option value="ع"> ع </option>
-                            <option value="ق"> ق </option>
-                            <option value="ك"> ك </option>
-                            <option value="ل"> ل </option>
-                            <option value="م"> م </option>
-                            <option value="ن"> ن </option>
-                            <option value="ه"> ه </option>
-                            <option value="و"> و </option>
-                            <option value="ي"> ي </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_letters']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($value); ?>" <?php echo e(old('third_letter') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?> </option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                         </select>
                     </div>
 
@@ -136,68 +94,40 @@
                     <div class="col-3 cnt_firstNumber">
                         <label> الرقم الأول </label>
                         <select id="firstNumber" name="first_number" class="form-control">
-                            <option value="" selected> الكل </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                            <option value="5"> 5 </option>
-                            <option value="6"> 6 </option>
-                            <option value="7"> 7 </option>
-                            <option value="8"> 8 </option>
-                            <option value="9"> 9 </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_numbers']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option class="font-tajawal" value="<?php echo e($value); ?>" <?php echo e(old('first_number') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
 
                     <div class="col-3 cnt_secondNumber">
                         <label> الرقم الثاني </label>
                         <select id="secondNumber" name="second_number" class="form-control">
-                            <option value="" selected> الكل </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                            <option value="5"> 5 </option>
-                            <option value="6"> 6 </option>
-                            <option value="7"> 7 </option>
-                            <option value="8"> 8 </option>
-                            <option value="9"> 9 </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_numbers']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option class="font-tajawal" value="<?php echo e($value); ?>" <?php echo e(old('second_number') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
 
                     <div class="col-3 cnt_thirdNumber">
                         <label> الرقم الثالث </label>
                         <select id="thirdNumber" name="third_number" class="form-control">
-                            <option value="" selected> الكل </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                            <option value="5"> 5 </option>
-                            <option value="6"> 6 </option>
-                            <option value="7"> 7 </option>
-                            <option value="8"> 8 </option>
-                            <option value="9"> 9 </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_numbers']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option class="font-tajawal" value="<?php echo e($value); ?>" <?php echo e(old('third_number') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
 
                     <div class="col-3 cnt_fourthNumber">
                         <label> الرقم الرابع </label>
                         <select id="fourthNumber" name="fourth_number" class="form-control">
-                            <option value="" selected> الكل </option>
-                            <option value="0"> 0 </option>
-                            <option value="1"> 1 </option>
-                            <option value="2"> 2 </option>
-                            <option value="3"> 3 </option>
-                            <option value="4"> 4 </option>
-                            <option value="5"> 5 </option>
-                            <option value="6"> 6 </option>
-                            <option value="7"> 7 </option>
-                            <option value="8"> 8 </option>
-                            <option value="9"> 9 </option>
+                            <option value="" selected> - </option>
+                            <?php $__currentLoopData = config('app')['arabic_numbers']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option class="font-tajawal" value="<?php echo e($value); ?>" <?php echo e(old('fourth_number') == $value ? 'selected' : ''); ?> > <?php echo e($value); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
 
@@ -226,124 +156,32 @@
 
                 <!------------->
                 <!-- <div class="lawha-feature-category d-flex flex-row justify-content-evenly align-content-center col"> -->
-                <div class="row ps-3">
-                    <!--<p class="d-none d-md-flex d-lg-flex">فئة اللوحة</p>
-
-                         <div class=" form-check d-flex -start justify-content-center gap-2 px-3 ">
-                        <input class="form-check-input align-self-center" name="golden-check" type="checkbox" id="golden-check">
-                        <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="golden-check">ذهبي
-                        </label>
-                      </div> -->
-
-                    <!--
-                        <div class="form-check form-check-inline col-3 mx-0">
-                            <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
-                                id="golden-check">
-                            <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                                for="golden-check">ذهبي
-                            </label>
+                    <form method="post" action="" class="formFilter0">
+                        <?php echo csrf_field(); ?>
+                        <div class="row ps-3">
+                          
+                          <div class="form-check form-check-inline col-3 mx-0">
+                              <input class="form-check-input align-self-center filterHomeForm0" name="monocular-check" type="checkbox" id="monocular-check" <?php echo e(request()->input('monocular-check') ? 'checked' : ''); ?>>
+                              <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="monocular-check">أحادي</label>
+                          </div>
+                          <div class="form-check form-check-inline col-3 mx-0">
+                              <input class="form-check-input align-self-center filterHomeForm0" name="bilateral-check" type="checkbox" id="bilateral-check" <?php echo e(request()->input('bilateral-check') ? 'checked' : ''); ?>>
+                              <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="bilateral-check">ثنائي</label>
+                          </div>
+                          <div class="form-check form-check-inline col-3 mx-0">
+                              <input class="form-check-input align-self-center filterHomeForm0" name="tripartite-check" type="checkbox" id="tripartite-check" <?php echo e(request()->input('tripartite-check') ? 'checked' : ''); ?>>
+                              <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="tripartite-check">ثلاثي</label>
+                          </div>
+                          <div class="form-check form-check-inline col-3 mx-0">
+                              <input class="form-check-input align-self-center filterHomeForm0" name="quadrant-check" type="checkbox" id="quadrant-check" <?php echo e(request()->input('quadrant-check') ? 'checked' : ''); ?>>
+                              <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="quadrant-check">رباعي</label>
+                          </div>
                         </div>
+                      </form>
 
-                        <div class="form-check form-check-inline col-3 mx-0">
-                            <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
-                                id="golden-check">
-                            <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                                for="golden-check">فضي
-                            </label>
-                        </div>
-
-                        <div class="form-check form-check-inline col-3 mx-0">
-                            <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
-                                id="golden-check">
-                            <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                                for="golden-check"> برونزي
-                            </label>
-                        </div>
-
-                        <div class="form-check form-check-inline col-3 mx-0">
-                            <input class="form-check-input align-self-center" name="golden-check" type="checkbox"
-                                id="golden-check">
-                            <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                                for="golden-check"> ألماسي
-                            </label>
-                        </div>
-                        -->
-
-
-
-                    <!-- <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1">1</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2">2</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
-                        <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
-                      </div> -->
-
-                </div>
-
-                <!-- <div class="lawha-feature-category d-flex flex-row justify-content-evenly align-content-center col">
-                      <p>فئة اللوحة</p>
-                      <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative" style="margin-left: 20px;">
-                        <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
-                          <input class="form-check-input align-self-center" name="golden-check" type="checkbox" id="golden-check">
-                          <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                            for="golden-check">ذهبي
-                          </label>
-                        </div>
-                      </div>
-                      
-                      <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative"
-                        style="margin-left: 20px;">
-                        <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
-                          <input class="form-check-input align-self-center" name="silver-check" type="checkbox" id="silver-check">
-                          <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                            for="silver-check">فضي
-                          </label>
-          
-                        </div>
-          
-          
-                      </div>
-                      
-                      <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative"
-                        style="margin-left: 20px;">
-                        <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
-                          <input class="form-check-input align-self-center" name="bronze-check" type="checkbox" id="bronze-check">
-                          <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                            for="bronze-check">برونزي
-                          </label>
-          
-                        </div>
-          
-          
-                      </div>
-          
-                      <div class="row feature-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative"
-                        style="margin-left: 20px;">
-                        <div class=" form-check d-flex -start justify-content-center gap-2 px-3 " style="">
-                          <input class="form-check-input align-self-center" name="platinium-check" type="checkbox"
-                            id="platinium-check">
-                          <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center"
-                            for="platinium-check">ألماسي
-                          </label>
-          
-                        </div>
-                      </div>
-                      
-                    </div>
-
-                    <div class="newer-older-filter d-flex justify-content-center align-items-center col-2">
-                        <p class="selected">الأحدث</p>
-                        <p class="">الأقدم</p>
-                    </div> -->
+                
 
             </div>
-
 
             <div id="data-wrapper">
                 <?php echo $__env->make('front.parts.data', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -367,7 +205,6 @@
                     </path>
                 </svg>
             </div>
-
 
 
         </div>
@@ -408,17 +245,6 @@
     <script>
         var URL = "<?php echo e(route('home')); ?>";
         var page = 1;
-
-        /*------------------------------------------
-        Call on Scroll
-        --------------------------------------------*/
-        // $(window).scroll(function() {
-        //     // if ($(window).scrollTop() + $(window).height() >= ($(document).height() - 20)) {
-        //     if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
-        //         page++;
-        //         infinteLoadMore(page);
-        //     }
-        // });
         
         /*------------------------------------------
         Call on Click
@@ -429,26 +255,11 @@
 
             // scrollIntoView();
             var elem = document.getElementById("loadMore"); 
-            // elem.scrollIntoView(); 
-            // document.querySelector("#loadMore").scrollIntoView({
-            //     behavior: "smooth",
-            // });
 
             $('html, body').animate({
                 scrollTop: $(elem).offset().top
             }, 300)
         });
-
-
-        // const element = $('#loadMore');
-      
-        // $('.load-more-data').click(function(e){
-        // $('html, body').animate({
-        //         scrollTop: $(element).offset().top
-        //     }, 300);
-        // })
-
-
 
         /*------------------------------------------
         --------------------------------------------
@@ -466,8 +277,9 @@
                     }
                 })
                 .done(function(response) {
-                    if (response.html == '') {
+                    if (response.html == '' || response.html == '<div class=\"homepage-lawhat-wrapper p-3 p-md-0 p-lg-0 mb-4\">\r\n</div>') {
                         $('.auto-load').html("لا يوجد المزيد من البيانات لعرضها :(");
+                        $("#loadMore").hide();
                         return;
                     }
 

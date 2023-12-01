@@ -35,6 +35,8 @@
   <link href="{{ asset('assets/')}}/css/parts/homepage.css" rel="stylesheet" />
   <link rel="stylesheet" href="{{ asset('assets/')}}/css/parts/ad.css">
   <link rel="stylesheet" href="{{ asset('assets/')}}/css/parts/account.css">
+  <link rel="stylesheet" href="{{ asset('assets/')}}/css/parts/requests.css">
+  <link rel="stylesheet" href="{{ asset('assets/')}}/css/parts/confirm.css">
   
   <!-- -------- OWL Carousel ------  -->
   <link rel="stylesheet" href="{{ asset('assets/')}}/css/owl-carousel/owl.carousel.min.css">
@@ -58,6 +60,16 @@
 
 <body @if(Route::currentRouteName() == 'user.profile' OR Route::currentRouteName() == 'ads.create' OR Route::currentRouteName() == 'ads.index') class="accountPage" @endif>
 
+  <div class="cs-loader">
+    <div class="cs-loader-inner">
+      <label>S</label>
+      <label>U</label>
+      <label>M</label>
+      <label>O</label>
+      <label>U</label>
+    </div>
+  </div>
+  
   <!-- ===============================================-->
   <!--    Main Content-->
   <!-- ===============================================-->
@@ -79,11 +91,11 @@
 
   @includeIf('layouts.front.foot')
 
-  <a target="_blank" href="https://wa.me/00966539437574" style="background: #25D366; border-radius: 50%; font-size: 44px; position: fixed; bottom: 10px; right: 10px; width: 60px; height: 60px; z-index: 999; text-align: center;"><i class='bx bxl-whatsapp' style="color: #fff; line-height: 60px;"></i></a>
-  
+  <a target="_blank" href="https://wa.me/+966539437574" style="background: #25D366; border-radius: 50%; font-size: 44px; position: fixed; bottom: 10px; right: 10px; width: 60px; height: 60px; z-index: 999; text-align: center;"><i class='bx bxl-whatsapp' style="color: #fff; line-height: 60px;"></i></a>
+    
 
   @stack('scripts')
-  
+
 </body>
 
 </html>

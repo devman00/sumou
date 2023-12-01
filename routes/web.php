@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\front\AdController as FrontAdController;
+use App\Http\Controllers\front\AdRequestController;
 use App\Http\Controllers\front\UserController as UserAccountController;
 use App\Http\Controllers\PhoneNumberVerifyController;
 use App\Http\Controllers\SettingController;
@@ -167,10 +168,12 @@ use Illuminate\Support\Facades\Route;
             /** ----------------------
              User ADs Routes
             --------------------- */
-            Route::resource('ads', FrontAdController::class)->except('show');
-
-        
+            Route::resource('ads', FrontAdController::class)->except('show');            
         });
+
+        Route::get('requests/type', [AdRequestController::class, 'requestType'])->name('requests.type');
+        Route::resource('requests', AdRequestController::class);
+       
     });
 
 
@@ -183,6 +186,7 @@ use Illuminate\Support\Facades\Route;
 
     // FRONT Routes -------- 
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::post('/', [HomeController::class, 'index'])->name('home');
 
 
     // OTP Verification 

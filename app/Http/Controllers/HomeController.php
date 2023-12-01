@@ -24,25 +24,42 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        // $ads = Ad::latest()->get();
-        $ads = Ad::paginate(9);
-        // $ads = Ad::simplePaginate(3);
-        // $ads = Ad::cursorPaginate(3);
+        $ads_q = Ad::query();
 
-        // $ads = Ad::where('status', '!=', 'منشور')->paginate(
-        //     $perPage = 3, $columns = ['*'], $pageName = 'page'
-        // );
+        //$ads = Ad::latest()->get();
+        //dd($request);
 
+        if (!empty($request->input('monocular-check'))) {
+            $ads_q->orWhere(function ($query) {
+                $query->whereNull('second_number')->whereNull('third_number')->whereNull('fourth_number');
+            });
+        }
+        if (!empty($request->input('bilateral-check'))) {
+            $ads_q->orWhere(function ($query) {
+                $query->whereNotNull('second_number')->whereNull('third_number')->whereNull('fourth_number');
+            });
+        }
+        if (!empty($request->input('tripartite-check'))) {
+            $ads_q->orWhere(function ($query) {
+                $query->whereNotNull('second_number')->whereNotNull('third_number')->whereNull('fourth_number');
+            });
+        }
+        if (!empty($request->input('quadrant-check'))) {
+            $ads_q->orWhere(function ($query) {
+                $query->whereNotNull('second_number')->whereNotNull('third_number')->whereNotNull('fourth_number');
+            });
+        }
+
+        //$ads = $ads_q->latest()->get();
+        $ads = $ads_q->latest()->paginate(9);
 
         if ($request->ajax()) {
             $view = view('front.parts.data', compact('ads'))->render();
-  
             return response()->json(['html' => $view]);
         }
 
-
+        
 
         return view('front.home', compact('ads'));
-        
     }
 }

@@ -40,8 +40,6 @@
     border-radius: 0px 2px 2px 0px;
     max-height: 100% !important;
 }
-
-
 .ad-lawha >.lawha p {
     margin: 0px!important;
     font-size: 27px!important;
@@ -50,33 +48,26 @@
     text-shadow: -4px 0px 2px #ffffff;
     font-family: Helvetica!important;
 }
-
 .ad-lawha >.lawha .letters .english-version p{
     font-size: 27px!important;
     margin: 0px 2px !important;
 }
-
 .ad-lawha >.lawha .letters .arabic-version p{
     font-size: 38px!important;
     margin: 0px 2px !important;
 }
-
 .ad-lawha >.lawha .numbers .english p{
     font-size: 30px!important;
     margin: 0 2px !important;
 }
-
 .ad-lawha >.lawha .numbers .arabic p{
     font-size: 38px!important;
     margin: -1px !important;
 }
-
 .ad-lawha > .lawha > .informations{
     display: flex;
     flex-direction: column;
-    width: 35%;
-
-    
+    width: 35%;    
 }
 .ad-lawha > .lawha > div:not(:last-of-type){
     border-left: #7a7a7a 2px solid;
@@ -87,7 +78,6 @@
 .ad-lawha > .lawha > .informations > .letters,
 .ad-lawha > .lawha > .informations > .serial-number{
     height: 100%!important;
-  
 }
 .ad-lawha > .lawha > .informations > .letters> div{
     height: 50% !important;
@@ -98,24 +88,21 @@
     gap: 10px;
     text-transform: uppercase;
 }
-
-.ad-lawha > .lawha > .informations > .letters> div>p{
-   
-
-}
-
-
 .ad-lawha > .lawha >  .serial-number{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
     gap: 10px;
-
 }
-
 .ad-lawha > .lawha >  .serial-number> p{
     font-size: 28px !important;
+}
+.lawha > .ksa-board2{
+    background: var(--blue);
+}
+.ad-lawha >.lawha > .ksa-board2 p {
+    text-shadow: none;
 }
  
 .ad-page .wrapper{
@@ -158,6 +145,9 @@
     color: var(--violet);
 }
 
+.ad-lawha >.lawha .numbers .arabic p, .ad-lawha >.lawha .numbers .english p {
+    margin: 0 !important;
+}
 
 @media screen and (max-width: 800px) {
     .ad-lawha > .lawha > .informations > .letters> div {
@@ -169,8 +159,11 @@
     .ad-lawha >.lawha .letters .arabic-version p, .ad-lawha >.lawha .numbers .arabic p {
         font-size: 30px!important;
     }
-    .ad-lawha >.lawha .letters .english-version p, .ad-lawha >.lawha .numbers .english p {
+    .ad-lawha >.lawha .letters .english-version p {
         font-size: 20px!important;
+    }
+    .ad-lawha >.lawha .numbers .english p {
+        font-size: 26px!important;
     }
      
     

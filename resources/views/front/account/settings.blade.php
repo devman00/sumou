@@ -32,7 +32,7 @@
                                             </div>
                                             <div class="input-textfield d-flex flex-column">
                                                 <label for="number">رقم الهاتف</label>
-                                                <input type="tel" value="{{ $user->phone }}" id="number"
+                                                <input type="tel" value="+966{{ $user->phone }}" id="number"
                                                     class="ltr" placeholder="+96645478848" disabled="">
                                             </div>
                                             <div class="input-textfield d-flex flex-column">
@@ -138,10 +138,14 @@
                                                     @method('PUT')
                                                     <x-front.form.group class="mb-3">
                                                         <x-front.form.label for="whatsapp"> رقم الواتساب </x-front.form.label> {{-- @if (empty($user->whatsapp))  {{$user->phone}} @else {{$user->whatsapp}} @endif --}}
-                                                        <x-front.form.input name="whatsapp" class="ltr"
+                                                        <x-front.form.phone name="whatsapp" class="ltr" placeholder="5xxxxxxxx" id="whatsapp" :value="empty($user->whatsapp)
+                                                            ? ''
+                                                            : $user->whatsapp" />
+                            
+                                                        {{-- <x-front.form.input name="whatsapp" class="ltr"
                                                             placeholder="+00123456789" id="whatsapp" :value="empty($user->whatsapp)
                                                                 ? $user->phone
-                                                                : $user->whatsapp" />
+                                                                : $user->whatsapp" /> --}}
                                                         <x-front.form.error field="whatsapp" />
                                                     </x-front.form.group>
 

@@ -22,16 +22,16 @@ return new class extends Migration
             $table->string('second_letter');
             $table->string('third_letter');
             $table->string('first_number');
-            $table->string('second_number');
-            $table->string('third_number');
-            $table->string('fourth_number');
+            $table->string('second_number')->nullable();
+            $table->string('third_number')->nullable();
+            $table->string('fourth_number')->nullable();
             $table->string('validity_of_periodic_examination');
             $table->string('validity_of_driving_form');
             $table->string('vehicle_insurance_status');
             $table->string('are_there_violations');
 
             $table->string('phone');
-            $table->string('price');
+            $table->string('price')->nullable();
             $table->string('in_auction')->default('لا');
            
             $table->integer('views')->default(0);

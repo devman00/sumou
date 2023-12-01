@@ -33,12 +33,12 @@
                 @endif 
 
                 <li class="nav-item px-3 confirm-btn">
-                  {{-- <a class="nav-link px-3 text-white" href="#"> <i class="las la-check-circle"></i>
+                  <a class="nav-link px-3 text-white" href="{{route('requests.type')}}"> <i class="las la-check-circle"></i>
                     اتمام المبايعة عن طريق سمو
-                  </a> --}}
-                  <a class="nav-link px-3 text-white" href="{{route('ads.create')}}"> <i class="las la-plus"></i>
-                   إضافة إعلان
                   </a>
+                  {{-- <a class="nav-link px-3 text-white" href="{{route('ads.create')}}"> <i class="las la-plus"></i>
+                   إضافة إعلان
+                  </a> --}}
                 </li>
 
                 <li class="nav-item "><a class="nav-link" href="about.html">من نحن</a></li>

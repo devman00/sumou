@@ -47,7 +47,8 @@
                                 @enderror --}}
 
                                  {{-- Phone ------  --}}
-                                 <input id="phone" type="phone" class=" @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" placeholder=" رقم الجوال" required autocomplete="phone">
+                                 {{-- <input id="phone" type="phone" class=" @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" placeholder=" رقم الجوال" required autocomplete="phone"> --}}
+                                 <x-front.form.phone name="phone" class="ltr" placeholder="5xxxxxxxx" id="phone" :value="old('phone')" />
                                  @error('phone')
                                      <span class="invalid-feedback" role="alert">
                                          <strong>{{ $message }}</strong>

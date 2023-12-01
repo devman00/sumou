@@ -15,8 +15,9 @@
     'username',
     'ad',
     'in_auction' => 'no',
-])                
-                <!-- Item 1 -----  -->
+])   
+
+                <!-- Item  -----  -->
                 <div class="homepage-lawha">
                     <div class="share-btn p-3 pb-0"> <i class="fas fa-share-alt"></i> 
                         <span class="published-date float-end fs-15px"> {{ $date }} <i class="las la-history"></i> </span> 
@@ -46,28 +47,26 @@
                                             <p class="third"> {{ $third_letter }} </p>
                                         </div>
                                         <div class="english-version">
-                                            <p class="first">h</p>
-                                            <p class="second"> d </p>
-                                            <p class="third"> m</p>
+                                            <p class="first">{{ config('app')['english_letters'][$first_letter] }}</p>
+                                            <p class="second"> {{ config('app')['english_letters'][$second_letter] }} </p>
+                                            <p class="third"> {{ config('app')['english_letters'][$third_letter] }}</p>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 <div class="serial-number ltr d-block">
                                     <div class="numbers">
                                         <div class="arabic">
                                             <p class="first"> {{ $first_number }} </p>
-                                            <p class="second"> {{ $second_number }} </p>
-                                            <p class="third"> {{ $third_number }} </p>
-                                            <p class="fourth"> {{ $fourth_number }} </p>
+                                            @if ($second_number != "")<p class="second"> {{ $second_number }} </p>@endif
+                                            @if ($third_number != "")<p class="third"> {{ $third_number }} </p>@endif
+                                            @if ($fourth_number != "")<p class="fourth"> {{ $fourth_number }} </p>@endif
                                         </div>
                                         <div class="english">
-                                            {{-- <p class="first"> {{ config('app')['english_numbers'][$first_number] }}</p> --}}
-                                            <p class="first">1</p>
-                                            <p class="second">2 </p>
-                                            <p class="third"> 3</p>
-                                            <p class="fourth"> 4</p>
+                                            <p class="first">@php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $first_number) @endphp </p>
+                                            @if ($second_number != "")<p class="second">@php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $second_number) @endphp </p>@endif
+                                            @if ($third_number != "")<p class="third"> @php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $third_number) @endphp</p>@endif
+                                            @if ($fourth_number != "")<p class="fourth"> @php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $fourth_number) @endphp</p>@endif
                                         </div>
                                     </div>
                                 </div>
@@ -85,7 +84,7 @@
                             @if ($in_auction == 'نعم')
                                 <span class="card-price px-0">على السوم</span>
                             @else
-                                <span class="card-price px-0">{{ $price }}.00</span> ريال
+                                <span class="card-price px-0">{{ number_format($price) }}</span> ريال
                             @endif
                         </p>
                     </div>
@@ -96,14 +95,16 @@
                         <div class="infos d-flex justify-content-between align-items-center px-3">
                             <div class=" number d-flex justify-content-center align-content-center flex-column">
                                 <p class="m-0 text-black">رقم التواصل</p>
-                                <p class="m-0 text-dark-blue"> {{ $phone }} </p>
+                                <p class="m-0 text-dark-blue ltr"> +966{{ $phone }} </p>
                             </div>
 
-                            <a href="https://wa.me/{{ $whatsapp }}" target="_blank" class="whatsapp">
+                            @if ($whatsapp != '' && $whatsapp != 0)
+                            <a href="https://wa.me/+966{{ $whatsapp }}" target="_blank" class="whatsapp">
                                 <i class=" lab la-whatsapp d-flex justify-content-center align-content-center flex-column text-center"
                                     style="font-size: 30px; color: green;"> <span class="fs-13px fw-bold"> الواتس اب </span>
                                 </i>
                             </a>
+                            @endif
 
                             <div class=" d-flex publisher justify-content-center align-content-center flex-column">
                                 <div class="name  d-flex justify-content-start flex-row align-content-center">
@@ -155,4 +156,4 @@
                         </div>
                     @endif
 
-                </div> <!-- END Item 1 -->
+                </div> <!-- END Item -->

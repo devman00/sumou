@@ -29,16 +29,16 @@ class UserController extends Controller
     {
         $data = [
             // 'name' => ['required', 'string', 'max:255'],
-            'whatsapp' => ['required', 'min:12', 'max:12', 'numeric'],
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'email')->ignore($user)],
+            //'whatsapp' => ['required', 'min:9', 'max:9', 'numeric'],
+            //'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'email')->ignore($user)],
         ];
 
-
         // $request->validate($data ,$request->all());
-        $validatedData = $request->validate($data, $request->all());
+        //$validatedData = $request->validate($data, $request->all());
 
         // dd($validatedData);
-        $user->update($validatedData);
+        //$user->update($validatedData);
+        $user->update($request->all());
 
         return redirect()->back()->with('success', 'تم تحديث البيانات بنجاح');
     }

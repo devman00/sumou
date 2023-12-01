@@ -30,7 +30,7 @@
                                             </div>
                                             <div class="input-textfield d-flex flex-column">
                                                 <label for="number">رقم الهاتف</label>
-                                                <input type="tel" value="<?php echo e($user->phone); ?>" id="number"
+                                                <input type="tel" value="+966<?php echo e($user->phone); ?>" id="number"
                                                     class="ltr" placeholder="+96645478848" disabled="">
                                             </div>
                                             <div class="input-textfield d-flex flex-column">
@@ -145,24 +145,26 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?> 
                                                         <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.front.form.input','data' => ['name' => 'whatsapp','class' => 'ltr','placeholder' => '+00123456789','id' => 'whatsapp','value' => empty($user->whatsapp)
-                                                                ? $user->phone
-                                                                : $user->whatsapp]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('front.form.input'); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.front.form.phone','data' => ['name' => 'whatsapp','class' => 'ltr','placeholder' => '5xxxxxxxx','id' => 'whatsapp','value' => empty($user->whatsapp)
+                                                            ? ''
+                                                            : $user->whatsapp]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('front.form.phone'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['name' => 'whatsapp','class' => 'ltr','placeholder' => '+00123456789','id' => 'whatsapp','value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(empty($user->whatsapp)
-                                                                ? $user->phone
-                                                                : $user->whatsapp)]); ?>
+<?php $component->withAttributes(['name' => 'whatsapp','class' => 'ltr','placeholder' => '5xxxxxxxx','id' => 'whatsapp','value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(empty($user->whatsapp)
+                                                            ? ''
+                                                            : $user->whatsapp)]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
+                            
+                                                        
                                                         <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.front.form.error','data' => ['field' => 'whatsapp']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('front.form.error'); ?>

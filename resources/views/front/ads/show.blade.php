@@ -72,14 +72,16 @@
         </div>
         <div class="modal-body">
             <div class="row">
+                @if ($ad->user->whatsapp != '' && $ad->user->whatsapp != 0)
                 <div class="col-lg-6 col-md-6 col-6">
-                    <a href="https://wa.me/{{$ad->user->whatsapp}}" target="_blank" class="whatsapp">
+                    <a href="https://wa.me/+966{{$ad->user->whatsapp}}" target="_blank" class="whatsapp">
                         <i class=" lab la-whatsapp d-flex justify-content-center align-content-center flex-column text-center" style="font-size: 30px; color: green;"> <span class="fs-13px fw-bold"> الواتس اب </span></i>
                     </a>
                 </div>
+                @endif
                 <div class="col-lg-6 col-md-6 col-6">
-                    <a href="tel:{{$ad->phone}}" class="whatsapp text-dark-blue">
-                        <i class=" las la-phone d-flex justify-content-center align-content-center flex-column text-center" style="font-size: 30px;"> <span class="fs-13px fw-bold"> {{$ad->phone }} </span></i>
+                    <a href="tel:+966{{$ad->phone}}" class="whatsapp text-dark-blue">
+                        <i class=" las la-phone d-flex justify-content-center align-content-center flex-column text-center" style="font-size: 30px;"> <span class="fs-13px fw-bold ltr"> +966{{$ad->phone }} </span></i>
                     </a>
                 </div>
 

@@ -6,6 +6,7 @@
     'second_number',
     'third_number',
     'fourth_number',
+    'is_update' => 0,
 ])
 
 
@@ -31,9 +32,9 @@
               <p class="third"> {{ $third_letter }} </p>
             </div>
             <div class="english-version">
-              <p class="first">-</p>
-              <p class="second"> - </p>
-              <p class="third"> -</p>
+              <p class="first">@if ($first_letter != '' && $first_letter != '-')  {{ config('app')['english_letters'][$first_letter] }} @else {{ $first_letter }} @endif</p>
+              <p class="second">@if ($second_letter != '' && $second_letter != '-')  {{ config('app')['english_letters'][$second_letter] }} @else {{ $second_letter }} @endif</p>
+              <p class="third">@if ($third_letter != '' && $third_letter != '-')  {{ config('app')['english_letters'][$third_letter] }} @else {{ $third_letter }} @endif</p>
             </div>
           </div>
 
@@ -43,15 +44,15 @@
           <div class="numbers">
             <div class="arabic">
               <p class="first"> {{ $first_number }} </p>
-              <p class="second"> {{ $second_number }}  </p>
-              <p class="third"> {{ $third_number }} </p>
-              <p class="fourth"> {{ $fourth_number }} </p>
+              @if ($second_number != "" || $is_update == 1)<p class="second"> {{ $second_number }}  </p>@endif
+              @if ($third_number != "" || $is_update == 1)<p class="third"> {{ $third_number }} </p>@endif
+              @if ($fourth_number != "" || $is_update == 1)<p class="fourth"> {{ $fourth_number }} </p>@endif
             </div>
             <div class="english">
-              <p class="first">-</p>
-              <p class="second">- </p>
-              <p class="third"> -</p>
-              <p class="fourth"> -</p>
+              <p class="first">@php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $first_number) @endphp </p>
+              @if ($second_number != "" || $is_update == 1)<p class="second">@php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $second_number) @endphp </p>@endif
+              @if ($third_number != "" || $is_update == 1)<p class="third"> @php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $third_number) @endphp</p>@endif
+              @if ($fourth_number != "" || $is_update == 1)<p class="fourth"> @php echo str_replace(array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'), array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), $fourth_number) @endphp</p>@endif
             </div>
           </div>
         </div>

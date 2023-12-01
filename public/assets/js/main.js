@@ -86,7 +86,9 @@
 //       alert($(this).val());
 //   });
 
-
+$(window).on('load', function () {
+  $('.cs-loader').hide();
+});
 
 // ---------- 
 $(document).ready(function(){ 
@@ -95,34 +97,56 @@ $(document).ready(function(){
     $('#numbersType').on('change', function() {
       if ($(this).find('option:selected').attr('data-value') == '1') {
         $('.cnt_firstNumber').show();
+        $('.lawha .serial-number .numbers .first').show();
         $('.cnt_secondNumber').hide();
+        $('.lawha .serial-number .numbers .second').hide();
         $('.cnt_thirdNumber').hide();
+        $('.lawha .serial-number .numbers .third').hide();
         $('.cnt_fourthNumber').hide();
+        $('.lawha .serial-number .numbers .fourth').hide();
       } else if ($(this).find('option:selected').attr('data-value') == '2') {
         $('.cnt_firstNumber').show();
+        $('.lawha .serial-number .numbers .first').show();
         $('.cnt_secondNumber').show();
+        $('.lawha .serial-number .numbers .second').show();
         $('.cnt_thirdNumber').hide();
+        $('.lawha .serial-number .numbers .third').hide();
         $('.cnt_fourthNumber').hide();
+        $('.lawha .serial-number .numbers .fourth').hide();
       } else if ($(this).find('option:selected').attr('data-value') == '3') {
         $('.cnt_firstNumber').show();
+        $('.lawha .serial-number .numbers .first').show();
         $('.cnt_secondNumber').show();
+        $('.lawha .serial-number .numbers .second').show();
         $('.cnt_thirdNumber').show();
+        $('.lawha .serial-number .numbers .third').show();
         $('.cnt_fourthNumber').hide();
+        $('.lawha .serial-number .numbers .fourth').hide();
       } else if ($(this).find('option:selected').attr('data-value') == '4') {
         $('.cnt_firstNumber').show();
+        $('.lawha .serial-number .numbers .first').show();
         $('.cnt_secondNumber').show();
+        $('.lawha .serial-number .numbers .second').show();
         $('.cnt_thirdNumber').show();
+        $('.lawha .serial-number .numbers .third').show();
         $('.cnt_fourthNumber').show();
+        $('.lawha .serial-number .numbers .fourth').show();
       } else {
         $('.cnt_firstNumber').show();
+        $('.lawha .serial-number .numbers .first').show();
         $('.cnt_secondNumber').show();
+        $('.lawha .serial-number .numbers .second').show();
         $('.cnt_thirdNumber').show();
+        $('.lawha .serial-number .numbers .third').show();
         $('.cnt_fourthNumber').show();
+        $('.lawha .serial-number .numbers .fourth').show();
       }
     });
   }
 
-  
+  $('.filterHomeForm0').on('change',function(){
+    $('.formFilter0').submit();
+  });
 
 
 });
@@ -188,6 +212,15 @@ $(document).ready(function(){
       }
     });
   }
+
+
+$('input[type=radio][name=plate_type]').change(function() {
+  if (this.value == 'نقل') {
+      $('.lawha .ksa-board').addClass('ksa-board2');
+  } else {
+    $('.lawha .ksa-board').removeClass('ksa-board2');
+  }
+});
 
 
 // ----  OWL Carousel 
@@ -264,6 +297,7 @@ function lettersTraduction(letter) {
 function numbersTraduction(number) {
   if (number != "") {
     var numberList = {
+      '٠': '0',
       '١': '1',
       '٢': '2',
       '٣': '3',
@@ -277,6 +311,20 @@ function numbersTraduction(number) {
     return numberList[number];
   }
 }
+
+
+// disable price if Auction is Checked 
+$('input#in_auction').change(function(){
+  console.log("111");
+  if($(this).is(":checked")) {
+      $('.price_input').addClass('bg-gray');
+      $("input#price").prop('disabled', true)
+  } else {
+      $('.price_input').removeClass('bg-gray');
+      $("input#price").prop('disabled', false)
+  }
+});
+
 
 
 if ($('.mobSidebar').length) {
@@ -329,26 +377,3 @@ if ($('.mobSidebar').length) {
 }
 
 
-// disable price if Auction is Checked 
-// $('#in_auction').change(function(){
-//   if($(this).is(":checked")) {
-//       $('.price_input').addClass('bg-gray');
-//   } else {
-//       $('.price_input').removeClass('bg-gray');
-//   }
-// });
-
-
-function disablePrice() {
-  // Get the checkbox
-  var checkBox = document.getElementById("in_auction");
-  // Get the output text
-  var lbl = document.getElementById("price");
-
-  // If the checkbox is checked, display the output text
-  if (checkBox.checked == true){
-    lbl.classList.remove('disabled');
-  } else {
-    lbl.classList.add('disabled');
-  }
-}

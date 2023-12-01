@@ -56,10 +56,10 @@
                                 <label class="font-tajawal align-self-center"> نوع الأرقام </label>
                                 <select id="numbersType" name="numbers_type" class="form-select" style="min-width: 100px;">
                                     <option value="" selected> الكل </option>
-                                    <option data-value="1" value="فردي"> فردي </option>
-                                    <option data-value="2" value="ثنائي"> ثنائي </option>
-                                    <option data-value="3" value="ثلاثي"> ثلاثي </option>
-                                    <option data-value="4" value="رباعي"> رباعي </option>                                
+                                    <option data-value="1" value="1"> فردي </option>
+                                    <option data-value="2" value="2"> ثنائي </option>
+                                    <option data-value="3" value="3"> ثلاثي </option>
+                                    <option data-value="4" value="4"> رباعي </option>                                
                                 </select>
                             </div>
                         </div>
@@ -84,25 +84,28 @@
                         <div class="row  w-50 textfields py-1 d-flex flex-column align-items-center justify-content-center gap-3  ">
                             
                             {{-- Letter --}}
-                            <div class="textfield-input mb-2 d-flex justify-content-start align-items-center m-0">
+                            <div class="letterBlocAd textfield-input mb-2 d-flex justify-content-start align-items-center m-0">
                                 <label class="font-tajawal align-self-center"> الأحرف &nbsp; </label>
                                 <select id="first_letter" name="first_letter" class="form-select">
+                                    <option value="" {{ old('first_letter') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_letters'] as $key => $value )
-                                        <option value="{{$value}}" {{ old('first_letter') == $value ? 'selected' : '' }} > {{$value}}</option>
+                                        <option value="{{$value}}" {{ old('first_letter') == $value ? 'selected' : '' }} > {{$value}} - {{ config('app')['english_letters'][$value] }}</option>
                                     @endforeach                                
                                 </select>
                                 <x-front.form.error field="first_letter" />
 
                                 <select id="second_letter" name="second_letter" class="form-select mx-2 ms-md-4 ms-lg-4 me-md-0 me-lg-0">
+                                    <option value="" {{ old('second_letter') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_letters'] as $key => $value )
-                                        <option value="{{$value}}" {{ old('second_letter') == $value ? 'selected' : '' }} > {{$value}}</option>
+                                        <option value="{{$value}}" {{ old('second_letter') == $value ? 'selected' : '' }} > {{$value}} - {{ config('app')['english_letters'][$value] }}</option>
                                     @endforeach                                
                                 </select>
                                 <x-front.form.error field="second_letter" />
 
                                 <select id="third_letter" name="third_letter" class="form-select">
+                                    <option value="" {{ old('third_letter') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_letters'] as $key => $value )
-                                        <option value="{{$value}}" {{ old('third_letter') == $value ? 'selected' : '' }} > {{$value}}</option>
+                                        <option value="{{$value}}" {{ old('third_letter') == $value ? 'selected' : '' }} > {{$value}} - {{ config('app')['english_letters'][$value] }}</option>
                                     @endforeach                                
                                 </select>
                                 <x-front.form.error field="third_letter" />
@@ -115,9 +118,10 @@
                         <div class="row w-50 with-border textfields py-1 d-flex flex-column align-items-center justify-content-center gap-3  ">
                             
                             {{-- number --}}
-                            <div class="textfield-input mb-2 d-flex justify-content-start align-items-center">
+                            <div class="numberBlocAd textfield-input mb-2 d-flex justify-content-start align-items-center">
                                 <label class="font-tajawal align-self-center"> الأرقام &nbsp; </label>
                                 <select id="first_number" name="first_number"  class="form-select cnt_firstNumber">
+                                    <option class="font-tajawal" value="" {{ old('first_number') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_numbers'] as $key => $value )
                                         <option class="font-tajawal" value="{{$value}}" {{ old('first_number') == $value ? 'selected' : '' }} > {{$value}}</option>
                                     @endforeach
@@ -125,22 +129,25 @@
                                 <x-front.form.error field="first_number" />
                             
                                 <select id="second_number" name="second_number" class="form-select cnt_secondNumber mx-2 ms-md-4 me-md-0 ms-lg-4 me-lg-0">
+                                    <option class="font-tajawal" value="" {{ old('second_number') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_numbers'] as $key => $value )
-                                        <option class="font-tajawal" value="{{$value}}" {{ old('first_number') == $value ? 'selected' : '' }} > {{$value}}</option>
+                                        <option class="font-tajawal" value="{{$value}}" {{ old('second_number') == $value ? 'selected' : '' }} > {{$value}}</option>
                                     @endforeach                                
                                 </select>
                                 <x-front.form.error field="second_number" />
                             
                                 <select id="third_number" name="third_number" class="form-select cnt_thirdNumber me-2 me-md-0 me-lg-0">
+                                    <option class="font-tajawal" value="" {{ old('third_number') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_numbers'] as $key => $value )
-                                        <option class="font-tajawal" value="{{$value}}" {{ old('first_number') == $value ? 'selected' : '' }} > {{$value}}</option>
+                                        <option class="font-tajawal" value="{{$value}}" {{ old('third_number') == $value ? 'selected' : '' }} > {{$value}}</option>
                                     @endforeach                                    
                                 </select>
                                 <x-front.form.error field="third_number" />
                             
                                 <select id="fourth_number" name="fourth_number" class="form-select cnt_fourthNumber">
+                                    <option class="font-tajawal" value="" {{ old('fourth_number') == "" ? 'selected' : '' }} >  </option>
                                     @foreach (config('app')['arabic_numbers'] as $key => $value )
-                                        <option class="font-tajawal" value="{{$value}}" {{ old('first_number') == $value ? 'selected' : '' }} > {{$value}}</option>
+                                        <option class="font-tajawal" value="{{$value}}" {{ old('fourth_number') == $value ? 'selected' : '' }} > {{$value}}</option>
                                     @endforeach
                                 </select>
                                 <x-front.form.error field="fourth_number" />
@@ -252,12 +259,15 @@
                     <div class="d-flex controls d-flex flex-row align-items-center justify-content-start py-2 gap-1">
                         
                         {{-- Contact  --}}
-                        <div class="col textfields py-1 d-flex flex-column align-items-start justify-content-start gap-3 px-0 ">
-                            <div class="textfield-input    m-0 d-flex justify-content-center align-items-center">
+                        <div class="col textfields py-1 d-flex flex-column align-items-start justify-content-start gap-3 px-0 fieldPhoneFlag">
+                            {{-- <div class="textfield-input m-0 d-flex justify-content-center align-items-center">
                                 <label style="width: auto;" class="font-tajawal align-self-center" for="phone">
                                     رقم التواصل</label>
-                                <input type="text" class="font-tajawal bg-transparent text-right custom_input ltr" name="phone" value="{{old('phone')}}" id="phone" placeholder="يبدأ ب 05" >
-                            </div>
+                                <input type="text" class="font-tajawal bg-transparent text-right custom_input ltr" name="phone" value="{{old('phone')}}" id="phone" placeholder="5xxxxxxxx" >                              
+
+                            </div> --}}
+                            
+                            <x-front.form.phone name="phone" class="ltr" placeholder="5xxxxxxxx" id="phone" :value="old('phone')" />
                             <x-front.form.error field="phone" /> 
                         </div>
 
@@ -275,7 +285,7 @@
                             <div class="col">
                                 <div class="row sawm-check d-flex flex-row flex-nowrap justify-content-center zindex-tooltip position-relative" style="width: 159px;margin-right: 10px;">
                                     <div class=" form-check d-flex -start justify-content-between px-3 " style="width: 108px;">
-                                        <input class="form-check-input align-self-center" value="نعم" name="in_auction" type="checkbox" onClick="disablePrice()" id="in_auction" {{ old('in_auction') == 'نعم' ? 'checked' : '' }} >
+                                        <input class="form-check-input align-self-center" value="نعم" name="in_auction" type="checkbox" id="in_auction" {{ old('in_auction') == 'نعم' ? 'checked' : '' }} >
                                         <label class="form-check-label text-black fw-bold font-tajawal m-0  align-self-center" for="in_auction">على السوم</label>
                                     </div>
                                     <x-front.form.error field="in_auction" /> 
