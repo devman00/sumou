@@ -1,1 +1,0 @@
-components.front.link

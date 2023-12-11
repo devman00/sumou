@@ -12,8 +12,8 @@
           اتمام المبايعة<br>عن طريق سمو
         </a> --}}
 
-        <a class="confirm-btn-mob nav-link py-1 btn px-3 gradientBlueViolet_90 text-white" href="{{route('ads.create')}}" style="font-size: 14px; display:none"> <i class="las la-plus"></i>
-          إضافة إعلان
+        <a class="confirm-btn-mob nav-link py-1 btn px-3 gradientBlueViolet_90 text-white" href="{{route('requests.type')}}" style="font-size: 14px; display:none"> <i class="las la-plus"></i>
+          اتمام المبايعة عن طريق سمو
         </a>
 
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"

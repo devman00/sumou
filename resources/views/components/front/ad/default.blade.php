@@ -8,7 +8,7 @@
     'fourth_number',
     'price',
     'phone',
-    'date',
+    'date'=> '____',
     'allow_contact' => 0,
     'allow_actions' => 0,
     'whatsapp',

@@ -1543,3 +1543,9 @@ a {
 .display-none{
   display: none;
 }
+
+/* ------------  */
+
+.frmStep01 input::placeholder, .frmStep02 input::placeholder, .frmStep03 input::placeholder{
+font-size: 12px;
+}

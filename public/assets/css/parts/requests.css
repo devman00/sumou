@@ -82,7 +82,7 @@
 
   .talab-manage{
 
-    gap: 10px;
+    gap: 5px;
 
   }
 
@@ -112,12 +112,22 @@
     background-color: #fff8e5!important;
     order: 9999999999;
   }
+
   .rejected{
     background-color: rgb(255 2 2 / 9%)!important;
     order: -1;
-
-    
   }
+
+  .completed{
+    background-color: #e3dfffbd!important;
+    order: -1;
+  }
+
+  .canceled{
+    background-color: #eaeaeabd!important;
+    order: -1;
+  }
+   
 
   .status-accepted{
    color: green !important;

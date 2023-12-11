@@ -16,7 +16,7 @@ return new class extends Migration
             // $table->string('phone')->after('password')->nullable();
             
             
-            $table->string('phone')->unique()->after('password')->nullable();;
+            $table->string('phone')->unique()->after('password')->nullable();
             $table->string('verification_code')->unique()->after('phone')->nullable();
             $table->timestamp('phone_verified_at')->after('verification_code')->nullable();
             $table->string('avatar')->after('phone')->nullable();

@@ -23,14 +23,15 @@
 
     <!-- FORM start ============================-->
     <section class=" fill-details plate-info pt-0 py-6 ">
-        <form name="" action="" method="post">
+        <form action="{{route('requests.store')}}" method="post">
+            @csrf
 
             <!-- ==================================== -->
             <!-- STEP 1  ------>
             <!-- ====================================  -->
             <div class="frmStep01">
 
-                <!------- form 1 ----->
+                <!------- form 1 : Request Details  ----->
                 <div class="container 	 position-relative bg-white p-3 mb-3">
                     <div class="title mb-4">
                         <div class="box d-flex justify-content-center align-items-center position-absolute top-0 right--1">
@@ -43,22 +44,22 @@
                     <div class="row d-flex controls d-flex align-items-start justify-content-start m-0 ">
 
                         <div class="col textfields py-1 d-flex flex-column align-items-start justify-content-start gap-3  ">
-
-                            <x-front.form.error field="plate_type" />
+                            
                             {{-- numbersType ------  --}}
-
                             <div class="textfield-input mb-2 d-flex justify-content-center align-items-center">
                                 <label for="font-tajawal buyer-identity"> نوع الأرقام </label>
                                 <select id="numbersType" name="numbers_type" class="form-select" style="min-width: 100px;">
-                                    <option value="" selected> الكل </option>
+                                    <option value="" selected> إختر </option>
                                     <option data-value="1" value="1"> فردي </option>
                                     <option data-value="2" value="2"> ثنائي </option>
                                     <option data-value="3" value="3"> ثلاثي </option>
                                     <option data-value="4" value="4"> رباعي </option>                                
                                 </select>
+                                <x-front.form.error field="numbers_type" />
+
                             </div>
 
-
+                            {{-- Plate preview ----  --}}
                             <div class="bg-white w-100">
                                 <div class="ad-lawha mt-3__ m-auto w-lg-50 w-md-50 py-3__ pb-1">
                                     <x-front.ad.plate 
@@ -76,8 +77,6 @@
                             {{-- Letters ------  --}}
                             <div class="col  d-flex controls d-flex align-items-center justify-content-start position-relative pt-3 rtl_arrow">
                                 <div class="row  w-50 textfields py-1 d-flex flex-column align-items-center justify-content-center gap-3  ">
-                                    
-                                    {{-- Letter --}}
                                     <div class="letterBlocAd textfield-input mb-2 d-flex justify-content-start align-items-center m-0">
                                         <label class="font-tajawal align-self-center"> الأحرف &nbsp; </label>
                                         <select id="first_letter" name="first_letter" class="form-select">
@@ -150,37 +149,36 @@
                                 <!-- <hr style=" transform:rotate(180deg);" class=" "> -->
                             </div>
 
-
-
-                            <div class="textfield-input mb-2 d-flex justify-content-center align-items-center">
+                            {{-- Plate Price -----  --}}
+                            <div class="textfield-input mb-2 mt-4 d-flex justify-content-center align-items-center">
                                 <label for="plate-price"> سعر اللوحة</label>
-                                <input type="text" class="bg-transparent" id="plate-price" placeholder="ادخل الرقم"
-                                    style="  
-                        text-align:right;
-                        ">
+                                <input type="text" class="bg-transparent text-right" id="plate-price" name="plate_price" placeholder="ادخل الرقم" value="{{old('plate_price')}}" >
+                                <x-front.form.error field="plate_price" />
                             </div>
-                            <!-- <div class="textfield-input mb-2 d-flex justify-content-center align-items-center">
+
+                            {{-- Confirm Plate Price -----  --}}
+                            <div class="textfield-input mb-2 d-flex justify-content-center align-items-center">
                                 <label for="plate-price-confirm">تأكيد سعر اللوحة</label>
-                                <input type="text" class="bg-transparent text-right" id="plate-price-confirm"
-                                    placeholder="ادخل الرقم"  ">
-                            </div> -->
-                            <div class="textfield-input mb-2 d-flex justify-content-center align-items-center">
-                                <label for="buyer-identity">هوية البائع</label>
-                                <input type="text" class="bg-transparent text-right" id="buyer-identity"
-                                    placeholder="ادخل الرقم ">
+                                <input type="text" class="bg-transparent text-right" name="confirm_plate_price" id="plate-price-confirm" placeholder=" تأكيد السعر " value="{{old('confirm_plate_price')}}">
                             </div>
 
+                            {{-- Vendor National ID  --}}
                             <div class="textfield-input mb-2 d-flex justify-content-center align-items-center">
-                                <label for="buyer-identity">رقم جوال البائع</label>
-                                <input type="text" class="bg-transparent text-right" id="buyer-identity"
-                                    placeholder="ادخل الرقم ">
+                                <label for="buyer-identity">هوية المشتري</label>
+                                <input type="text" class="bg-transparent text-right" name="vendor_national_id" id="buyer-identity" placeholder="ادخل الرقم " value="{{old('vendor_national_id')}}">
+                                <x-front.form.error field="vendor_national_id" />
                             </div>
 
-
+                            {{-- Vendor Phone  --}}
+                            <div class="textfield-input mb-2 d-flex justify-content-center align-items-center">
+                                <label for="buyer-identity">رقم جوال المشتري</label>
+                                <input type="text" class="bg-transparent text-right" name="vendor_phone" id="buyer-identity"  placeholder="ادخل الرقم " value="{{old('vendor_phone')}}">
+                                <x-front.form.error field="vendor_phone" />
+                            </div>
 
                         </div>
-                        <div
-                            class=" date-checkbox col flex-column d-flex justify-self-start flex-row flex-wrap align-items-start ">
+
+                        {{-- <div class=" date-checkbox col flex-column d-flex justify-self-start flex-row flex-wrap align-items-start ">
                             <!-- <div class="row d-flex justify-content-center__ align-items-start flex-row ">
                                 <p class="h4 text-black col"> نوع التقويم</p>
 
@@ -211,14 +209,13 @@
                                 </div>
 
                             </div>
-        -->
-                        </div>
-
+                            -->
+                        </div> --}}
                     </div>
                 </div>
 
                 <!------- form 2 ----->
-                <div class="container 	 position-relative bg-white p-3 ">
+                {{-- <div class="container 	 position-relative bg-white p-3 ">
                     <div class="title mb-4">
                         <div class="box d-flex justify-content-center align-items-center position-absolute top-0 right--1">
                             <i></i>
@@ -279,75 +276,67 @@
 
                     </div>
 
-                </div>
+                </div> --}}
 
-
-
-                <!------- form 3 ----->
+                <!------- form 3 : Bank Details  ----->
                 <div class="container 	 position-relative bg-white p-3 mt-3">
                     <div class="title mb-4">
                         <div class="box d-flex justify-content-center align-items-center position-absolute top-0 right--1">
                             <i></i>
                         </div>
                         <p class="h3 fw-bold" style="font-size:20px!important">المعلومات البنكية الخاصة بك</p>
-
                     </div>
 
                     <div class="row d-flex controls d-flex align-items-start justify-content-start m-0 ">
-
-                        <div
-                            class="col textfields py-1 d-flex flex-column align-items-start justify-content-start gap-3  ">
-
+                        <div class="col textfields py-1 d-flex flex-column align-items-start justify-content-start gap-3  ">
                             <div class="textfield-input mb-2 d-flex justify-content-start align-items-center w-50">
                                 <label> إسم البنك</label>
-                                <select id="boardType" name="board_type" class="form-select">
-                                    <option selected=""> بنك الراجحي</option>
-                                    <option value="خصوصي"> بنك الراجحي </option>
-                                    <option value="نقل"> بنك الراجحي </option>
+                                <select id="bank_name" name="bank_name" class="form-select">
+                                    @foreach (config('app.banks_list') as $bank_name)
+                                        <option value="{{$bank_name}}" {{ old('bank_name') == $bank_name ? 'selected' : '' }}> {{ $bank_name }} </option>
+                                    @endforeach
                                 </select>
+                                <x-front.form.error field="bank_name" />
                             </div>
                             <div class="textfield-input mb-2 d-flex justify-content-start  align-items-center w-50">
-                                <label for="bank-iban"> الايبان</label>
-                                <input type="text" class="bg-transparent" id="bank-iban" placeholder="158775544665"
-                                    style=" text-align:right;">
+                                <label for="bank_iban"> الايبان</label>
+                                <input type="text" class="bg-transparent text-right" name="bank_iban" id="bank_iban" placeholder="158775544665" value="{{old('bank_iban')}}">
+                                <x-front.form.error field="bank_iban" />
                             </div>
                         </div>
                         <!-- <hr style=" transform:rotate(180deg);" class=" "> -->
                     </div>
-
                 </div>
 
-                <!------- form 4 ----->
+                <!------- form 4 : Address Details ----->
                 <div class="container 	 position-relative bg-white p-3 mt-3">
                     <div class="title mb-4">
                         <div class="box d-flex justify-content-center align-items-center position-absolute top-0 right--1">
                             <i></i>
                         </div>
                         <p class="h3 fw-bold" style="font-size:20px!important">معلومات العنوان</p>
-
                     </div>
 
                     <div class="row d-flex controls d-flex align-items-start justify-content-start m-0 ">
-
-                        <div
-                            class="col textfields py-1 d-flex flex-column align-items-start justify-content-start gap-3  ">
+                        <div class="col textfields py-1 d-flex flex-column align-items-start justify-content-start gap-3  ">
+                            
+                            {{-- city --}}
                             <div class="textfield-input mb-2 d-flex justify-content-start align-items-center w-50">
                                 <label> المدينة</label>
-                                <select id="boardType" name="board_type" class="form-select">
-                                    <option selected=""> الرياض</option>
-                                    <option value="جدة"> جدة</option>
-                                    <option value="مكة"> مكة</option>
+                                <select id="city" name="city" class="form-select">
+                                    @foreach (config('location.cities') as $city )
+                                        <option value="{{$city}}" @selected($city == old("city"))> {{$city}}</option>
+                                    @endforeach
                                 </select>
+                                <x-front.form.error field="city" />
                             </div>
-                            <div class="textfield-input mb-2 d-flex justify-content-start align-items-center"
-                                style=" ">
-                                <label for="info-address"> العنوان</label>
-                                <input type="text" class="bg-transparent" id="info-address" placeholder=""
-                                    style="  
-                        text-align:right;
-                        height: 60px;
-                        width: 600px;
-                        ">
+                            
+                            {{-- Address  --}}
+                            <div class="textfield-input mb-2 d-flex justify-content-start align-items-center">
+                                <label for="address"> العنوان</label>
+                                <input type="text" name="address" class="bg-transparent text-right" id="address" placeholder="" 
+                                    style="height: 60px; width: 600px;" value="{{old('address')}}" >
+                                <x-front.form.error field="address" />
                             </div>
                         </div>
                     </div>
@@ -356,14 +345,13 @@
                 <!-- SUBMIT Button (Next & Back Button)  -->
                 <div class="next-button p-6">
                     <div class="container__ d-flex justify-content-center gap-3 ">
-                        <a href="{{route('requests.type')}}" class="btn  btn-secondary d-flex justify-content-center align-items-center "><i class="las la-arrow-right" style=" margin-left:5px;font-size: 21px;"></i> رجوع </a>
-                        <button id="Step01next" class="btn  btn-primary d-flex justify-content-center align-items-center "> التالي 
-                            <i class="las la-arrow-left" style=" margin-right:5px;font-size: 21px;"></i> 
+                        <button id="Step01next" class="btn  btn-primary d-flex justify-content-center align-items-center "> <i class="las la-arrow-right me-2"></i> 
+                             التالي 
                         </button>
+                        <a href="{{route('requests.type')}}" class="btn  btn-secondary d-flex justify-content-center align-items-center "> رجوع  <i class="las la-arrow-left ms-2"></i> </a>
 
                     </div>
                 </div>
-
             </div>
 
 
@@ -383,8 +371,7 @@
                     </div>
 
                     <div class="">
-                        <div
-                            class=" authorization p-md-4 p-lg-4 border-dashed bg-gray-- mx-md-5 mx-lg-5 mx-1 mb-4 text-black">
+                        <div class=" authorization p-md-4 p-lg-4 border-dashed bg-gray-- mx-md-5 mx-lg-5 mx-1 mb-4 text-black">
                             <p class="p-4">
                                 تتطلب عملية نقل اللوحات إلى تفويض أحد شركائنا لإنجاز العملية عن طريق المرور السعودي <br>
 
@@ -426,9 +413,9 @@
 
                             <div class="controls">
                                 <div class="textfield-input mb-2 d-flex text-dark-blue pt-3">
-                                    <label for="" class="pt-2 fs-18px w-25 ps-5"> أدخل رقم الوكالة </label>
-                                    <input type="text" class="col-md-4 mx-0"
-                                        placeholder="رقم الوكالة يتكون من 9 ارقام">
+                                    <label for="" class="pt-2 fs-18px w-25 ps-5"> أدخل رقم الوكالة </label> 
+                                    <input type="text" name="authorization_number" id="authorization_number" class="col-md-4 mx-0" placeholder="رقم الوكالة يتكون من 9 ارقام" value="{{old('authorization_number')}}">
+                                    <x-front.form.error field="authorization_number" />
                                 </div>
                             </div>
                         </div>
@@ -439,12 +426,11 @@
                 <!-- SUBMIT Button (Next & Back Button)  -->
                 <div class="next-button p-6">
                     <div class="container__ d-flex justify-content-center gap-3 ">
-                        <a href="javascript:void(0);" id="Step02back"
-                            class="btn  btn-secondary d-flex justify-content-center align-items-center "><i
-                                class="las la-arrow-right" style=" margin-left:5px;font-size: 21px;"></i> رجوع </a>
-                        <a href="javascript:void(0);" id="Step02next"
-                            class="btn  btn-primary d-flex justify-content-center align-items-center ">التالي <i
-                                class="las la-arrow-left" style=" margin-right:5px;font-size: 21px;"></i> </a>
+                        <button id="Step02next" class="btn  btn-primary d-flex justify-content-center align-items-center "> <i class="las la-arrow-right me-2"></i> 
+                             التالي 
+                        </button>
+                        <a href="javascript:void(0);" id="Step02back" class="btn  btn-secondary d-flex justify-content-center align-items-center "> رجوع  <i class="las la-arrow-left ms-2"></i> </a>
+
                     </div>
                 </div>
 
@@ -469,22 +455,23 @@
 
                     </div>
 
-                    <div class="  row not bank-name-details d-flex justify-content-between align-items-center w-50 ps-3">
+                    <div class="  row bank-name-details d-flex justify-content-between align-items-center w-50 ps-3">
                         <label class="col d-grid justify-self-end " for="">إسم البنك </label>
                         <label class="col d-grid justify-self-end fw-bold" for=""> : </label>
-                        <label class="col d-grid justify-self-end">بنك الراجحي</label>
+                        <label class="col d-grid justify-self-end text-black"><span class="step3BankName"></span></label>
                     </div>
-                    <div class="row not bank-iban-details d-flex justify-content-between  align-items-center w-50 ps-3">
+                    <div class="row bank-iban-details d-flex justify-content-between  align-items-center w-50 ps-3">
                         <label class="col d-grid justify-self-end"> الإيبان </label>
                         <label class="col d-grid justify-self-end fw-bold" for=""> : </label>
-                        <label class="col d-grid justify-self-end">158775544665</label>
+                        <label class="col d-grid justify-self-end text-black"><span class="step3BankIban"></span></label>
                     </div>
 
-                    <div class="row not bank-iban-details d-flex justify-content-between  align-items-center w-50 ps-3">
+                    <div class="row bank-iban-details d-flex justify-content-between  align-items-center w-50 ps-3">
                         <label class="col d-grid justify-self-end"> رقم الوكالة </label>
                         <label class="col d-grid justify-self-end fw-bold" for=""> : </label>
-                        <label class="col d-grid justify-self-end">123456789</label>
+                        <label class="col d-grid justify-self-end text-black"> <span class="step3AuthorizationNumber"></span> </label>
                     </div>
+
                 </div>
 
                 <!------- form 8 ----->
@@ -585,18 +572,12 @@
                 <!-- SUBMIT Button (Next & Back Button)  -->
                 <div class="next-button p-6">
                     <div class="container__ d-flex justify-content-center gap-3 ">
-                        <a href="javascript:void(0);" id="Step03back"
-                            class="btn  btn-secondary d-flex justify-content-center align-items-center "><i
-                                class="las la-arrow-right" style=" margin-left:5px;font-size: 21px;"></i> رجوع </a>
-                        <a href="javascript:void(0);" id="Step03next"
-                            class="btn  btn-primary d-flex justify-content-center align-items-center ">التالي <i
-                                class="las la-arrow-left" style=" margin-right:5px;font-size: 21px;"></i> </a>
+                        <button type="submit" class="btn  btn-primary d-flex justify-content-center align-items-center "> إنشاء الطلب  </button>
+                        <a href="javascript:void(0);" id="Step03back" class="btn  btn-secondary d-flex justify-content-center align-items-center "> رجوع  <i class="las la-arrow-left ms-2"></i> </a>
                     </div>
                 </div>
 
             </div>
-
-
         </form>
     </section>
     <!-- CLOSE FORM ============================-->
@@ -617,6 +598,12 @@
             $('.curStep').text('4');
             $('.frmStep03').slideDown();
             $('.frmStep02').slideUp();
+            $('.step3BankName').text($('#bank_name').find('option:selected').val());
+            $('.step3BankIban').text($('#bank_iban').val());
+            $('.step3AuthorizationNumber').text($('#authorization_number').val());
+            console.log("11 " + $('#bank_name').find('option:selected').val());
+            console.log("22 " + $('#bank_iban').val());
+            console.log("33 " + $('#authorization_number').val());
         });
 
         $('#Step02back').on('click', function(e) {

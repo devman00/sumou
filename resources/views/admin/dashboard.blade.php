@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Dashboard
+لوحة التحكم
 @endsection
 
 @section('content')

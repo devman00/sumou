@@ -10,7 +10,7 @@
             @includeIf('layouts.front.partials.sidebar')
 
             <!-- ------ Content  -->
-            <div class="col-md-10 col-lg-10 py-6 data px-0">
+            <div class="col-md-10 col-lg-10 py-6 data px-0 min-vh-md-100 min-vh-lg-100">
                 <div class="container px-3 mx-3">
                     <h3 class="px-3"> لوحاتي </h3>
                 </div>

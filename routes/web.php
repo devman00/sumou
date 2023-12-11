@@ -172,8 +172,9 @@ use Illuminate\Support\Facades\Route;
         });
 
         Route::get('requests/type', [AdRequestController::class, 'requestType'])->name('requests.type');
-        Route::resource('requests', AdRequestController::class);
-       
+        // Route::get('requests/{type}/confirm/{id}', [AdRequestController::class, 'confirm'])->name('requests.confirm');
+        Route::get('requests/confirm/{id}', [AdRequestController::class, 'confirm'])->name('requests.confirm')->whereNumber('id');
+        Route::resource('requests', AdRequestController::class);        
     });
 
 

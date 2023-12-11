@@ -46,7 +46,10 @@
                                                 <input type="text" value="_____" placeholder="إسم الحي"
                                                     id="new-password" name="" disabled>
                                             </div>
-
+                                            <div class="input-textfield d-flex flex-column">
+                                                <label for="fullname"> رقم الهوية </label>
+                                                <input value="{{ $user->national_id }}" type="text" id="national_id" disabled>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

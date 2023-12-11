@@ -64,6 +64,12 @@ class User extends Authenticatable implements LaratrustUser
         return  $this->hasMany(Ad::class);
     }
 
+    
+    public function adRequests()
+    {
+        return  $this->hasMany(AdRequest::class);
+    }
+
 
     #  checks to ascertain if the telephone number of the user is verified.
     public function userPhoneVerified()

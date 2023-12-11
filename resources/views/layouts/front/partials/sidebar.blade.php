@@ -35,10 +35,10 @@
             </li>
 
             <li class="nav-item" role="presentation">
-                <a href="requests.html">
+                <a href="{{route('requests.index')}}">
                     <button class="nav-link" id="talabat-tab">
                         <i class="las la-exchange-alt pe-2"></i>
-                        طلباتي
+                        طلبات المبايعة
                     </button>
                 </a>
             </li>

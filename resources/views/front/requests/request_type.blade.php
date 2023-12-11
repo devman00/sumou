@@ -133,7 +133,7 @@
             <!-- ----- Tab Container ---  -->
             <div class="tab-content px-2" id="nav-tabContent">
 
-                <!-- Seller ----  -->
+                <!-- المشتري ----  -->
                 <div class="affair-requirements-condition affair-requirements-condition-seller row tab-pane fade d-inline-flex_2 rounded justify-content-center align-items-center p-4 gap-1 bg-white text-center px-0"
                     id="nav-seller" role="tabpanel">
 
@@ -193,185 +193,85 @@
                     <!-- Requests ---  -->
                     <div class="row justify-content-evenly-- align-items-center-- bg-white w-100 py-4 display-none--">
                        
-                        <!-- ------- Item  --------  -->
+                        @forelse ($requests as $request )
+                        
+                        <!-- ------- Item _______ --------  -->      
                         <div class="col p-3">
-                            <!-- Date -----  -->
-                            <div class="row date align-self-end mb-1">
-                                <p class="m-0">بتاريخ : 00/00/0000</p>
-                            </div>
+                            <p class="m-0 text- pt-2 ps-1 fs-14px text-decoration-underline" style=" color: #8d8162; "> <i class="las la-clock pe-1"></i> 
+                                {{ $request->created_at->diffForHumans()}}
+                            </p>
 
                             <div class="row details d-flex flex-row justify-content-center align-items">
                                 <div class="talab-details-- col-8--">
-                                    <div class="ad-lawha mt-3 ">
-                                        {{-- <div class="lawha">
-                                            <div class="ksa-board"><img width="18" height="18"
-                                                    src="{{ asset('assets/') }}/img/icons/ksa.png"
-                                                    class="chakra-image css-y45xgh">
-                                                <p style="font-size: 6px!important;margin-bottom: 5px!important;">السعودية
-                                                </p>
-                                                <p style="font-size: 12px!important;">k</p>
-                                                <p style="font-size: 12px!important;">s</p>
-                                                <p style="font-size: 12px!important;margin-bottom: 8px!important;">a</p>
-                                                <div
-                                                    style="    width: 10px!important;
-                                                                            height: 10px!important;
-                                                                            border-radius: 50%!important;
-                                                                            background-color: black !important;
-                                                                            margin: 2px auto auto!important;">
-                                                </div>
-                                            </div>
-                                            <div class="informations">
-                                                <div class="letters">
-                                                    <div class="arabic-version">
-                                                        <p class="first">هـ</p>
-                                                        <p class="second"> د </p>
-                                                        <p class="third"> م</p>
-                                                    </div>
-                                                    <div class="english-version">
-                                                        <p class="first">h</p>
-                                                        <p class="second"> d </p>
-                                                        <p class="third"> m</p>
-                                                    </div>
-                                                </div>
+                                    
+                                    <a href="{{route('requests.show', ['request' => $request->id])}}">
+                                        <div class="ad-lawha mt-3 ">
+                                            <x-front.ad.plate 
+                                            {{-- :ad="$ad->id" --}}
+                                            :first_letter="$request->first_letter" 
+                                            :second_letter="$request->second_letter" 
+                                            :third_letter="$request->third_letter" 
+                                            :first_number="$request->first_number" 
+                                            :second_number="$request->second_number" 
+                                            :third_number="$request->third_number" 
+                                            :fourth_number="$request->fourth_number"
+                                            />
+                                        </div>
+                                    </a>
+                                     <!-- ------- Accept/Refuse  -->
+                                    <div class="talab-manage d-flex flex-row justify-content-center___ align-items-center m-auto mt-3">
+                                        <p class="from-info m-0 ">
+                                            <img class="" style=" width: 40px;border: 1px solid #ddd;border-radius: 2px; "  src="{{ asset('assets/') }}/img/icons/Property 1=Default.png" alt="">
+                                            <p class="fw-bold  m-0" style="color: #3e3e3e!important; ">  {{ $request->user->name }} </p>
+                                        </p>
+                                        {{-- <button class="accept btn-sm fs-12px fw-bold"> قبول  </button> --}}
 
-                                            </div>
+                                        {{-- ACCEPT ----  --}}
+                                        <div class="accept_request_form">
+                                            {{-- <button href="#" class="btn position-relative top-0">تسجيل الخروج</button> --}}
+                                            <form method="POST" action="{{ route('requests.update', $request->id) }}">
+                                                @csrf
+                                                @method('PATCH')
+                                                <input type="hidden" name="confirm_request" value="accepted">
+                                                <input type="hidden" name="request_id" value="{{$request->id}}">
+                                                <a href="{{ route('requests.update', $request->id) }}" class="btn btn-sm accept fs-12px fw-bold"
+                                                    onclick="event.preventDefault();this.closest('form').submit();">
+                                                    قبول
+                                                </a>
+                                            </form>
+                                        </div>
 
-                                            <div class="serial-number ltr d-block w-100">
-                                                <div class="numbers">
-                                                    <div class="arabic">
-                                                        <p class="first">١</p>
-                                                        <p class="second">٢ </p>
-                                                        <p class="third">٣</p>
-                                                        <p class="fourth">٤</p>
-                                                    </div>
-                                                    <div class="english">
-                                                        <p class="first">1</p>
-                                                        <p class="second">2 </p>
-                                                        <p class="third"> 3</p>
-                                                        <p class="fourth"> 4</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        {{-- REFUSE ----  --}}
+                                        <div class="accept_request_form">
+                                            <form method="POST" action="{{ route('requests.update', $request->id) }}">
+                                                @csrf
+                                                @method('PATCH')
+                                                <input type="hidden" name="confirm_request" value="refused">
+                                                <input type="hidden" name="request_id" value="{{$request->id}}">
+                                                <a href="{{ route('requests.update', $request->id) }}" class="btn btn-sm reject fs-12px fw-bold"
+                                                    onclick="event.preventDefault();this.closest('form').submit();">
+                                                    رفض
+                                                </a>
+                                            </form>
+                                        </div>
 
-                                        </div> --}}
-
-                                        <x-front.ad.plate 
-                                        {{-- :ad="$ad->id" --}}
-                                        first_letter="أ" 
-                                        second_letter="ب" 
-                                        third_letter="د" 
-                                        first_number="١" 
-                                        second_number="٢" 
-                                        third_number="٣" 
-                                        fourth_number="٤"
-                                        />
                                     </div>
 
-                                     <!-- ------- Accept/Refuse  -->
-                                     {{-- <div class="talab-manage d-flex flex-row justify-content-center align-items-center m-auto mt-3">
-                                        <p class="from-info m-0 ">
-                                            <img class="" style=" width: 50px;border: 1px solid #ddd;border-radius: 32px; "  src="{{ asset('assets/') }}/img/icons/Property 1=Default.png" alt="">
-                                            <p class="fw-bold  m-0" style="color: #3e3e3e!important; ">  فلان بن فلان </p>
-                                        </p>
-                                        <button class="accept btn-sm fs-12px"> قبول  </button>
-                                        <button class="reject btn-sm fs-12px"> رفض </button>
+                                    <!-- Date -----  -->
+                                    {{-- <div class="row date align-self-end mb-1">
+                                        <p class="m-0">بتاريخ : 00/00/0000</p>
                                     </div> --}}
                                 </div>
                             </div>
                         </div>
-
-                          <!-- ------- Item  --------  -->
-                          <div class="col p-3">
-
-                            <div class="row details d-flex flex-row justify-content-center align-items">
-                                <div class="talab-details-- col-8--">
-                                    <div class="ad-lawha mt-3 ">
-                                        {{-- <div class="lawha">
-                                            <div class="ksa-board"><img width="18" height="18"
-                                                    src="{{ asset('assets/') }}/img/icons/ksa.png"
-                                                    class="chakra-image css-y45xgh">
-                                                <p style="font-size: 6px!important;margin-bottom: 5px!important;">السعودية
-                                                </p>
-                                                <p style="font-size: 12px!important;">k</p>
-                                                <p style="font-size: 12px!important;">s</p>
-                                                <p style="font-size: 12px!important;margin-bottom: 8px!important;">a</p>
-                                                <div
-                                                    style="    width: 10px!important;
-                                                                            height: 10px!important;
-                                                                            border-radius: 50%!important;
-                                                                            background-color: black !important;
-                                                                            margin: 2px auto auto!important;">
-                                                </div>
-                                            </div>
-                                            <div class="informations">
-                                                <div class="letters">
-                                                    <div class="arabic-version">
-                                                        <p class="first">هـ</p>
-                                                        <p class="second"> د </p>
-                                                        <p class="third"> م</p>
-                                                    </div>
-                                                    <div class="english-version">
-                                                        <p class="first">h</p>
-                                                        <p class="second"> d </p>
-                                                        <p class="third"> m</p>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="serial-number ltr d-block w-100">
-                                                <div class="numbers">
-                                                    <div class="arabic">
-                                                        <p class="first">١</p>
-                                                        <p class="second">٢ </p>
-                                                        <p class="third">٣</p>
-                                                        <p class="fourth">٤</p>
-                                                    </div>
-                                                    <div class="english">
-                                                        <p class="first">1</p>
-                                                        <p class="second">2 </p>
-                                                        <p class="third"> 3</p>
-                                                        <p class="fourth"> 4</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div> --}}
-
-                                        <x-front.ad.plate 
-                                        {{-- :ad="$ad->id" --}}
-                                        first_letter="أ" 
-                                        second_letter="ب" 
-                                        third_letter="د" 
-                                        first_number="١" 
-                                        second_number="٢" 
-                                        third_number="٣" 
-                                        fourth_number="٤"
-                                        />
-                                    </div>
-
-                                     <!-- ------- Accept/Refuse  -->
-                                     {{-- <div class="talab-manage d-flex flex-row justify-content-center align-items-center m-auto mt-3">
-                                        <p class="from-info m-0 ">
-                                            <img class="" style=" width: 50px;border: 1px solid #ddd;border-radius: 32px; "  src="{{ asset('assets/') }}/img/icons/Property 1=Default.png" alt="">
-                                            <p class="fw-bold  m-0" style="color: #3e3e3e!important; ">  فلان بن فلان </p>
-                                        </p>
-                                        <button class="accept btn-sm fs-12px"> قبول  </button>
-                                        <button class="reject btn-sm fs-12px"> رفض </button>
-                                    </div> --}}
-                                </div>
-                            </div>
-
-                             <!-- Date -----  -->
-                             {{-- <div class="row date align-self-end mb-1"> --}}
-                                <p class="mt-3">بتاريخ : 00/00/0000</p>
-                            {{-- </div> --}}
-                        </div>
-
+                        @empty
+                            <div class="alert alert-warning"> لا توجد لديك طلبات </div>
+                        @endforelse
+                                              
                     </div>
                 </div>
 
-                <!-- Vendor ----  -->
+                <!-- البائع ----  -->
                 <div class="affair-requirements-condition affair-requirements-condition-vendor row tab-pane fade show active d-inline-flex_2 rounded justify-content-center align-items-center p-4 gap-1 bg-white text-center px-0"
                     id="nav-vendor" role="tabpanel">
                     <div class="affair-requirements-condition-blk">
@@ -436,10 +336,10 @@
         </div>
 
         <!-- SUBMIT Button (Next & Back Button)  -->
-        <div class="next-button p-6">
+        <div class="next-button p-6" id="submitNextBtn">
             <div class="container__ d-flex justify-content-center gap-3 ">
                 <a href="{{ route('requests.create') }}" class="btn  btn-primary d-flex justify-content-center align-items-center "> 
-                    التالي <i class="las la-arrow-left" style=" margin-right:5px;font-size: 21px;"></i> 
+                    <i class="las la-arrow-right me-2 fs-20px"></i>   التالي 
                 </a>
             </div>
         </div>
@@ -480,6 +380,17 @@
                 mouseWheel3.scrollLeft -= race;
             e.preventDefault();
         });
+
+        // ----------  Hide / SHOW submit Next button
+        $('#nav-vendor-tab').click(function(){
+            // console.log("CLICKEEEED");
+            $('#submitNextBtn').hide();
+        });
+
+        $('#nav-seller-tab').click(function(){
+            $('#submitNextBtn').show();
+        });
+
     </script>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
