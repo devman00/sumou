@@ -7,11 +7,7 @@ Create User
 @section('content')
 
     {{-- page heading  --}}
-<<<<<<< HEAD
-    <x-admin.page-heading heading="Create User"/>
-=======
     <x-admin.page-heading heading="إضافة مستخدم جديد"/>
->>>>>>> c832d41a6f6278dc77ae3e8cf3e510c8cb09214f
 
     <div class="page-content">
 
@@ -22,11 +18,7 @@ Create User
                         <div class="card-header"></div>
                         <div class="card-content">
                             <div class="card-body">
-<<<<<<< HEAD
-                                <form action="{{ route('admin.users.store') }}" method="post" class="form" enctype="multipart/form-data">
-=======
                                 <form action="{{ route('admin.users.store') }}" method="post" class="form form_1" enctype="multipart/form-data">
->>>>>>> c832d41a6f6278dc77ae3e8cf3e510c8cb09214f
                                     <div class="row">
                                         @csrf
 
