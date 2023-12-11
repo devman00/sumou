@@ -29,6 +29,7 @@ class User extends Authenticatable implements LaratrustUser
         'whatsapp',
         'status',
         'verification_code',
+        'national_id',
     ];
 
     /**

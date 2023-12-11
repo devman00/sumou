@@ -73,6 +73,15 @@
                                             </x-admin.form-group>
                                         </div>
 
+                                         {{----  National ID  --}}
+                                         <div class="col-md-12 col-12">
+                                            <x-admin.form-group>
+                                                <x-admin.form-label for="national_id" > رقم الهوية </x-admin.form-label>
+                                                <x-admin.form-input id="" name="national_id" placeholder="أضف رقم هوية المستخدم" value="{{ $user->national_id }}" />
+                                                <x-admin.form-error field="national_id"/>
+                                            </x-admin.form-group>
+                                        </div>
+
                                         {{----  Role  --}}
                                         <div class="col-md-12 col-12">
                                             <x-admin.form-group>

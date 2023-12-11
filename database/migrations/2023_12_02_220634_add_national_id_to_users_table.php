@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unique('national_id', 'users_national_id_unique')->after('role');
+            $table->string('national_id')->unique()->after('role');
+            // $table->string('national_id')->unique()->change();
+
         });
     }
 
@@ -22,7 +24,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropUnique('users_national_id_unique');
+            $table->dropColumn('national_id');
         });
     }
 };
