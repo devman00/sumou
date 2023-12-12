@@ -20,7 +20,9 @@ class AdRequestController extends Controller
         // dd(auth()->user()->national_id);
         // $requests = AdRequest::latest()->get();
         $requests = AdRequest::where('vendor_national_id', auth()->user()->national_id)
+                            ->where('request_type', 'sell')
                             ->where('status','pending')
+                            ->orWhere('status','accepted')
                             ->with('user')
                             ->get();
                             // ->first();

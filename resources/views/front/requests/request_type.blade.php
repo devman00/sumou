@@ -226,6 +226,7 @@
                                         </p>
                                         {{-- <button class="accept btn-sm fs-12px fw-bold"> قبول  </button> --}}
 
+                                        @if ($request->request_type == 'sell' && $request->status == 'pending' && $request->user_id != auth()->user()->id )
                                         {{-- ACCEPT ----  --}}
                                         <div class="accept_request_form">
                                             {{-- <button href="#" class="btn position-relative top-0">تسجيل الخروج</button> --}}
@@ -254,6 +255,7 @@
                                                 </a>
                                             </form>
                                         </div>
+                                        @endif
 
                                     </div>
 
@@ -265,7 +267,7 @@
                             </div>
                         </div>
                         @empty
-                            <div class="alert alert-warning"> لا توجد لديك طلبات </div>
+                            <div class="alert alert-warning"> لا توجد لديك طلبات للمبايعة </div>
                         @endforelse
                                               
                     </div>
