@@ -61,9 +61,9 @@
                         {{-- Confirmation ---  --}}
                         <a href="{{route('requests.confirm',['id' => $adRequest->id ])}}" class="btn btn-primary mt-4"> تأكيد المبايعة </a>
                     @endif
-
+                
                     {{-- ACCEPT / REJECT request  --}}
-                    @if ($adRequest->request_type == 'sell' && $adRequest->status == 'pending')
+                    @if ($adRequest->request_type == 'sell' && $adRequest->status == 'pending' && $adRequest->user_id != auth()->user()->id )
                     <div class="talab-manage d-flex flex-row align-items-center m-auto mt-4">
                         
                         {{-- ACCEPT ----  --}}

@@ -72,7 +72,7 @@ return new class extends Migration
             $table->string('vendor_serial_number')->nullable();  // vendor
 
             $table->integer('vendor_id')->nullable();
-            $table->timestamp('status_updated_at');
+            $table->timestamp('status_updated_at')->nullable();
 
             // $table->string('status')->default('pending');  
             $table->enum('status', ['pending', 'accepted', 'rejected', 'paid', 'completed', 'canceled'])->default('pending');  // pending => (accepted | rejected) => paid => completd | canceled
