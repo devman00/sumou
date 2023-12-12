@@ -253,7 +253,7 @@ class AdRequestController extends Controller
                 'status_updated_at' => Carbon::parse($request->status_updated_at),
             ];
             $validateData = [
-                'vendor_phone' => ['required'],
+                // 'vendor_phone' => ['required'],
                 'vendor_national_id' => ['required'],
                 'vendor_bank_name' => ['required'],
                 'vendor_bank_iban' => ['required','min:11','max:11'],
