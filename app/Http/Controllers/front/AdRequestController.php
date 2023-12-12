@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\front\AdRequests\StoreAdRqstRequest;
+use App\Http\Requests\Front\AdRequests\StoreAdRqstRequest;
 use App\Models\AdRequest;
 use App\Services\SMS\SMSProvider;
 use Carbon\Carbon;

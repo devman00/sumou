@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\front\AdRequests;
+namespace App\Http\Requests\Front\AdRequests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
