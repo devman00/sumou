@@ -101,7 +101,7 @@
         <nav class="d-flex bg-gray align-items-center justify-content-center bg-gray pb-3_ pt-5">
             <div class="nav nav-tabs mb-5 align-items-center justify-content-center" id="nav-tab" role="tablist">
 
-                <button class="nav-link active p-2 px-4 p-lg-4 px-lg-8 p-md-4 px-md-8 mx-3" id="nav-seller-tab"
+                <button class="nav-link active__ p-2 px-4 p-lg-4 px-lg-8 p-md-4 px-md-8 mx-3" id="nav-seller-tab"
                     data-bs-toggle="tab" data-bs-target="#nav-vendor" type="button" role="tab"
                     aria-controls="nav-seller" aria-selected="false">
                     <span class="div-1">
@@ -196,13 +196,13 @@
                         @forelse ($requests as $request )
                         
                         <!-- ------- Item _______ --------  -->      
-                        <div class="col p-3">
+                        <div class="col p-3 ">
                             <p class="m-0 text- pt-2 ps-1 fs-14px text-decoration-underline" style=" color: #8d8162; "> <i class="las la-clock pe-1"></i> 
                                 {{ $request->created_at->diffForHumans()}}
                             </p>
 
-                            <div class="row details d-flex flex-row justify-content-center align-items">
-                                <div class="talab-details-- col-8--">
+                            <div class="row details d-flex flex-row justify-content-center align-items ">
+                                <div class="talab-details-- col-8-- {{$request->status}}">
                                     
                                     <a href="{{route('requests.show', ['request' => $request->id])}}">
                                         <div class="ad-lawha mt-3 ">
@@ -274,7 +274,7 @@
                 </div>
 
                 <!-- البائع ----  -->
-                <div class="affair-requirements-condition affair-requirements-condition-vendor row tab-pane fade show active d-inline-flex_2 rounded justify-content-center align-items-center p-4 gap-1 bg-white text-center px-0"
+                <div class="affair-requirements-condition affair-requirements-condition-vendor row tab-pane fade show__ active__ d-inline-flex_2 rounded justify-content-center align-items-center p-4 gap-1 bg-white text-center px-0"
                     id="nav-vendor" role="tabpanel">
                     <div class="affair-requirements-condition-blk">
                         <div class=" col-4 col-lg col-md affair-requirements-condition__ d-flex  flex-column justify-content-start align-items-center gap-1 text-center p-0 px-2 py-3 light-blue-bg boxes-instr__">

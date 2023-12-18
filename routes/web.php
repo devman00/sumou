@@ -8,11 +8,13 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\AdController;
+use App\Http\Controllers\Admin\RequestController;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\front\AdController as FrontAdController;
 use App\Http\Controllers\front\AdRequestController;
 use App\Http\Controllers\front\UserController as UserAccountController;
+use App\Http\Controllers\NidVerificationController;
 use App\Http\Controllers\PhoneNumberVerifyController;
 use App\Http\Controllers\SettingController;
 use GuzzleHttp\Middleware;
@@ -126,6 +128,23 @@ use Illuminate\Support\Facades\Route;
                     Route::delete('/{ad}','destroy')->name('destroy')->middleware('permission:ads-delete');
                     Route::get('/{ad}','show')->name('show')->middleware('permission:ad-show');
             });
+
+             // Requests Routes-------
+             Route::controller(RequestController::class)->name('requests.')
+             ->prefix('requests')
+             ->group(function(){
+                    //  Route::get('/','index')->name('index')->middleware('permission:request-read');
+                    //  Route::get('create','create')->name('create')->middleware('permission:request-create');
+                    //  Route::post('/','store')->name('store')->middleware('permission:request-create');
+                    //  Route::get('/{ad}/edit','edit')->name('edit')->middleware('permission:request-update');
+                    //  Route::put('/{ad}','update')->name('update')->middleware('permission:request-update');
+                    //  Route::delete('/{ad}','destroy')->name('destroy')->middleware('permission:request-delete');
+                    //  Route::get('/{ad}','show')->name('show')->middleware('permission:request-show');
+
+                    Route::get('/','index')->name('index'); 
+                    Route::delete('/{ad}','destroy')->name('destroy');
+                    Route::get('/{ad}','show')->name('show');
+             });
     
 
         });
@@ -193,3 +212,13 @@ use Illuminate\Support\Facades\Route;
     // OTP Verification 
     Route::get('phone/verify', [PhoneNumberVerifyController::class,'show'])->name('phoneverification.show');
     Route::post('phone/verify', [PhoneNumberVerifyController::class,'verify'])->name('phoneverification.verify');
+
+    // National Id Verification (NID)
+    Route::get('nid/validation', [NidVerificationController::class,'show'])->name('nidverification.show');
+    Route::post('nid/send', [NidVerificationController::class,'send'])->name('nidverification.send');
+    Route::post('nid/confirm', [NidVerificationController::class,'confirm'])->name('nidverification.confirm');
+    // Route::get('nid/callback', [NidVerificationController::class,'callback'])->name('nidverification.callback');
+    Route::get('account/endpoint/', [NidVerificationController::class, 'callback'])->name('nidverification.callback');
+    Route::get('account/endpoint1/', [NidVerificationController::class, 'callback1'])->name('nidverification.callback1');
+
+   

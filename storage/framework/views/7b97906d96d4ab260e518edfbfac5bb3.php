@@ -8,6 +8,8 @@
     'third_number',
     'fourth_number',
     'is_update' => 0,
+    'is_link' => 'no',
+    'link' => '#'
 ]) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
@@ -20,6 +22,8 @@
     'third_number',
     'fourth_number',
     'is_update' => 0,
+    'is_link' => 'no',
+    'link' => '#'
 ]); ?>
 <?php foreach (array_filter(([
     'first_letter',
@@ -30,6 +34,8 @@
     'third_number',
     'fourth_number',
     'is_update' => 0,
+    'is_link' => 'no',
+    'link' => '#'
 ]), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
@@ -39,7 +45,7 @@
 } ?>
 <?php unset($__defined_vars); ?>
 
-
+    <?php if($is_link == 'yes'): ?> <a href="<?php echo e($link); ?>"> <?php endif; ?>
     <div class="lawha">
         <div class="ksa-board"><img width="18" height="18" src="<?php echo e(asset('assets')); ?>/img/icons/ksa.png"
             class="chakra-image css-y45xgh">
@@ -88,4 +94,5 @@
         </div>
 
     </div>
+    <?php if($is_link == 'yes'): ?> </a> <?php endif; ?>
 <?php /**PATH C:\wamp64\www\projects\sumou\resources\views/components/front/ad/plate.blade.php ENDPATH**/ ?>

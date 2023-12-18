@@ -172,7 +172,10 @@
                             {{-- Vendor Phone  --}}
                             <div class="textfield-input mb-2 d-flex justify-content-center align-items-center">
                                 <label for="buyer-identity">رقم جوال المشتري</label>
-                                <input type="text" class="bg-transparent text-right" name="vendor_phone" id="buyer-identity"  placeholder="ادخل الرقم " value="{{old('vendor_phone')}}">
+                                
+                                {{-- <input type="text" class="bg-transparent text-right" name="vendor_phone" id="buyer-identity"  placeholder="ادخل الرقم " value="{{old('vendor_phone')}}"> --}}
+                                <x-front.form.phone name="vendor_phone" class="ltr bg-transparent text-right" placeholder="5xxxxxxxx" id="vendor_phone" :value="old('vendor_phone')" />
+                                
                                 <x-front.form.error field="vendor_phone" />
                             </div>
 

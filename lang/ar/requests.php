@@ -20,7 +20,7 @@ return [
     'accepted' => 'تم القبول',
     'rejected' => 'تم الرفض',
     'paid' => 'تم الدفع',
-    'completd' => 'مكتمل',
+    'completed' => 'مكتمل',
     'canceled' => 'ملغي',
     '____' => '____',
 ];

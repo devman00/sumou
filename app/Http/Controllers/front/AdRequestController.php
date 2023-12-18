@@ -110,7 +110,8 @@ class AdRequestController extends Controller
         // {
 
         // }
-            
+        // $prefix = config('app.sa_prefix');
+
         $data = $request->all();
         // dd($data);
 
@@ -235,6 +236,8 @@ class AdRequestController extends Controller
         // CONFIRM request
         if($request->has('confirmation_status'))    
         {           
+  ;
+
             $rid = $request->request_id;    
             $data = [
                 'request_type' => 'confirm',
@@ -276,7 +279,8 @@ class AdRequestController extends Controller
 
             // $seller_phone = auth()->user()->phone;
             // $seller_national_id = auth()->user()->national_id;
-
+            
+            // $prefix = config('app.sa_prefix');
             $vendor_phone = $current_rqst->vendor_phone;
             $msgs = [
                 // 'seller' => [

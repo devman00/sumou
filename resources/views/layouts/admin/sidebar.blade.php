@@ -72,8 +72,8 @@
               {{-- @permission('ads-read')<x-admin.sidebar-link title="قائمة المبايعات" link="#" :hasDropdown=false :isChildren=true activeLink="#"/> @endpermission
               @permission('ads-create')<x-admin.sidebar-link title="إضافة لوحة" link="#" :hasDropdown=false :isChildren=true activeLink="#" /> @endpermission 
                --}}
-              <x-admin.sidebar-link title="قائمة المبايعات" link="#" :hasDropdown=false :isChildren=true activeLink="#"/>
-              <x-admin.sidebar-link title="عقد مبايعة" link="#" :hasDropdown=false :isChildren=true activeLink="#" />
+              <x-admin.sidebar-link title="قائمة المبايعات" :link="route('admin.requests.index')" :hasDropdown=false :isChildren=true activeLink="admin.requests.index"/>
+              {{-- <x-admin.sidebar-link title="عقد مبايعة" link="#" :hasDropdown=false :isChildren=true activeLink="#" /> --}}
             </x-admin.sidebar-link>
           {{-- @endif --}}
            

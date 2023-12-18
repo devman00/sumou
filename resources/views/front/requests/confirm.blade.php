@@ -100,8 +100,8 @@
                             </div>
                             <div class="textfield-input mb-2 d-flex justify-content-center align-items-center">
                                 <label for="vendor_national_id"> رقم الهوية </label>
-                                <input type="text" name="vendor_national_id" class="bg-transparent text-right" id="vendor_national_id"
-                                    placeholder=" رقم هوية المشتري" value="{{old('vendor_national_id', auth()->user()->national_id)}}">
+                                <input type="text" name="vendor_national_id" class="bg-transparent text-right bg-gray" id="vendor_national_id"
+                                    placeholder=" رقم هوية المشتري" value="{{old('vendor_national_id', auth()->user()->national_id)}}" readonly>
                                 <x-front.form.error field="vendor_national_id" />
                             </div>
                         </div>

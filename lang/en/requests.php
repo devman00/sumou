@@ -19,7 +19,7 @@ return [
     'accepted' => 'Accepted',
     'rejected' => 'Rejected',
     'paid' => 'Paid',
-    'completd' => 'Completed',
+    'completed' => 'Completed',
     'canceled' => 'Canceled',
     '____' => '____',
 

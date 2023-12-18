@@ -7,9 +7,11 @@
     'third_number',
     'fourth_number',
     'is_update' => 0,
+    'is_link' => 'no',
+    'link' => '#'
 ])
 
-
+    @if($is_link == 'yes') <a href="{{$link}}"> @endif
     <div class="lawha">
         <div class="ksa-board"><img width="18" height="18" src="{{asset('assets')}}/img/icons/ksa.png"
             class="chakra-image css-y45xgh">
@@ -58,3 +60,4 @@
         </div>
 
     </div>
+    @if($is_link == 'yes') </a> @endif

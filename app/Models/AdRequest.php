@@ -44,7 +44,12 @@ class AdRequest extends Model
     ];
 
     public function user() {
-        // return $this->belongsTo(User::class,'user_id');
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
+        // return $this->belongsTo(User::class);
     }
+
+//     public function vendor() {
+//         return $this->belongsTo(User::class,'id','vendor_id');
+//         // return $this->belongsTo(User::class);
+//     }
 }
