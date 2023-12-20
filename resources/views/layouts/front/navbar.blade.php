@@ -24,13 +24,13 @@
         <!-- Menue  -->
         <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0 px-3 px-md-0 px-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
-                
+
                 <li class="nav-item "> <a class="nav-link fw-medium active" aria-current="page" href="{{ route('home') }}">الرئيسية</a> </li>
-                
+
                 @if (auth()->check())
                   {{-- <li class="nav-item "><a class="nav-link" href="{{route('ads.create')}}"> إضافة لوحة </a></li> --}}
                   <li class="nav-item navItemMob"><a class="nav-link" href="{{route('user.profile')}}"> حسابي </a></li>
-                @endif 
+                @endif
 
                 <li class="nav-item px-3 confirm-btn">
                   <a class="nav-link px-3 text-white" href="{{route('requests.type')}}"> <i class="las la-check-circle"></i>
@@ -41,17 +41,17 @@
                   </a> --}}
                 </li>
 
-                <li class="nav-item "><a class="nav-link" href="about.html">من نحن</a></li>
-                <li class="nav-item "><a class="nav-link" href="contact.html"> إتصل بنا </a></li>
-                
+                <li class="nav-item "><a class="nav-link" href="#">من نحن</a></li>
+                <li class="nav-item "><a class="nav-link" href="#"> إتصل بنا </a></li>
+
                 {{-- Logout --  --}}
                 @if (auth()->check())
                   <form method="POST" class="navItemMob" action="{{ route('logout') }}">
                     @csrf
                     <x-front.link :href="route('logout')" class="mx-0" onclick="event.preventDefault(); this.closest('form').submit();">تسجيل الخروج </x-front.link>
                   </form>
-                @endif                                
-                
+                @endif
+
                 @if (!auth()->check())
                 <li class="nav-item navItemMob"><a class="nav-link" href="{{route('login')}}">  تسجيل الدخول </a></li>
                 @endif
@@ -61,7 +61,7 @@
                 <ul class="navbar-nav me-3 mb-2 mb-lg-0 navItemDesk">
 
                     @if (auth()->check())
-                        
+
                         <div class="dropdown">
                             <a class="btn btn-secondary__ text-black dropdown-toggle btn btn-outline-primary-dashed order-0" href="#" role="button"
                                 id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,7 +80,7 @@
                                 <li>
                                   <x-front.link :href="route('ads.create')" class="border border-white rounded">
                                     <i style="font-size: 20px;" class="las la-plus px-1"></i>
-                                    إضافة لوحة 
+                                    إضافة لوحة
                                   </x-front.link>
                                 </li>
 
@@ -93,11 +93,11 @@
                                           <i style="font-size: 20px;" class="bx bx-power-off px-1"></i>
                                           تسجيل الخروج
                                       </x-front.link>
-                                  </form>                                
+                                  </form>
                                 </li>
                             </ul>
                         </div>
-                       
+
                     @else
 
                         <a href="{{ route('login') }}">
@@ -105,13 +105,13 @@
                                     class="las la-user-lock"></i> تسجيل الدخول </button>
                         </a>
                     @endif
-                    
+
                 </ul>
 
 
 
                 {{-- @if (Route::has('login'))
-            
+
             <a href="{{route('login')}}">
               <button class="btn btn-outline-primary-dashed order-0" type="submit"> <i class="las la-user-lock"></i>  تسجيل الدخول </button>
             </a>
@@ -129,7 +129,7 @@
 
 
 @if (auth()->check())
-@if(Route::currentRouteName() == 'user.profile' OR Route::currentRouteName() == 'ads.create' OR Route::currentRouteName() == 'ads.index') 
+@if(Route::currentRouteName() == 'user.profile' OR Route::currentRouteName() == 'ads.create' OR Route::currentRouteName() == 'ads.index')
 <!---->
 <nav class="mobSidebar hoverable close">
     <div class="logo_items flex">
@@ -145,7 +145,7 @@
             <span class="line"></span>
           </div>
           <li class="item">
-            <a href="{{route('user.profile')}}" class="link flex"> 
+            <a href="{{route('user.profile')}}" class="link flex">
               <i class="las la-user"></i>
               <span>حسابي</span>
             </a>
@@ -182,13 +182,13 @@
                 <a href="{{ route('logout') }}" class="btn position-relative top-0 text-black p-0"
                     onclick="event.preventDefault();this.closest('form').submit();">
                     <i class="las la-sign-out-alt pe-2"></i>
-                    تسجيل الخروج 
+                    تسجيل الخروج
                 </a>
             </form>
         </div>
       </div>
     </div>
-</nav>        
+</nav>
 <!---->
 @endif
 @endif
