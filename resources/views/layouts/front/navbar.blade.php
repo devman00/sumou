@@ -129,7 +129,7 @@
 
 
 @if (auth()->check())
-@if(Route::currentRouteName() == 'user.profile' OR Route::currentRouteName() == 'ads.create' OR Route::currentRouteName() == 'ads.index')
+@if(Route::currentRouteName() == 'user.profile' OR Route::currentRouteName() == 'ads.create' OR Route::currentRouteName() == 'ads.index' OR Route::currentRouteName() == 'nidverification.show' OR Route::currentRouteName() == 'user.permit')
 <!---->
 <nav class="mobSidebar hoverable close">
     <div class="logo_items flex">

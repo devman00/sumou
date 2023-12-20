@@ -12,7 +12,7 @@
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
     font-family: almarai, cairo;
     /* text-align: right; */
-    
+
 }
 *{
   padding: 0;
@@ -42,7 +42,7 @@ input[type="date"]{
     --placeholder:#CFCFCF;
     --textfield-border:#B3B3B3;
 
-    /* Violet : #420A77  
+    /* Violet : #420A77
       Blue    : #0490E4  */
   }
 
@@ -55,12 +55,12 @@ input[type="date"]{
     width: 130px;
 }
 
-.confirm-btn a{
+.confirm-btn a, .permit-btn a{
     /* color: var(--blue)!important; */
     border: 1px dashed var(--blue);
 }
 
-.confirm-btn a:hover{
+.confirm-btn a:hover, .permit-btn a:hover{
     color: var(--blue)!important;
 }
 
@@ -103,7 +103,7 @@ input[type="date"]{
     font-weight: 700;
     font-size: 3.5em;
   }
-  
+
   .ml11 .text-wrapper {
     position: relative;
     display: inline-block;
@@ -111,7 +111,7 @@ input[type="date"]{
     padding-right: 0.05em;
     padding-bottom: 0.15em;
   }
-  
+
   .ml11 .line {
     opacity: 0;
     position: absolute;
@@ -121,12 +121,12 @@ input[type="date"]{
     background-color: #fff;
     transform-origin: 0 50%;
   }
-  
-  .ml11 .line1 { 
-    top: 0; 
+
+  .ml11 .line1 {
+    top: 0;
     right: 0;
   }
-  
+
   .ml11 .letter {
     letter-spacing: 0px;
     display: inline;
@@ -171,7 +171,7 @@ input[type="date"]{
     text-transform: uppercase;
     letter-spacing: 0.5em;
   }
-  
+
   .ml12 .letter {
     letter-spacing: 0px;
     display: inline;
@@ -189,12 +189,12 @@ input[type="date"]{
   background-color: var(--bg-gray)!important;
 }
 
-  
+
   /* end Text Animation  */
 
   /* Sign On Product Page Begin  */
  hr{
-  background-color: var(--bg-gray); 
+  background-color: var(--bg-gray);
   width:100%;
   height: 1px;
   margin-bottom: 29px;
@@ -247,7 +247,7 @@ input[type="date"]{
   background-color: rgb(197, 174, 197);
  }
 
- 
+
  .seller.selected::before ,
  .buyer.selected::before{
  content: "";
@@ -258,7 +258,7 @@ input[type="date"]{
  position: absolute;
  animation: bounce forwards infinite 0.6s alternate;
  left: 49%;
- bottom: -65px; 
+ bottom: -65px;
 
  }
 
@@ -298,9 +298,9 @@ input[type="date"]{
 
 
  ::-webkit-input-placeholder,
- input:-moz-placeholder { 
+ input:-moz-placeholder {
   text-align:right;
-  color :  var(--bg-gray) !important; 
+  color :  var(--bg-gray) !important;
 }
 
 .fill-details .controls .textfield-input label{
@@ -405,11 +405,11 @@ input[type="date"]{
   .affair{
     padding: 0 !important;
   }
-  
+
   .next-button{
     padding: 2rem 0 !important;
   }
- 
+
 
   /* affair page */
   .affair-role > .container{
@@ -443,12 +443,12 @@ input[type="date"]{
     margin-bottom: 30px;
 
    }
-   .affair-requirements-condition > div{ 
+   .affair-requirements-condition > div{
     height: auto !important;
     width: auto !important;
 
    }
-   .affair-requirements-condition > div>img{ 
+   .affair-requirements-condition > div>img{
     height: 70px !important;
     width: 70px !important;
     padding: 1rem;
@@ -470,7 +470,7 @@ input[type="date"]{
    p.h4{
     max-width: 200px !important;
    }
-   
+
    .title.mb-3 >div,
    .title.mb-4 >div{
     display: none !important;
@@ -536,14 +536,14 @@ input[type="date"]{
     max-width: 100% !important;
    }
 
- 
+
 
    .type-lawha{
     padding-right: 1rem !important;
    }
 
-   
-  
+
+
    .add-lawha-radio{
     gap: 0 !important;
     margin-bottom: 30px;
@@ -577,7 +577,7 @@ input[type="date"]{
 
 
 @media (max-width:767px) {
-  
+
 
   form .checkboxes + .controls >div:nth-last-of-type(){
     padding: 4rem 0;
@@ -602,7 +602,7 @@ input[type="date"]{
 
 body.accountPage .main {padding-right: 75px;}
 
- 
+
 }
 
 
@@ -623,7 +623,7 @@ table{
 table td{
   height: 56px;
   padding: 0 0 !important;
- 
+
 }
 
 .table-plate{
@@ -641,7 +641,7 @@ table td{
    background-color: var(--dark-blue)!important;
    color: var(--bg-gray) !important;
    font-size: 18px;
-   
+
   }
 
   .login-register-ul .nav-link{
@@ -666,7 +666,7 @@ table td{
     min-width: 100%;
     max-width: 100%;
   }
- 
+
   .login-form {
     transition: 0.5s;
     -o-transition: 0.5s;
@@ -697,7 +697,7 @@ table td{
     align-self: flex-end;
     background-color: var(--blue);
     color: white;
-    font-family: almarai;    
+    font-family: almarai;
     transition: 0.5s ;
   }
 
@@ -720,31 +720,31 @@ table td{
   }
 
 
-  
+
 
 input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-footer, .btn, .navbar, .pagination, .valid-feedback, .invalid-feedback{
     font-family: 'almarai', tajawal;
   }
-  
-  
+
+
   .end-footer{
     background-color: #0d004c;
   }
-  
+
   .end-footer a{
     font-size: 13px;
     color: #acacad!important;
   }
-  
+
   .end-footer a:hover{
     color: #fff!important;
     text-decoration: none;
   }
-  
+
   .copyrights {
     font-size: 13px;
   }
-  
+
   .foo-link-icn{
     font-family: cursive;
   }
@@ -810,7 +810,7 @@ input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-fo
   .dashboard>  div>.sidebar>div> ul> li  button,.dashboard>  div>.sidebar>div> ul> li {
     /* width: 100% !important; */
     padding-right: 25px;
-  } 
+  }
 
 
   .profile-details-textfields>.area>.input-textfield{
@@ -832,20 +832,20 @@ input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-fo
   .profile-details-textfields>.area>.input-textfield>input{
     padding: 8px 10px;
     border: 0;
-    border:var(--textfield-border) 1px solid; 
+    border:var(--textfield-border) 1px solid;
     border-radius: 5px;
     font-size: 19px;
     direction: rtl;
 
   }
 
-  
+
 
   .dashboard .bloc{
     margin-bottom: 60px;
   }
 
-  
+
   .profile-details-textfields>.area>.input-textfield>input:focus{
     outline :none
   }
@@ -1487,11 +1487,11 @@ a {
   }
   .confirm-btn {display: none;}
   .confirm-btn-mob {display: block !important;}
-  
+
   .navItemDesk {display: none;}
   .navItemMob {display: block;}
 
-  .fill-details .controls .textfield-input input[type="text"], 
+  .fill-details .controls .textfield-input input[type="text"],
   .fill-details .textfield-input select {
     width: 100%;
     max-width: 100%;
@@ -1502,7 +1502,7 @@ a {
     min-width: fit-content;
     padding: 6px 6px;
   }
-  .fill-details .controls .textfield-input.letterBlocAd label, 
+  .fill-details .controls .textfield-input.letterBlocAd label,
   .fill-details .controls .textfield-input.numberBlocAd label {
     min-width: 60px !important;
   }

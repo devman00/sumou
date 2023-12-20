@@ -22,7 +22,7 @@
                             <div class="alert alert-danger">
                                 <strong>حسابك غير موثق بعد! المرجو توثيق حسابك </strong>
                             </div>
-                            <div class="nav-item px-3 confirm-btn">
+                            <div class="nav-item px-3 permit-btn">
                                 <a class="nav-link px-3 text-white" href="{{route('nidverification.show')}}">
                                     وثق حسابك الان
                                 </a>

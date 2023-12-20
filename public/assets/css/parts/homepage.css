@@ -36,7 +36,7 @@
 
 .newer-older-filter p{
     font-size: 15px !important;
-    text-align: center; 
+    text-align: center;
     background-color: transparent;
     padding: 3px!important;
     cursor: pointer;
@@ -75,13 +75,13 @@
 }
 
 @media (max-width:1199px){
-      
+
     .dashboard-lawhat-menu .title p{
         border: none;
     }
     .dashboard-lawhat-menu >div{
         width: 100% !important;
-       
+
     }
     .dashboard-lawhat-menu >div:not(:last-of-type){
         margin-bottom: 15px;
@@ -130,7 +130,7 @@
 }
 
 
-.confirm-btn a {
+.confirm-btn a, .permit-btn a {
     /* border: 1px solid var(--dark-blue); */
     background: rgb(0 0 87);
     background: linear-gradient(90deg, rgb(65 111 159) 0%, rgb(0 43 87) 100%);
@@ -140,7 +140,7 @@
 }
 
 
-.confirm-btn a:hover {
+.confirm-btn a:hover, .permit-btn a:hover {
     background: linear-gradient(90deg, rgb(0 43 87) 0%, rgb(65 111 159) 100%);
     border: 1px solid #406e9e;
     border-radius: 22px;

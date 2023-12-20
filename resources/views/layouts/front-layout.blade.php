@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="{{ asset('assets/')}}/css/parts/account.css">
   <link rel="stylesheet" href="{{ asset('assets/')}}/css/parts/requests.css">
   <link rel="stylesheet" href="{{ asset('assets/')}}/css/parts/confirm.css">
-  
+
   <!-- -------- OWL Carousel ------  -->
   <link rel="stylesheet" href="{{ asset('assets/')}}/css/owl-carousel/owl.carousel.min.css">
   <link rel="stylesheet" href="{{ asset('assets/')}}/css/owl-carousel/owl.theme.default.min.css">
@@ -58,7 +58,7 @@
 </head>
 
 
-<body @if(Route::currentRouteName() == 'user.profile' OR Route::currentRouteName() == 'ads.create' OR Route::currentRouteName() == 'ads.index') class="accountPage" @endif>
+<body @if(Route::currentRouteName() == 'user.profile' OR Route::currentRouteName() == 'ads.create' OR Route::currentRouteName() == 'ads.index' OR Route::currentRouteName() == 'nidverification.show' OR Route::currentRouteName() == 'user.permit') class="accountPage" @endif>
 
   <div class="cs-loader">
     <div class="cs-loader-inner">
@@ -69,7 +69,7 @@
       <label>U</label>
     </div>
   </div>
-  
+
   <!-- ===============================================-->
   <!--    Main Content-->
   <!-- ===============================================-->
@@ -79,8 +79,8 @@
 
 
     @yield('content')
-    
-    
+
+
     @includeIf('layouts.front.footer')
 
 
@@ -92,7 +92,7 @@
   @includeIf('layouts.front.foot')
 
   <a target="_blank" href="https://wa.me/+966539437574" style="background: #25D366; border-radius: 50%; font-size: 44px; position: fixed; bottom: 10px; right: 10px; width: 60px; height: 60px; z-index: 999; text-align: center;"><i class='bx bxl-whatsapp' style="color: #fff; line-height: 60px;"></i></a>
-    
+
 
   @stack('scripts')
 
