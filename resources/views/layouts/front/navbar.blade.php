@@ -168,6 +168,12 @@
               <span>لوحاتي</span>
             </a>
           </li>
+          <li class="item">
+            <a href="{{route('user.permit')}}" class="link flex">
+              <i class="las la-check-circle"></i>
+              <span>توثيق الحساب</span>
+            </a>
+          </li>
         </ul>
 
       </div>

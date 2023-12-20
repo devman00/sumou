@@ -47,7 +47,7 @@
                 <a href="{{route('user.permit')}}">
 
                     <button class="nav-link @if(Route::currentRouteName() == 'user.permit') active @endif" >
-                        <i class="las la-user pe-2"></i>
+                        <i class="las la-check-circle pe-2"></i>
                         توثيق الحساب
                     </button>
                 </a>
