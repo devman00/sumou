@@ -10,7 +10,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
-use Illuminate\Validation\Validator; 
+use Illuminate\Validation\Validator;
 
 
 class UserController extends Controller
@@ -23,7 +23,7 @@ class UserController extends Controller
         // return view('front.account.profile', compact('user'));
         return view('front.account.settings', compact('user'));
     }
-    
+
     // --------------- Update Profile --------------
     public function updateProfile(Request $request, User $user)
     {
@@ -62,6 +62,13 @@ class UserController extends Controller
         $user->update(['password' => Hash::make($request->password)]);
 
         return redirect()->back()->with('success', 'تم تحديث كلمة المرور بنجاح');
+    }
+
+    // permit
+    public function permit()
+    {
+        $user = auth()->user();
+        return view('front.account.permit', compact('user'));
     }
 
     // public function dashboard(){

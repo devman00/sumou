@@ -5,17 +5,17 @@
         </div>
         <ul class=" nav nav-tabs d-flex flex-column justify-content-start align-items-start w-100" id="myTab"
             role="tablist">
-            
+
             <li class="nav-item" role="presentation">
                 <a href="{{route('user.profile')}}">
-                   
+
                     <button class="nav-link @if(Route::currentRouteName() == 'user.profile') active @endif" id="profile-details-tab">
                         <i class="las la-cog pe-2"></i>
-                        إعدادات الحساب 
+                        إعدادات الحساب
                     </button>
                 </a>
             </li>
-            
+
             <li class="nav-item">
                 <a href="{{route('ads.create')}}">
                     <button class="nav-link @if(Route::currentRouteName() == 'ads.create') active @endif"" type="button">
@@ -29,7 +29,7 @@
                 <a href="{{route('ads.index')}}">
                     <button class="nav-link @if(Route::currentRouteName() == 'ads.index') active @endif"" type="button">
                         <i class="las la-copy pe-2"></i>
-                        لوحاتي 
+                        لوحاتي
                     </button>
                 </a>
             </li>
@@ -42,6 +42,17 @@
                     </button>
                 </a>
             </li>
+
+            <li class="nav-item" role="presentation">
+                <a href="{{route('user.permit')}}">
+
+                    <button class="nav-link @if(Route::currentRouteName() == 'user.permit') active @endif" >
+                        <i class="las la-user pe-2"></i>
+                        توثيق الحساب
+                    </button>
+                </a>
+            </li>
+
         </ul>
 
         {{-- Logout ---- --}}
@@ -52,7 +63,7 @@
                 <a href="{{ route('logout') }}" class="btn position-relative text-black p-0"
                     onclick="event.preventDefault();this.closest('form').submit();">
                     <i class="las la-sign-out-alt pe-2"></i>
-                    تسجيل الخروج 
+                    تسجيل الخروج
                 </a>
             </form>
         </div>

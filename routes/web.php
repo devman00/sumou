@@ -181,6 +181,8 @@ use Illuminate\Support\Facades\Route;
                 Route::get('/change-password', 'editPassword')->name('password');
                 Route::put('/change-password/{user}', 'updatePassword')->name('password.update');
 
+                Route::get('/permit', 'permit')->name('permit');
+
             //  Route::get('/', 'dashboard')->name('account');
             });
 

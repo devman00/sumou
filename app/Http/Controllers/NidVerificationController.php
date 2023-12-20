@@ -7,6 +7,10 @@ use App\Models\User;
 use Illuminate\Database\Console\Migrations\StatusCommand;
 use Illuminate\Http\Request;
 
+use Lcobucci\JWT\Configuration;
+use Lcobucci\JWT\Signer\Key\InMemory;
+use Lcobucci\JWT\Signer\Rsa\Sha256;
+
 class NidVerificationController extends Controller
 {
     public function show(Request $request)
