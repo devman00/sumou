@@ -35,7 +35,7 @@ use Illuminate\Support\Facades\Route;
 
     /** --------------
         ADMIN Routes
-    ----------------**/  
+    ----------------**/
     Route::middleware(['auth','isAdmin'])->group(function(){
 
         Route::group([
@@ -43,7 +43,7 @@ use Illuminate\Support\Facades\Route;
             'as' => 'admin.',
             'prefix' => 'admin',
         ], function(){
-            
+
             // Posts Routes-------
             Route::controller(PostController::class)->name('posts.')
             ->prefix('posts')
@@ -69,7 +69,7 @@ use Illuminate\Support\Facades\Route;
                 Route::delete('/{category}','destroy')->name('destroy')->middleware('permission:categories-delete');
                 Route::get('/{category}','show')->name('show')->middleware('permission:category-show');
             });
-        
+
             // Users Routes-------
             Route::controller(UserController::class)->name('users.')
             ->prefix('users')
@@ -82,7 +82,7 @@ use Illuminate\Support\Facades\Route;
                 Route::delete('/{user}','destroy')->name('destroy')->middleware('permission:users-delete');
                 Route::get('/{user}','show')->name('show')->middleware('permission:user-show');
             });
-        
+
             // Roles Routes-------
             Route::controller(RoleController::class)->name('roles.')
             ->prefix('roles')
@@ -141,11 +141,11 @@ use Illuminate\Support\Facades\Route;
                     //  Route::delete('/{ad}','destroy')->name('destroy')->middleware('permission:request-delete');
                     //  Route::get('/{ad}','show')->name('show')->middleware('permission:request-show');
 
-                    Route::get('/','index')->name('index'); 
+                    Route::get('/','index')->name('index');
                     Route::delete('/{ad}','destroy')->name('destroy');
                     Route::get('/{ad}','show')->name('show');
              });
-    
+
 
         });
     });
@@ -161,7 +161,7 @@ use Illuminate\Support\Facades\Route;
 
     Auth::routes();
 
-    
+
     /** -------------
         Auth
     --------------- */
@@ -187,13 +187,13 @@ use Illuminate\Support\Facades\Route;
             /** ----------------------
              User ADs Routes
             --------------------- */
-            Route::resource('ads', FrontAdController::class)->except('show');            
+            Route::resource('ads', FrontAdController::class)->except('show');
         });
 
         Route::get('requests/type', [AdRequestController::class, 'requestType'])->name('requests.type');
         // Route::get('requests/{type}/confirm/{id}', [AdRequestController::class, 'confirm'])->name('requests.confirm');
         Route::get('requests/confirm/{id}', [AdRequestController::class, 'confirm'])->name('requests.confirm')->whereNumber('id');
-        Route::resource('requests', AdRequestController::class);        
+        Route::resource('requests', AdRequestController::class);
     });
 
 
@@ -204,12 +204,12 @@ use Illuminate\Support\Facades\Route;
     Route::any('ads', [FrontAdController::class,'lists'])->name('ads.lists');
 
 
-    // FRONT Routes -------- 
+    // FRONT Routes --------
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::post('/', [HomeController::class, 'index'])->name('home');
 
 
-    // OTP Verification 
+    // OTP Verification
     Route::get('phone/verify', [PhoneNumberVerifyController::class,'show'])->name('phoneverification.show');
     Route::post('phone/verify', [PhoneNumberVerifyController::class,'verify'])->name('phoneverification.verify');
 
@@ -217,8 +217,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('nid/validation', [NidVerificationController::class,'show'])->name('nidverification.show');
     Route::post('nid/send', [NidVerificationController::class,'send'])->name('nidverification.send');
     Route::post('nid/confirm', [NidVerificationController::class,'confirm'])->name('nidverification.confirm');
-    // Route::get('nid/callback', [NidVerificationController::class,'callback'])->name('nidverification.callback');
-    Route::get('account/endpoint/', [NidVerificationController::class, 'callback'])->name('nidverification.callback');
-    Route::get('account/endpoint1/', [NidVerificationController::class, 'callback1'])->name('nidverification.callback1');
-
-   
+    // Route::post('nid/callback', [NidVerificationController::class,'callback'])->name('nidverification.callback');
+    Route::post('account/endpoint/', [NidVerificationController::class, 'callback'])->name('nidverification.callback');
+    Route::post('account/endpoint1/', [NidVerificationController::class, 'callback1'])->name('nidverification.callback1');
+    Route::post('nid/status/', [NidVerificationController::class, 'status'])->name('nidverification.status');
+    Route::get('nid/token', [NidVerificationController::class,'token'])->name('nidverification.token');

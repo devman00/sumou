@@ -48,7 +48,7 @@
                                      </span>
                                  @enderror
 
-                                <button id="settingsAccountVerification" class="btn" type="button">  تحقق </button>
+                                <button id="setAccountVerif" class="btn" type="button">  تحقق </button>
                             </form>
                         </div>
 
@@ -65,11 +65,9 @@
 @push('scripts')
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <script>
-    var error = "";
 
-    $("#settingsAccountVerification").click(function (event) {
+    $("#setAccountVerif").click(function (event) {
         event.preventDefault();
 
         $(".msgFormRet").hide();
@@ -184,13 +182,26 @@
         return new Promise(function(resolve, reject) {
             $.ajax({
                 method: "POST",
-                url: "{{route('nidverification.callback1')}}",
-                dataType: 'text',
+                url: "{{route('nidverification.status')}}",
+                dataType: 'json',
                 data: { nationalId: $("#n_id").val(), random: _random, transId: _transId, "_token": "{{ csrf_token() }}"   },
                 beforeSend: function() {
                 }
             }).done(function (ret2) {
                 if (ret2.status && ret2.status == 'COMPLETED'){
+                    ///////////////
+                    $.ajax({
+                        method: "POST",
+                        url: "{{route('nidverification.callback1')}}",
+                        dataType: 'json',
+                        data: { transId: _transId, "_token": "{{ csrf_token() }}"   },
+                        beforeSend: function() {
+                        }
+                    }).done(function (ret1) {
+                        console.log(ret1);
+                    }).fail(function(ret1) {
+                    });
+                    ///////////////
                     resolve('COMPLETED');
                 } else if (ret2.status && ret2.status =='REJECTED') {
                     resolve('REJECTED');
@@ -208,7 +219,6 @@
                 }
 
             }).fail(function(ret2) {
-                console.log("fail ret : " + ret2);
                 reject('err2');
             });
 
