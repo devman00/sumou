@@ -31,8 +31,8 @@
   <!--    Stylesheets-->
   <!-- ===============================================-->
   <link href="{{ asset('assets/')}}/css/theme-rtl.css" rel="stylesheet" />
-  <link href="{{ asset('assets/')}}/css/style.css" rel="stylesheet" />
-  <link href="{{ asset('assets/')}}/css/parts/homepage.css" rel="stylesheet" />
+  <link href="{{ asset('assets/')}}/css/style.css?v=1.0.1" rel="stylesheet" />
+  <link href="{{ asset('assets/')}}/css/parts/homepage.css?v=1.0.1" rel="stylesheet" />
   <link rel="stylesheet" href="{{ asset('assets/')}}/css/parts/ad.css">
   <link rel="stylesheet" href="{{ asset('assets/')}}/css/parts/account.css">
   <link rel="stylesheet" href="{{ asset('assets/')}}/css/parts/requests.css">
