@@ -22,13 +22,13 @@
         <!-- Menue  -->
         <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0 px-3 px-md-0 px-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
-                
+
                 <li class="nav-item "> <a class="nav-link fw-medium active" aria-current="page" href="<?php echo e(route('home')); ?>">الرئيسية</a> </li>
-                
+
                 <?php if(auth()->check()): ?>
                   
                   <li class="nav-item navItemMob"><a class="nav-link" href="<?php echo e(route('user.profile')); ?>"> حسابي </a></li>
-                <?php endif; ?> 
+                <?php endif; ?>
 
                 <li class="nav-item px-3 confirm-btn">
                   <a class="nav-link px-3 text-white" href="<?php echo e(route('requests.type')); ?>"> <i class="las la-check-circle"></i>
@@ -37,9 +37,9 @@
                   
                 </li>
 
-                <li class="nav-item "><a class="nav-link" href="about.html">من نحن</a></li>
-                <li class="nav-item "><a class="nav-link" href="contact.html"> إتصل بنا </a></li>
-                
+                <li class="nav-item "><a class="nav-link" href="#">من نحن</a></li>
+                <li class="nav-item "><a class="nav-link" href="#"> إتصل بنا </a></li>
+
                 
                 <?php if(auth()->check()): ?>
                   <form method="POST" class="navItemMob" action="<?php echo e(route('logout')); ?>">
@@ -59,8 +59,8 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
                   </form>
-                <?php endif; ?>                                
-                
+                <?php endif; ?>
+
                 <?php if(!auth()->check()): ?>
                 <li class="nav-item navItemMob"><a class="nav-link" href="<?php echo e(route('login')); ?>">  تسجيل الدخول </a></li>
                 <?php endif; ?>
@@ -70,7 +70,7 @@
                 <ul class="navbar-nav me-3 mb-2 mb-lg-0 navItemDesk">
 
                     <?php if(auth()->check()): ?>
-                        
+
                         <div class="dropdown">
                             <a class="btn btn-secondary__ text-black dropdown-toggle btn btn-outline-primary-dashed order-0" href="#" role="button"
                                 id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -111,7 +111,7 @@
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('ads.create')),'class' => 'border border-white rounded']); ?>
                                     <i style="font-size: 20px;" class="las la-plus px-1"></i>
-                                    إضافة لوحة 
+                                    إضافة لوحة
                                    <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
@@ -142,11 +142,11 @@
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-                                  </form>                                
+                                  </form>
                                 </li>
                             </ul>
                         </div>
-                       
+
                     <?php else: ?>
 
                         <a href="<?php echo e(route('login')); ?>">
@@ -154,7 +154,7 @@
                                     class="las la-user-lock"></i> تسجيل الدخول </button>
                         </a>
                     <?php endif; ?>
-                    
+
                 </ul>
 
 
@@ -169,7 +169,7 @@
 
 
 <?php if(auth()->check()): ?>
-<?php if(Route::currentRouteName() == 'user.profile' OR Route::currentRouteName() == 'ads.create' OR Route::currentRouteName() == 'ads.index'): ?> 
+<?php if(Route::currentRouteName() == 'user.profile' OR Route::currentRouteName() == 'ads.create' OR Route::currentRouteName() == 'ads.index' OR Route::currentRouteName() == 'nidverification.show' OR Route::currentRouteName() == 'user.permit'): ?>
 <!---->
 <nav class="mobSidebar hoverable close">
     <div class="logo_items flex">
@@ -185,7 +185,7 @@
             <span class="line"></span>
           </div>
           <li class="item">
-            <a href="<?php echo e(route('user.profile')); ?>" class="link flex"> 
+            <a href="<?php echo e(route('user.profile')); ?>" class="link flex">
               <i class="las la-user"></i>
               <span>حسابي</span>
             </a>
@@ -208,6 +208,12 @@
               <span>لوحاتي</span>
             </a>
           </li>
+          <li class="item">
+            <a href="<?php echo e(route('user.permit')); ?>" class="link flex">
+              <i class="las la-check-circle"></i>
+              <span>توثيق الحساب</span>
+            </a>
+          </li>
         </ul>
 
       </div>
@@ -222,13 +228,14 @@
                 <a href="<?php echo e(route('logout')); ?>" class="btn position-relative top-0 text-black p-0"
                     onclick="event.preventDefault();this.closest('form').submit();">
                     <i class="las la-sign-out-alt pe-2"></i>
-                    تسجيل الخروج 
+                    تسجيل الخروج
                 </a>
             </form>
         </div>
       </div>
     </div>
-</nav>        
+</nav>
 <!---->
 <?php endif; ?>
-<?php endif; ?><?php /**PATH C:\wamp64\www\projects\sumou\resources\views/layouts/front/navbar.blade.php ENDPATH**/ ?>
+<?php endif; ?>
+<?php /**PATH C:\wamp64\www\projects\sumou\resources\views/layouts/front/navbar.blade.php ENDPATH**/ ?>

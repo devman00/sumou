@@ -5,17 +5,17 @@
         </div>
         <ul class=" nav nav-tabs d-flex flex-column justify-content-start align-items-start w-100" id="myTab"
             role="tablist">
-            
+
             <li class="nav-item" role="presentation">
                 <a href="<?php echo e(route('user.profile')); ?>">
-                   
+
                     <button class="nav-link <?php if(Route::currentRouteName() == 'user.profile'): ?> active <?php endif; ?>" id="profile-details-tab">
                         <i class="las la-cog pe-2"></i>
-                        إعدادات الحساب 
+                        إعدادات الحساب
                     </button>
                 </a>
             </li>
-            
+
             <li class="nav-item">
                 <a href="<?php echo e(route('ads.create')); ?>">
                     <button class="nav-link <?php if(Route::currentRouteName() == 'ads.create'): ?> active <?php endif; ?>"" type="button">
@@ -29,7 +29,7 @@
                 <a href="<?php echo e(route('ads.index')); ?>">
                     <button class="nav-link <?php if(Route::currentRouteName() == 'ads.index'): ?> active <?php endif; ?>"" type="button">
                         <i class="las la-copy pe-2"></i>
-                        لوحاتي 
+                        لوحاتي
                     </button>
                 </a>
             </li>
@@ -42,6 +42,17 @@
                     </button>
                 </a>
             </li>
+
+            <li class="nav-item" role="presentation">
+                <a href="<?php echo e(route('user.permit')); ?>">
+
+                    <button class="nav-link <?php if(Route::currentRouteName() == 'user.permit'): ?> active <?php endif; ?>" >
+                        <i class="las la-check-circle pe-2"></i>
+                        توثيق الحساب
+                    </button>
+                </a>
+            </li>
+
         </ul>
 
         
@@ -52,10 +63,11 @@
                 <a href="<?php echo e(route('logout')); ?>" class="btn position-relative text-black p-0"
                     onclick="event.preventDefault();this.closest('form').submit();">
                     <i class="las la-sign-out-alt pe-2"></i>
-                    تسجيل الخروج 
+                    تسجيل الخروج
                 </a>
             </form>
         </div>
     </div>
 
-</div><?php /**PATH C:\wamp64\www\projects\sumou\resources\views/layouts/front/partials/sidebar.blade.php ENDPATH**/ ?>
+</div>
+<?php /**PATH C:\wamp64\www\projects\sumou\resources\views/layouts/front/partials/sidebar.blade.php ENDPATH**/ ?>

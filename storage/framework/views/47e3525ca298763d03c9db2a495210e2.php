@@ -28,13 +28,13 @@
   <!--    Stylesheets-->
   <!-- ===============================================-->
   <link href="<?php echo e(asset('assets/')); ?>/css/theme-rtl.css" rel="stylesheet" />
-  <link href="<?php echo e(asset('assets/')); ?>/css/style.css" rel="stylesheet" />
-  <link href="<?php echo e(asset('assets/')); ?>/css/parts/homepage.css" rel="stylesheet" />
+  <link href="<?php echo e(asset('assets/')); ?>/css/style.css?v=1.0.1" rel="stylesheet" />
+  <link href="<?php echo e(asset('assets/')); ?>/css/parts/homepage.css?v=1.0.1" rel="stylesheet" />
   <link rel="stylesheet" href="<?php echo e(asset('assets/')); ?>/css/parts/ad.css">
   <link rel="stylesheet" href="<?php echo e(asset('assets/')); ?>/css/parts/account.css">
   <link rel="stylesheet" href="<?php echo e(asset('assets/')); ?>/css/parts/requests.css">
   <link rel="stylesheet" href="<?php echo e(asset('assets/')); ?>/css/parts/confirm.css">
-  
+
   <!-- -------- OWL Carousel ------  -->
   <link rel="stylesheet" href="<?php echo e(asset('assets/')); ?>/css/owl-carousel/owl.carousel.min.css">
   <link rel="stylesheet" href="<?php echo e(asset('assets/')); ?>/css/owl-carousel/owl.theme.default.min.css">
@@ -55,7 +55,7 @@
 </head>
 
 
-<body <?php if(Route::currentRouteName() == 'user.profile' OR Route::currentRouteName() == 'ads.create' OR Route::currentRouteName() == 'ads.index'): ?> class="accountPage" <?php endif; ?>>
+<body <?php if(Route::currentRouteName() == 'user.profile' OR Route::currentRouteName() == 'ads.create' OR Route::currentRouteName() == 'ads.index' OR Route::currentRouteName() == 'nidverification.show' OR Route::currentRouteName() == 'user.permit'): ?> class="accountPage" <?php endif; ?>>
 
   <div class="cs-loader">
     <div class="cs-loader-inner">
@@ -66,7 +66,7 @@
       <label>U</label>
     </div>
   </div>
-  
+
   <!-- ===============================================-->
   <!--    Main Content-->
   <!-- ===============================================-->
@@ -76,8 +76,8 @@
 
 
     <?php echo $__env->yieldContent('content'); ?>
-    
-    
+
+
     <?php if ($__env->exists('layouts.front.footer')) echo $__env->make('layouts.front.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
@@ -89,10 +89,11 @@
   <?php if ($__env->exists('layouts.front.foot')) echo $__env->make('layouts.front.foot', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
   <a target="_blank" href="https://wa.me/+966539437574" style="background: #25D366; border-radius: 50%; font-size: 44px; position: fixed; bottom: 10px; right: 10px; width: 60px; height: 60px; z-index: 999; text-align: center;"><i class='bx bxl-whatsapp' style="color: #fff; line-height: 60px;"></i></a>
-    
+
 
   <?php echo $__env->yieldPushContent('scripts'); ?>
 
 </body>
 
-</html><?php /**PATH C:\wamp64\www\projects\sumou\resources\views/layouts/front-layout.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\wamp64\www\projects\sumou\resources\views/layouts/front-layout.blade.php ENDPATH**/ ?>

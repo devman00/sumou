@@ -6,9 +6,13 @@ use App\Models\Nafath;
 use App\Models\User;
 use Illuminate\Database\Console\Migrations\StatusCommand;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class NidVerificationController extends Controller
 {
+
+    use AuthenticatesUsers;
+
     public function show(Request $request)
     {
         return view('front.nidverify.show');
@@ -99,7 +103,7 @@ class NidVerificationController extends Controller
         curl_close($curl);
         return $response;
 
-     }
+    }
 
      // Callback Test Mode..
      public function callback1(Request $request) {
@@ -185,4 +189,9 @@ class NidVerificationController extends Controller
      }
 
 
-}
+    //  Authenticate User
+    public function authenticate(){
+        // $this->validateLogin();
+    }
+
+    }

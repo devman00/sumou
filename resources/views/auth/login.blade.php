@@ -210,10 +210,10 @@
                                             timer: 6000,
                                             timerProgressBar: true,
                                         })
-
+                                        
                                         $.ajax({
                                             method: "POST",
-                                            url: "{{route('nidverification.confirm')}}",
+                                            url: "{{route('nidverification.authenticate')}}",
                                             dataType: 'text',
                                             data: { nationalId: $("#n_id").val(), random: _random, transId: _transId, "_token": "{{ csrf_token() }}"   },
                                         }).done(function (_ret) {
