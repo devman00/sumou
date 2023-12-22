@@ -1,7 +1,7 @@
 @extends('layouts.front-layout')
 
 @section('content')
-    
+
     <section class="register-login-section bg-white ">
         <div class="container-fluid pt-5">
 
@@ -24,9 +24,15 @@
                             </li>
                         </ul>
 
-            
+                        {{-- Alert Message  --}}
+                        <div class="msgFormRet" style="display: none">
+                            <div class="alert"></div>
+                        </div>
+
                         {{-- Register ---  --}}
-                        <div class="register-form">
+
+                        <div class="phone-register-form">
+                          <div class="register-form">
                             <form method="POST" action="{{ route('register') }}" class="d-flex flex-column flex-center w-100">
                                 @csrf
 
@@ -67,12 +73,34 @@
                                 {{-- Confirm Password ------  --}}
                                 <input id="password-confirm" type="password" class="w-100" name="password_confirmation" placeholder="تأكيد كلمة المرور" required autocomplete="new-password">
 
-                                <button class="btn" type="submit"> أنشئ الحساب </button>
+                                <button class="btn w-100" type="submit"> أنشئ الحساب </button>
+                                <button class="btn w-100 bg-gray text-blue" type="button" id="registerNafath"> إنشاء حساب عن طريق نفاذ </button>
 
                             </form>
+                          </div>
                         </div>
 
-                           
+                        <div class="nafath-register-form" style="display: none">
+                          <div class="register-form">
+                            <form method="POST" action="{{ route('register') }}" class="d-flex flex-column flex-center w-100">
+                                @csrf
+
+                                {{-- nationalId ---  --}}
+                                <x-front.form.input name="n_id" class="ltr" placeholder="أدخل رقم الهوية الخاص بك" id="n_id" :value="old('n_id')" />
+                                @error('n_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                                <button class="btn w-100" type="button" id="registerWithNafath"> أنشئ الحساب </button>
+                                <button class="btn w-100 bg-gray text-blue" type="button" id="registerPhone"> إنشاء حساب عن طريق الهاتف </button>
+
+                            </form>
+                          </div>
+                        </div>
+
+
                     </div>
 
 
@@ -82,3 +110,42 @@
     </section>
 
 @endsection
+
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $("#registerNafath").click(function (event) {
+        event.preventDefault();
+        $(".phone-register-form ").hide();
+        $(".nafath-register-form").show();
+        $(".msgFormRet").hide();
+        $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("");
+
+    });
+    $("#registerPhone").click(function (event) {
+        event.preventDefault();
+        $(".phone-register-form ").show();
+        $(".nafath-register-form").hide();
+        $(".msgFormRet").hide();
+        $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("");
+
+    });
+
+    $("#registerWithNafath").click(function (event) {
+        event.preventDefault();
+
+        $(".msgFormRet").hide();
+        if ($("#n_id").val() == "") {
+            $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("الرجاء إدخال رقم الهوية الخاص بك");
+            $(".msgFormRet").show();
+        } else {
+            $(".msgFormRet").hide();
+            $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("");
+
+        }
+
+    });
+
+</script>
+@endpush

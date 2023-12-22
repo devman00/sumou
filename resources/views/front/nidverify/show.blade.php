@@ -92,7 +92,7 @@
                     var _transId = ret.transId;
                     Swal.fire({
                         title: ret.random,
-                        text: 'المرجو إختيار الرقم '+ret.random+' في التطبيق نفاذ' ,
+                        text: 'رجاءا إختيار الرقم '+ret.random+' في التطبيق نفاذ' ,
                         icon: 'info',
                         showConfirmButton: false,
                         allowOutsideClick: false,
