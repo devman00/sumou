@@ -223,5 +223,6 @@ use Illuminate\Support\Facades\Route;
     Route::post('account/endpoint/', [NidVerificationController::class, 'callback'])->name('nidverification.callback');
     Route::post('account/endpoint1/', [NidVerificationController::class, 'callback1'])->name('nidverification.callback1');
     Route::post('nid/status/', [NidVerificationController::class, 'status'])->name('nidverification.status');
-    Route::get('nid/token', [NidVerificationController::class,'token'])->name('nidverification.token');
+    Route::get('nid/jwk', [NidVerificationController::class,'jwk'])->name('nidverification.jwk');
     Route::post('nid/authenticate', [NidVerificationController::class, 'authenticate'])->name('nidverification.authenticate');
+    Route::get('nid/authenticate', [NidVerificationController::class, 'authenticate'])->name('nidverification.authenticate1');

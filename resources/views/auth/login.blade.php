@@ -106,8 +106,8 @@
                                 @csrf
 
                                 {{-- nationalId ---  --}}
-                                <x-front.form.input name="n_id" class="ltr" placeholder="أدخل رقم الهوية الخاص بك" id="n_id" :value="old('n_id')" />
-                                @error('n_id')
+                                <x-front.form.input name="national_id" class="ltr" placeholder="أدخل رقم الهوية الخاص بك" id="national_id" :value="old('national_id')" />
+                                @error('national_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -155,7 +155,6 @@
         $(".nafath-login-form").show();
         $(".msgFormRet").hide();
         $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("");
-
     });
     $("#loginPhone").click(function (event) {
         event.preventDefault();
@@ -163,15 +162,13 @@
         $(".nafath-login-form").hide();
         $(".msgFormRet").hide();
         $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("");
-
     });
-
 
     $("#loginWithNafath").click(function (event) {
         event.preventDefault();
 
         $(".msgFormRet").hide();
-        if ($("#n_id").val() == "") {
+        if ($("#national_id").val() == "") {
             $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("الرجاء إدخال رقم الهوية الخاص بك");
             $(".msgFormRet").show();
         } else {
@@ -182,7 +179,7 @@
                 method: "POST",
                 url: "{{route('nidverification.send')}}",
                 dataType: 'JSON',
-                data: { "_token": "{{ csrf_token() }}", "n_id": $("#n_id").val() },
+                data: { "_token": "{{ csrf_token() }}", "national_id": $("#national_id").val() },
                 beforeSend: function() { }
             }).done(function (ret) {
 
@@ -204,23 +201,21 @@
                                     if (responseData=='COMPLETED'){
                                         Swal.fire({
                                             title: 'شكرًا!',
-                                            text: 'لقد اكتملت عملية التوثيق، شكراً لك.' ,
+                                            text: 'لقد اكتملت عملية التأكيد، شكراً لك.' ,
                                             icon: 'success',
                                             confirmButtonText: 'تمام',
                                             timer: 6000,
                                             timerProgressBar: true,
                                         })
-                                        
+
                                         $.ajax({
                                             method: "POST",
                                             url: "{{route('nidverification.authenticate')}}",
                                             dataType: 'text',
-                                            data: { nationalId: $("#n_id").val(), random: _random, transId: _transId, "_token": "{{ csrf_token() }}"   },
+                                            data: { nationalId: $("#national_id").val(), "_token": "{{ csrf_token() }}"   },
                                         }).done(function (_ret) {
                                             if (_ret=='success') {
-                                                $(".sectionAuthVerification").hide();
-                                                $(".msgFormRet .alert").removeClass('alert-danger').removeClass('alert-success').removeClass('alert-info').addClass('alert-info').html('حسابك موثق، شكراً لك!');
-                                                $(".msgFormRet").show();
+                                                window.location = "/";
                                             }
                                         }).fail(function(_ret) {
                                             $(".msgFormRet").hide();
@@ -230,7 +225,7 @@
                                     if (responseData=='REJECTED'){
                                         Swal.fire({
                                             title: 'خطأ!',
-                                            text: 'تعذرت عملية التوثيق، الرجاء المحاولة من جديد و إختيار الرقم الصحيح في التطبيق نفاذ' ,
+                                            text: 'تعذرت عملية تسجيل الدخول، الرجاء المحاولة من جديد و إختيار الرقم الصحيح في التطبيق نفاذ' ,
                                             icon: 'warning',
                                             confirmButtonText: 'تمام',
                                             timer: 6000,
@@ -243,7 +238,7 @@
                                     console.error('Error:', error);
                                     Swal.fire({
                                         title: 'خطأ!',
-                                        text: 'تعذرت عملية تسجيل الدخول الرجاء المحاولة من جديد' ,
+                                        text: 'تعذرت عملية تسجيل الدخول، الرجاء المحاولة من جديد' ,
                                         icon: 'error',
                                         confirmButtonText: 'حسنا',
                                         timer: 6000,
@@ -255,10 +250,16 @@
                     })
 
                 } else {
+                    var msgtext = '';
+                    if (ret.status && ret.status == 'false' && ret.message && ret.message == 'nouser'){
+                        msgtext = 'الرجاء إدخال رقم الهوية الصحيح والمحاولة من جديد';
+                    } else {
+                        msgtext = 'تعذرت عملية تسجيل الدخول، الرجاء إدخال رقم الهوية الصحيح والمحاولة من جديد';
+                    }
                     let timerInterval
                     Swal.fire({
                         title: 'خطأ!',
-                        text: 'تعذرت عملية التوثيق الرجاء إدخال رقم الهوية الصحيح والمحاولة من جديد' ,
+                        text: msgtext,
                         icon: 'error',
                         confirmButtonText: 'تمام',
                         timer: 6000,
@@ -267,7 +268,7 @@
                 }
             }).fail(function(ret) {
                 if (ret != true) {
-                    $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-danger').addClass('alert-danger').html('تعذرت عملية التوثيق الرجاء المحاولة في وقت لاحق');
+                    $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-danger').addClass('alert-danger').html('تعذرت عملية تسجيل الدخول، الرجاء المحاولة في وقت لاحق');
                     $(".msgFormRet").show();
                 }
             });
@@ -283,7 +284,7 @@
                 method: "POST",
                 url: "{{route('nidverification.status')}}",
                 dataType: 'json',
-                data: { nationalId: $("#n_id").val(), random: _random, transId: _transId, "_token": "{{ csrf_token() }}"   },
+                data: { nationalId: $("#national_id").val(), random: _random, transId: _transId, "_token": "{{ csrf_token() }}"   },
                 beforeSend: function() { }
             }).done(function (ret2) {
                 if (ret2.status && ret2.status == 'COMPLETED'){
