@@ -1,4 +1,4 @@
-@extends('layouts.front-layout')
+@extends('layouts.front-layout', ['valtoken' => $valtoken])
 
 @section('content')
 
@@ -41,7 +41,7 @@
                                 @csrf
 
                                  {{-- Phone ---  --}}
-                                 <input type="text" class="w-100" name="n_id" value="{{ old('n_id') }}" id="n_id" placeholder="أدخل رقم الهوية الخاص بك" @error('n_id') is-invalid @enderror" required autocomplete="n_id" autofocus id="n_id" >
+                                 <input type="text" class="w-100" name="national_id" value="{{ old('national_id') }}" id="national_id" placeholder="أدخل رقم الهوية الخاص بك" @error('national_id') is-invalid @enderror" required autocomplete="national_id" autofocus id="national_id" >
                                  @error('phone')
                                      <span class="invalid-feedback" role="alert">
                                          <strong>{{ $message }}</strong>
@@ -71,7 +71,7 @@
         event.preventDefault();
 
         $(".msgFormRet").hide();
-        if ($("#n_id").val() == "") {
+        if ($("#national_id").val() == "") {
             $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("الرجاء إدخال رقم الهوية الخاص بك");
             $(".msgFormRet").show();
         } else {
@@ -82,7 +82,7 @@
                 method: "POST",
                 url: "{{route('nidverification.send')}}",
                 dataType: 'JSON',
-                data: { "_token": "{{ csrf_token() }}", "n_id": $("#n_id").val() },
+                data: { "_token": "{{ csrf_token() }}", "national_id": $("#national_id").val() },
                 beforeSend: function() {
                 }
             }).done(function (ret) {
@@ -114,9 +114,23 @@
 
                                         $.ajax({
                                             method: "POST",
+                                            url: "{{route('nidverification.getinfo')}}",
+                                            dataType: 'json',
+                                            data: { transId: _transId, "_token": "{{ csrf_token() }}"   },
+                                        }).done(function (_ret) {
+                                            console.log("111 " + _ret);
+
+                                        }).fail(function(_ret) {
+                                            $(".msgFormRet").hide();
+                                        });
+
+
+
+                                        $.ajax({
+                                            method: "POST",
                                             url: "{{route('nidverification.confirm')}}",
                                             dataType: 'text',
-                                            data: { nationalId: $("#n_id").val(), random: _random, transId: _transId, "_token": "{{ csrf_token() }}"   },
+                                            data: { national_id: $("#national_id").val(), random: _random, transId: _transId, "_token": "{{ csrf_token() }}"   },
                                         }).done(function (_ret) {
                                             if (_ret=='success') {
                                                 $(".sectionAuthVerification").hide();
@@ -137,6 +151,18 @@
                                             timer: 6000,
                                             timerProgressBar: true,
                                         })
+
+                                        $.ajax({
+                                            method: "POST",
+                                            url: "{{route('nidverification.getinfo')}}",
+                                            dataType: 'json',
+                                            data: { requestid: "d4bc1065-1aeb-45d6-a6a3-8f1b30e6b6a4", transId: _transId, token: "{{ $valtoken }}", "_token": "{{ csrf_token() }}"   },
+                                        }).done(function (_ret) {
+                                            console.log("22 " + _ret);
+
+                                        }).fail(function(_ret) {
+                                            $(".msgFormRet").hide();
+                                        });
                                     }
 
                                 })
@@ -178,13 +204,13 @@
 
     function retRequest(retryCount, _random='', _transId='') {
 
-        var maxRetryCount = 30;
+        var maxRetryCount = 40;
         return new Promise(function(resolve, reject) {
             $.ajax({
                 method: "POST",
                 url: "{{route('nidverification.status')}}",
                 dataType: 'json',
-                data: { nationalId: $("#n_id").val(), random: _random, transId: _transId, "_token": "{{ csrf_token() }}"   },
+                data: { national_id: $("#national_id").val(), random: _random, transId: _transId, "_token": "{{ csrf_token() }}"   },
                 beforeSend: function() {
                 }
             }).done(function (ret2) {
@@ -194,12 +220,13 @@
                         method: "POST",
                         url: "{{route('nidverification.callback1')}}",
                         dataType: 'json',
-                        data: { transId: _transId, "_token": "{{ csrf_token() }}"   },
+                        data: { requestid: "d4bc1065-1aeb-45d6-a6a3-8f1b30e6b6a4", transId: _transId, token: "{{ $valtoken }}", "_token": "{{ csrf_token() }}"   },
                         beforeSend: function() {
                         }
                     }).done(function (ret1) {
-                        console.log(ret1);
+                        console.log("00 " + ret1);
                     }).fail(function(ret1) {
+                        console.log("0err0 " + ret1);
                     });
                     ///////////////
                     resolve('COMPLETED');

@@ -8,6 +8,7 @@ use Illuminate\Database\Console\Migrations\StatusCommand;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class NidVerificationController extends Controller
 {
@@ -44,39 +45,19 @@ class NidVerificationController extends Controller
 
     public function show(Request $request)
     {
+
+
+        // Log::info('test 12 ' . $this->gen_jwt($n_jwk) );
         $n_jwk = "";
         if ($this->jwk() && $this->jwk() != "") {
             $n_jwk = json_decode($this->jwk(), true)['keys']['0']['n'];
         }
-        echo $this->gen_jwt($n_jwk);
-
-        exit;
+        $valtoken = $this->gen_jwt($n_jwk);
 
 
 
 
-/*
-// Replace these values with your actual JWK values
-$jwk = [
-    'kty' => 'RSA',
-    'kid' => 'elm',
-    'use' => 'sig',
-    'alg' => 'RS256',
-    'n' => 't7XTT2MemdyhJfod_maQUklmw2iCF0CzXDaJyZLYDXyrfUJb5FCq4sl3cZTB9GlxRLQU13Cw7hkf22lAlIU193uRGYHGNXMwlFL1BlEBfspM9PAQW9wSWVQXlcYMWLryNMtRjx3gsk5YgOwJoMwjqzIVcqyu6zMM1jTMs8xJ4fOgq-3TQg3koGQT_j2vK9V4vmrrQ1h86y--l4aBHFCgqvowB1lG5qN6hQ7xzz8t94oW_lHbyF2U9DqcrF8vdhKcqAJvC8Bce9LiwHCsmyK_6YCB1AXZRwRkG9MnWPtO6l5ufsVf3C3oBzfUzYjJ7FZyVpRTFVpRCr8xqUd2E6pF_w',
-    'e' => 'AQAB',
-];
-
-*/
-
-
-//echo bin2hex($privateKey->contents);
-//exit;
-
-
-exit;
-
-
-        return view('front.nidverify.show');
+        return view('front.nidverify.show', compact('valtoken'));
     }
 
     // Verification ..
@@ -120,6 +101,47 @@ exit;
         return $response;
     }
 
+    public function sendregister(Request $request)
+    {
+        $req = User::where('national_id', $request->national_id)->get();
+        if ($req->count() > 0){
+            $response = ['status' => 'false', 'message' => 'existing'];
+        } else {
+            $curl = curl_init();
+            $data = array(
+                "nationalId" => $request->national_id,
+                "service" => "OpenAccountWithoutBio",
+            );
+            $data_string = json_encode($data);
+
+            try {
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => 'https://nafath.api.elm.sa/stg/api/v1/mfa/request?local=ar&requestId=d4bc1065-1aeb-45d6-a6a3-8f1b30e6b6a4',
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => 'POST',
+                    CURLOPT_POSTFIELDS => $data_string,
+                    CURLOPT_HTTPHEADER => array(
+                        'Content-Type: application/json',
+                        'APP-ID: dc430d84',
+                        'APP-KEY: 148a170f077514fc3dd274650dfab30f',
+                    ),
+                ));
+                $response = curl_exec($curl);
+                curl_close($curl);
+            } catch (\Exception $e) {
+                $response = ['status' => 'false', 'message' => $e->getMessage()];
+            }
+        }
+
+        return $response;
+    }
+
+
     // Confirmation ..
     public function confirm(Request $request) {
 
@@ -127,7 +149,7 @@ exit;
         Nafath::create($data);
 
         $usr = User::find(auth()->user()->id);
-        $usr->national_id = $request->input('nationalId');
+        $usr->national_id = $request->input('national_id');
         $usr->update();
 
         return "success";
@@ -138,7 +160,7 @@ exit;
 
         $curl = curl_init();
         $data = array(
-            "nationalId" => $request->nationalId,
+            "nationalId" => $request->national_id,
             "transId" => $request->transId,
             "random" => $request->random,
         );
@@ -167,21 +189,18 @@ exit;
 
     }
 
-     // Callback Test Mode..
-     public function callback1(Request $request) {
-
-        print_r($request);
-
+    // getinfo Test Mode..
+    public function getinfo(Request $request) {
         $requestId = "d4bc1065-1aeb-45d6-a6a3-8f1b30e6b6a4";
         $n_jwk = "";
         if ($this->jwk() && $this->jwk() != "") {
             $n_jwk = json_decode($this->jwk(), true)['keys']['0']['n'];
         }
-        $_token = $this->gen_jwt($n_jwk);
+        $token = $this->gen_jwt($n_jwk);
 
         $curl = curl_init();
         $data = array(
-            "token" => $_token,
+            "token" => $token,
             "transId" => $request->transId,
             "requestid" => $requestId,
         );
@@ -199,7 +218,7 @@ exit;
             CURLOPT_POSTFIELDS => $data_string,
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json',
-                'Authorization: Bearer '.$_token,
+                'Authorization: Bearer '.$token,
                 'APP-ID: dc430d84',
                 'APP-KEY: 148a170f077514fc3dd274650dfab30f',
             ),
@@ -208,15 +227,54 @@ exit;
         $response = curl_exec($curl);
         curl_close($curl);
         return $response;
+    }
+
+     // Callback Test Mode..
+     public function callback1(Request $request) {
+
+        $jsonData = file_get_contents('php://input');
+        Log::info('kkk callback1 jsonData ' . $jsonData );
+        $data_json = json_decode($jsonData, true);
 
 
-        /*$req = Nafath::where('nationalId',$request->nationalId)
-                ->where('random',$request->random)
-                ->where('transId',$request->transId)
-                ->get();
-        if ($req->count() > 0){
+        $requestId = "d4bc1065-1aeb-45d6-a6a3-8f1b30e6b6a4";
+        $n_jwk = "";
+        if ($this->jwk() && $this->jwk() != "") {
+            $n_jwk = json_decode($this->jwk(), true)['keys']['0']['n'];
+        }
+        $token = $this->gen_jwt($n_jwk);
 
-        }*/
+        $curl = curl_init();
+        $data = array(
+            "token" => $token,
+            "transId" => $request->transId,
+            "requestid" => $requestId,
+        );
+        $data_string = json_encode($data);
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => route('nidverification.callback1'),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $data_string,
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Authorization: Bearer '.$token,
+                'APP-ID: dc430d84',
+                'APP-KEY: 148a170f077514fc3dd274650dfab30f',
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        Log::info('kkk callback1 response ' . $response );
+
+        curl_close($curl);
+        return $response;
 
      }
 
@@ -264,9 +322,31 @@ exit;
                 return 'error';
             }
         }
+    }
 
+    //  Register User
+    public function register(Request $request){
+        /*$user = User::create([
+            'name' => $request->name,
+            'national_id' => $request->national_id,
+            'password' => $request->password,
+        ]);*/
+        $user = User::create([
+            'name' => "ffff",
+            'national_id' => "666666",
+            'password' => "11111111",
+        ]);
+        if ($user){
+            Auth::loginUsingId($user->id);
+            return 'success';
+        } else {
+            return 'error';
+        }
+    }
 
+    public function logman(){
 
+        Auth::loginUsingId(13);
     }
 
 }

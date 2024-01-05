@@ -39,21 +39,18 @@
                         </ul>
 
                         {{-- Login ------  --}}
-                        <div class="phone-login-form">
+                        {{-- <div class="phone-login-form">
                           <div class="login-form d-flex flex-column flex-center">
                             <form action="{{ route('login') }}" method="post" class=" d-flex flex-column flex-center w-100">
                                 @csrf
 
-                                {{-- Email ---  --}}
-                                {{-- <input class="w-100" id="email" type="email"  placeholder="الإيميل" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus >
+                                <input class="w-100" id="email" type="email"  placeholder="الإيميل" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus >
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror --}}
+                                @enderror
 
-                                 {{-- Phone ---  --}}
-                                 {{-- <input class="w-100" id="phone" type="phone"  placeholder="رقم الجوال" @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus > --}}
                                  <x-front.form.phone name="phone" class="ltr" placeholder="5xxxxxxxx" id="phone" :value="old('phone')" />
                                  @error('phone')
                                      <span class="invalid-feedback" role="alert">
@@ -61,7 +58,6 @@
                                      </span>
                                  @enderror
 
-                                {{-- Password ---  --}}
                                 <input class="w-100" id="password" type="password"  @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="كلمة المرور" >
 
                                 @error('password')
@@ -77,24 +73,13 @@
                                         هل نسيت كلمة المرور؟
                                     </a>
                                 @endif
-                                {{-- Remember  --}}
-                                {{-- <div class="row mb-3">
-                                    <div class="col-md-6 offset-md-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                            <label class="form-check-label" for="remember">
-                                                {{ __('Remember Me') }}
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div> --}}
 
                             </form>
                           </div>
                         </div>
+                        --}}
 
-                        <div class="nafath-login-form" style="display: none">
+                        <div class="nafath-login-form" >
                           {{-- Alert Message  --}}
                           <div class="msgFormRet" style="display: none">
                             <div class="alert"></div>
@@ -105,7 +90,7 @@
                             <form action="{{ route('login') }}" method="post" class=" d-flex flex-column flex-center w-100">
                                 @csrf
 
-                                {{-- nationalId ---  --}}
+                                {{-- national_id ---  --}}
                                 <x-front.form.input name="national_id" class="ltr" placeholder="أدخل رقم الهوية الخاص بك" id="national_id" :value="old('national_id')" />
                                 @error('national_id')
                                     <span class="invalid-feedback" role="alert">
@@ -113,8 +98,8 @@
                                     </span>
                                 @enderror
 
-                                <button class="btn w-100" type="button" id="loginWithNafath"> دخول </button>
-                                <button class="btn w-100 bg-gray text-blue" type="button" id="loginPhone"> الدخول عن طريق الهاتف </button>
+                                <button class="btn w-100" type="button" id="loginWithNafath"> الدخول عن طريق نفاذ </button>
+                                {{-- <button class="btn w-100 bg-gray text-blue" type="button" id="loginPhone"> الدخول عن طريق الهاتف </button> --}}
                             </form>
                           </div>
                         </div>
@@ -149,20 +134,20 @@
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    $("#loginNafath").click(function (event) {
-        event.preventDefault();
-        $(".phone-login-form ").hide();
-        $(".nafath-login-form").show();
-        $(".msgFormRet").hide();
-        $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("");
-    });
-    $("#loginPhone").click(function (event) {
-        event.preventDefault();
-        $(".phone-login-form ").show();
-        $(".nafath-login-form").hide();
-        $(".msgFormRet").hide();
-        $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("");
-    });
+    // $("#loginNafath").click(function (event) {
+    //     event.preventDefault();
+    //     $(".phone-login-form ").hide();
+    //     $(".nafath-login-form").show();
+    //     $(".msgFormRet").hide();
+    //     $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("");
+    // });
+    // $("#loginPhone").click(function (event) {
+    //     event.preventDefault();
+    //     $(".phone-login-form ").show();
+    //     $(".nafath-login-form").hide();
+    //     $(".msgFormRet").hide();
+    //     $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("");
+    // });
 
     $("#loginWithNafath").click(function (event) {
         event.preventDefault();
@@ -201,7 +186,7 @@
                                     if (responseData=='COMPLETED'){
                                         Swal.fire({
                                             title: 'شكرًا!',
-                                            text: 'لقد اكتملت عملية التأكيد، شكراً لك.' ,
+                                            text: 'لقد اكتملت عملية تسجيل الدخول، شكراً لك.' ,
                                             icon: 'success',
                                             confirmButtonText: 'تمام',
                                             timer: 6000,
@@ -212,7 +197,7 @@
                                             method: "POST",
                                             url: "{{route('nidverification.authenticate')}}",
                                             dataType: 'text',
-                                            data: { nationalId: $("#national_id").val(), "_token": "{{ csrf_token() }}"   },
+                                            data: { national_id: $("#national_id").val(), "_token": "{{ csrf_token() }}"   },
                                         }).done(function (_ret) {
                                             if (_ret=='success') {
                                                 window.location = "/";
@@ -284,7 +269,7 @@
                 method: "POST",
                 url: "{{route('nidverification.status')}}",
                 dataType: 'json',
-                data: { nationalId: $("#national_id").val(), random: _random, transId: _transId, "_token": "{{ csrf_token() }}"   },
+                data: { national_id: $("#national_id").val(), random: _random, transId: _transId, "_token": "{{ csrf_token() }}"   },
                 beforeSend: function() { }
             }).done(function (ret2) {
                 if (ret2.status && ret2.status == 'COMPLETED'){

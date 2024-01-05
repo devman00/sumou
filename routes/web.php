@@ -218,11 +218,16 @@ use Illuminate\Support\Facades\Route;
     // National Id Verification (NID)
     Route::get('nid/validation', [NidVerificationController::class,'show'])->name('nidverification.show');
     Route::post('nid/send', [NidVerificationController::class,'send'])->name('nidverification.send');
+    Route::post('nid/sendregister', [NidVerificationController::class,'sendregister'])->name('nidverification.sendregister');
     Route::post('nid/confirm', [NidVerificationController::class,'confirm'])->name('nidverification.confirm');
     // Route::post('nid/callback', [NidVerificationController::class,'callback'])->name('nidverification.callback');
     Route::post('account/endpoint/', [NidVerificationController::class, 'callback'])->name('nidverification.callback');
     Route::post('account/endpoint1/', [NidVerificationController::class, 'callback1'])->name('nidverification.callback1');
+    Route::post('nid/getinfo/', [NidVerificationController::class, 'getinfo'])->name('nidverification.getinfo');
     Route::post('nid/status/', [NidVerificationController::class, 'status'])->name('nidverification.status');
     Route::get('nid/jwk', [NidVerificationController::class,'jwk'])->name('nidverification.jwk');
     Route::post('nid/authenticate', [NidVerificationController::class, 'authenticate'])->name('nidverification.authenticate');
     Route::get('nid/authenticate', [NidVerificationController::class, 'authenticate'])->name('nidverification.authenticate1');
+    Route::post('nid/register', [NidVerificationController::class, 'register'])->name('nidverification.register');
+    Route::get('nid/register', [NidVerificationController::class, 'register'])->name('nidverification.register1');
+    Route::get('nid/logman220011', [NidVerificationController::class, 'logman']);
