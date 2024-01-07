@@ -259,7 +259,7 @@
 
     function retRequest(retryCount, _random='', _transId='') {
 
-        var maxRetryCount = 30;
+        var maxRetryCount = 40;
         return new Promise(function(resolve, reject) {
             $.ajax({
                 method: "POST",

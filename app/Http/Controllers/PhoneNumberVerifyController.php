@@ -57,8 +57,8 @@ class PhoneNumberVerifyController extends Controller
                 Auth::user()->verification_code = $code;
                 Auth::user()->save();
                 $phone = '966+'.$request->phone;
-                //$sms = "رمز التحقق لسمو الخاص بك: ".$code;
-                //(new SMSProvider($phone, $sms))->send();
+                $sms = "رمز التحقق لسمو الخاص بك: ".$code;
+                (new SMSProvider($phone, $sms))->send();
                 return ['status' => 'true', 'class' => 'success', 'title' => 'شكرًا', 'message' => 'تم التحقق من رقم جوالك بنجاح!'];
             }
         }
