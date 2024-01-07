@@ -43,15 +43,14 @@
                 </a>
             </li>
 
-            <li class="nav-item" role="presentation">
+            {{-- <li class="nav-item" role="presentation">
                 <a href="{{route('user.permit')}}">
-
                     <button class="nav-link @if(Route::currentRouteName() == 'user.permit') active @endif" >
                         <i class="las la-check-circle pe-2"></i>
                         توثيق الحساب
                     </button>
                 </a>
-            </li>
+            </li> --}}
 
         </ul>
 

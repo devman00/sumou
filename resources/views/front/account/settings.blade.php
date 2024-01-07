@@ -23,7 +23,7 @@
                                 <!-- Personal info ---  -->
                                 <h4 class="fw-bold p-3 px-3 px-lg-0 px-md-0 underline" style="color:var(--dark-blue);">
                                     البيانات الشخصية</h4>
-                                <div class="bloc p-4 bg-white">
+                                <div class="bloc p-4 bg-white mb-0">
                                     <div class="profile-details-textfields">
                                         <div class="area d-flex justify-content-start align-items-center flex-wrap">
                                             <div class="input-textfield d-flex flex-column">
@@ -87,6 +87,44 @@
                         </div>
                     </div>
 
+                    <!-- Bloc phone ---  -->
+                    <div class="bloc mb-0">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="profile-phone" role="tabpanel" aria-labelledby="profile-details-tab">
+                                <h4 class="fw-bold p-3 px-3 px-lg-0 px-md-0 underline" style="color:var(--dark-blue);">رقم الهاتف</h4>
+                                <div class="bloc p-4 bg-white pb-5 mb-0">
+                                    <div class="profile-details-textfields">
+                                        <div class="row">
+                                            <div class="col-12 px-0 pe-2 msgFormRet" style="display: none">
+                                                <div class="alert"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-9 px-0 pe-2">
+                                                <x-front.form.group class="mb-3">
+                                                    <x-front.form.phone name="phone" class="ltr" placeholder="5xxxxxxxx" id="phone" :value="$user->phone" />
+                                                    <x-front.form.error field="phone" />
+                                                </x-front.form.group>
+                                                <input type="hidden" name="profile_phone_org" id="profile_phone_org" value="{{ $user->phone }}">
+                                                <input type="hidden" name="profile_user_id" id="profile_user_id" value="{{ $user->id }}">
+                                                @if (is_null($user->phone_verified_at))
+                                                <div class="cntVerificationCode" style="display: none">
+                                                    <div class="alert alert-warning fs-14px py-2 px-0 text-center"> <i class="las la-check-circle pe-1 align-top fs-18px"></i>  أدخل رمز التحقق الذي وصلك في رقم جوالك  </div>
+                                                    <input type="text" class="px-1" name="verification_code" value="" id="verification_code" placeholder=" كود التحقق xxxx "  >
+                                                    <button class="btn btn-primary btn-sm px-4 rounded-0" type="button" id="checkCode">  تحقق من رقم الموبايل </button>
+                                                </div>
+                                                @endif
+                                            </div>
+                                            @if (is_null($user->phone_verified_at))
+                                                <div class="col-3 px-0 pe-2"><button type="button" id="phoneValidate" class="btn btn-primary btn-sm px-4 py-2 rounded-0 mb-3 w-100"> تحقق من الهاتف </button></div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     {{--
                     @if ($errors->any())
                         @foreach ($errors->all() as $error)
@@ -113,7 +151,7 @@
                                 <!-- Personal info ---  -->
                                 <h4 class="fw-bold p-3 px-3 px-lg-0 px-md-0 underline" style="color:var(--dark-blue);">
                                     بيانات أخرى</h4>
-                                <div class="bloc p-4 bg-white pb-5">
+                                <div class="bloc p-4 bg-white pb-5 mb-0">
                                     <div class="profile-details-textfields">
 
                                         <div class="row">
@@ -123,11 +161,6 @@
                                                 <form action="{{ route('user.profile.update', $user) }}" method="post">
                                                     @csrf
                                                     @method('PUT')
-                                                    <x-front.form.group class="mb-3">
-                                                        <x-front.form.label for="phone"> رقم الهاتف </x-front.form.label>
-                                                        <x-front.form.phone name="phone" class="ltr" placeholder="5xxxxxxxx" id="phone" :value="$user->phone" />
-                                                        <x-front.form.error field="phone" />
-                                                    </x-front.form.group>
 
                                                     <x-front.form.group class="mb-3">
                                                         <x-front.form.label for="whatsapp"> رقم الواتساب </x-front.form.label> {{-- @if (empty($user->whatsapp))  {{$user->phone}} @else {{$user->whatsapp}} @endif --}}
@@ -199,8 +232,7 @@
 
 
 
-                                                    <button type="submit" class="btn btn-primary px-3 fs-14px"> حفظ كلمة المرور
-                                                    </button>
+                                                    <button type="submit" class="btn btn-primary px-3 fs-14px"> حفظ كلمة المرور</button>
                                                 </form>
                                             </div>
 
@@ -266,3 +298,98 @@
     </section>
     <!-- Account Close ============================-->
 @endsection
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $("#phoneValidate").click(function (event) {
+        event.preventDefault();
+        $(".msgFormRet").hide();
+        $(".cntVerificationCode").hide();
+        if ($("#phone").val() == "") {
+            $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("الرجاء إدخال رقم الهاتف الخاص بك");
+            $(".msgFormRet").show();
+        } else {
+            $(".msgFormRet").hide();
+            $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("");
+            $.ajax({
+                method: "POST",
+                url: "{{route('phoneverification.verification')}}",
+                dataType: 'JSON',
+                data: { "_token": "{{ csrf_token() }}", "phone": $("#phone").val() },
+            }).done(function (ret) {
+                if (ret.status && ret.status=='true'){
+                    console.log('success');
+                    $(".cntVerificationCode").show();
+                    $("#phoneValidate").hide();
+                } else {
+                    if (ret.status && ret.status=='false'){
+                        console.log('error');
+                        Swal.fire({
+                            title: ret.title,
+                            text: ret.message,
+                            icon: ret.class,
+                            confirmButtonText: 'تمام',
+                            timer: 6000,
+                            timerProgressBar: true,
+                        })
+                    }
+                    $(".cntVerificationCode").hide();
+                    $("#phoneValidate").show();
+                }
+            }).fail(function(ret) {
+                console.log('err...');
+                if (ret != true) {
+                    $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-danger').addClass('alert-danger').html('تعذرت عملية التحقق الرجاء المحاولة في وقت لاحق');
+                    $(".msgFormRet").show();
+                }
+            });
+        }
+    });
+
+    $("#checkCode").click(function (event) {
+        event.preventDefault();
+        $(".msgFormRet").hide();
+        if ($("#phone").val() == "") {
+            $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("الرجاء إدخال رقم الهاتف الخاص بك");
+            $(".msgFormRet").show();
+        } else if ($("#verification_code").val() == "") {
+            $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("الرجاء إدخال كود التحقق");
+            $(".msgFormRet").show();
+        } else {
+            $(".msgFormRet").hide();
+            $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("");
+            $.ajax({
+                method: "POST",
+                url: "{{route('phoneverification.check')}}",
+                dataType: 'JSON',
+                data: { "_token": "{{ csrf_token() }}", "verification_code": $("#verification_code").val(), "phone": $("#phone").val() },
+            }).done(function (ret) {
+                if (ret.status){
+                    Swal.fire({
+                        title: ret.title,
+                        text: ret.message,
+                        icon: ret.class,
+                        confirmButtonText: 'تمام',
+                        timer: 6000,
+                        timerProgressBar: true,
+                    })
+                }
+                if (ret.status && ret.status == 'true'){
+                    $(".cntVerificationCode").hide();
+                    $("#phoneValidate").hide();
+                }
+            }).fail(function(ret) {
+                console.log('err..');
+                if (ret != true) {
+                    $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-danger').addClass('alert-danger').html('تعذرت عملية التحقق الرجاء المحاولة في وقت لاحق');
+                    $(".msgFormRet").show();
+                }
+            });
+        }
+
+
+    });
+
+</script>
+@endpush

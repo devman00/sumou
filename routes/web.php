@@ -183,7 +183,7 @@ use Illuminate\Support\Facades\Route;
 
                 Route::get('/permit', 'permit')->name('permit');
 
-            //  Route::get('/', 'dashboard')->name('account');
+            //  Route::get('/', 'dashboard')->nam²e('account');
             });
 
             /** ----------------------
@@ -214,6 +214,10 @@ use Illuminate\Support\Facades\Route;
     // OTP Verification
     Route::get('phone/verify', [PhoneNumberVerifyController::class,'show'])->name('phoneverification.show');
     Route::post('phone/verify', [PhoneNumberVerifyController::class,'verify'])->name('phoneverification.verify');
+
+    Route::get('phone/verification', [PhoneNumberVerifyController::class,'verification'])->name('phoneverification.verification1');
+    Route::post('phone/verification', [PhoneNumberVerifyController::class,'verification'])->name('phoneverification.verification');
+    Route::post('phone/check', [PhoneNumberVerifyController::class,'check'])->name('phoneverification.check');
 
     // National Id Verification (NID)
     Route::get('nid/validation', [NidVerificationController::class,'show'])->name('nidverification.show');

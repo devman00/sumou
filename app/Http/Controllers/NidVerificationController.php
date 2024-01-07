@@ -8,6 +8,7 @@ use Illuminate\Database\Console\Migrations\StatusCommand;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 
 class NidVerificationController extends Controller
@@ -65,37 +66,44 @@ class NidVerificationController extends Controller
     {
         $req = User::where('national_id', $request->national_id)->get();
         if ($req->count() > 0){
-            $curl = curl_init();
-            $data = array(
-                "nationalId" => $request->national_id,
-                "service" => "OpenAccountWithoutBio",
-            );
-            $data_string = json_encode($data);
 
-            try {
-                curl_setopt_array($curl, array(
-                    CURLOPT_URL => 'https://nafath.api.elm.sa/stg/api/v1/mfa/request?local=ar&requestId=d4bc1065-1aeb-45d6-a6a3-8f1b30e6b6a4',
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_ENCODING => '',
-                    CURLOPT_MAXREDIRS => 10,
-                    CURLOPT_TIMEOUT => 0,
-                    CURLOPT_FOLLOWLOCATION => true,
-                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                    CURLOPT_CUSTOMREQUEST => 'POST',
-                    CURLOPT_POSTFIELDS => $data_string,
-                    CURLOPT_HTTPHEADER => array(
-                        'Content-Type: application/json',
-                        'APP-ID: dc430d84',
-                        'APP-KEY: 148a170f077514fc3dd274650dfab30f',
-                    ),
-                ));
-                $response = curl_exec($curl);
-                curl_close($curl);
-            } catch (\Exception $e) {
-                $response = ['status' => 'false', 'message' => $e->getMessage()];
+            if(Auth::validate(['national_id' => $request->national_id, 'password' => $request->password])){
+
+                $curl = curl_init();
+                $data = array(
+                    "nationalId" => $request->national_id,
+                    "service" => "OpenAccountWithoutBio",
+                );
+                $data_string = json_encode($data);
+
+                try {
+                    curl_setopt_array($curl, array(
+                        CURLOPT_URL => 'https://nafath.api.elm.sa/stg/api/v1/mfa/request?local=ar&requestId=d4bc1065-1aeb-45d6-a6a3-8f1b30e6b6a4',
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_ENCODING => '',
+                        CURLOPT_MAXREDIRS => 10,
+                        CURLOPT_TIMEOUT => 0,
+                        CURLOPT_FOLLOWLOCATION => true,
+                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                        CURLOPT_CUSTOMREQUEST => 'POST',
+                        CURLOPT_POSTFIELDS => $data_string,
+                        CURLOPT_HTTPHEADER => array(
+                            'Content-Type: application/json',
+                            'APP-ID: dc430d84',
+                            'APP-KEY: 148a170f077514fc3dd274650dfab30f',
+                        ),
+                    ));
+                    $response = curl_exec($curl);
+                    curl_close($curl);
+                } catch (\Exception $e) {
+                    $response = ['status' => 'false', 'message' => $e->getMessage()];
+                }
+
+            } else {
+                $response = ['status' => 'false', 'message' => 'كلمة المرور غير صحيحة'];
             }
         } else {
-            $response = ['status' => 'false', 'message' => 'nouser'];
+            $response = ['status' => 'false', 'message' => 'الرجاء إدخال رقم الهوية الصحيح والمحاولة من جديد'];  //nouser
         }
 
         return $response;

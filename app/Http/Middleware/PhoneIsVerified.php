@@ -16,13 +16,11 @@ class PhoneIsVerified
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // dd(Auth::user()->userPhoneVerified());   
-        // return redirect()->route('phoneverification.show');
-        if(Auth::check() && ! Auth::user()->userPhoneVerified())
+        if(Auth::check() && ! Auth::user()->userPhoneVerified() && !empty(Auth::user()->phone) )
         {
             return redirect()->route('phoneverification.show');
         }
-        
+
         return $next($request);
     }
 }

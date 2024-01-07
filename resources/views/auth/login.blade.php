@@ -98,6 +98,8 @@
                                     </span>
                                 @enderror
 
+                                <input class="w-100" id="password" type="password"  @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="كلمة المرور" >
+
                                 <button class="btn w-100" type="button" id="loginWithNafath"> الدخول عن طريق نفاذ </button>
                                 {{-- <button class="btn w-100 bg-gray text-blue" type="button" id="loginPhone"> الدخول عن طريق الهاتف </button> --}}
                             </form>
@@ -156,6 +158,9 @@
         if ($("#national_id").val() == "") {
             $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("الرجاء إدخال رقم الهوية الخاص بك");
             $(".msgFormRet").show();
+        } else if ($("#password").val() == "") {
+            $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("الرجاء إدخال كلمة المرور الخاص بك");
+            $(".msgFormRet").show();
         } else {
             $(".msgFormRet").hide();
             $(".msgFormRet .alert").removeClass('alert-info').removeClass('alert-success').addClass('alert-danger').html("");
@@ -164,7 +169,7 @@
                 method: "POST",
                 url: "{{route('nidverification.send')}}",
                 dataType: 'JSON',
-                data: { "_token": "{{ csrf_token() }}", "national_id": $("#national_id").val() },
+                data: { "_token": "{{ csrf_token() }}", "national_id": $("#national_id").val(), "password": $("#password").val() },
                 beforeSend: function() { }
             }).done(function (ret) {
 
@@ -235,11 +240,9 @@
                     })
 
                 } else {
-                    var msgtext = '';
-                    if (ret.status && ret.status == 'false' && ret.message && ret.message == 'nouser'){
-                        msgtext = 'الرجاء إدخال رقم الهوية الصحيح والمحاولة من جديد';
-                    } else {
-                        msgtext = 'تعذرت عملية تسجيل الدخول، الرجاء إدخال رقم الهوية الصحيح والمحاولة من جديد';
+                    var msgtext = 'تعذرت عملية تسجيل الدخول، الرجاء إدخال رقم الهوية الصحيح والمحاولة من جديد';
+                    if (ret.status && ret.status == 'false' && ret.message){
+                        msgtext = ret.message;
                     }
                     let timerInterval
                     Swal.fire({
