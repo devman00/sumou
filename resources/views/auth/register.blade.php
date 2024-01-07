@@ -256,5 +256,37 @@
             });
         }
     });
+
+    function retRequest(retryCount, _random='', _transId='') {
+
+        var maxRetryCount = 30;
+        return new Promise(function(resolve, reject) {
+            $.ajax({
+                method: "POST",
+                url: "{{route('nidverification.status')}}",
+                dataType: 'json',
+                data: { national_id: $("#national_id").val(), random: _random, transId: _transId, "_token": "{{ csrf_token() }}"   },
+                beforeSend: function() { }
+            }).done(function (ret2) {
+                if (ret2.status && ret2.status == 'COMPLETED'){
+                    resolve('COMPLETED');
+                } else if (ret2.status && ret2.status =='REJECTED') {
+                    resolve('REJECTED');
+                } else {
+                    if (retryCount < maxRetryCount) {
+                        setTimeout(function() {
+                            retRequest(retryCount + 1, _random, _transId)
+                                .then(resolve)
+                                .catch(reject);
+                        }, 1000);
+                    } else {
+                        reject('error');
+                    }
+                }
+            }).fail(function(ret2) {
+                reject('err2');
+            });
+        });
+    }
 </script>
 @endpush
